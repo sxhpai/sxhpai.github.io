@@ -16,21 +16,21 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="C语言——复习记录211、指针 数据在内存中的地址也称为指针，如果一个变量存储了一份数据的指针，我们就称它为指针变量。 未初始化的指针必须赋值为NULL，好习惯。 void*，它不是空指针的意思，而是实实在在的指针，只是指针指向的内存中不知道保存的是什么类型的数据。  12、字符串常量和字符数组 字符数组和字符串常量（指向字符串的指针）的本质区别在于，在内存中的存储区域不一样，字符数组存储在全局数">
+    <meta name="description" content="C语言——复习记录320、const与指针 const与指针  1234&#x2F;&#x2F;以下三种组合方式const int *p1;int const *p2;int * const p3;   在最后一种情况下，指针是只读的，也就是 p3 本身的值不能被修改；在前面两种情况下，指针所指向的数据是只读的，也就是 p1、p2 本身的值可以修改（指向不同的数据），但它们指向的数据不能被修改。 const 离变量名">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C复习记录2">
-<meta property="og:url" content="http://example.com/2022/03/21/C2/index.html">
+<meta property="og:title" content="C复习记录3">
+<meta property="og:url" content="http://example.com/2022/03/21/C/C3/index.html">
 <meta property="og:site_name" content="Sxhpai">
-<meta property="og:description" content="C语言——复习记录211、指针 数据在内存中的地址也称为指针，如果一个变量存储了一份数据的指针，我们就称它为指针变量。 未初始化的指针必须赋值为NULL，好习惯。 void*，它不是空指针的意思，而是实实在在的指针，只是指针指向的内存中不知道保存的是什么类型的数据。  12、字符串常量和字符数组 字符数组和字符串常量（指向字符串的指针）的本质区别在于，在内存中的存储区域不一样，字符数组存储在全局数">
+<meta property="og:description" content="C语言——复习记录320、const与指针 const与指针  1234&#x2F;&#x2F;以下三种组合方式const int *p1;int const *p2;int * const p3;   在最后一种情况下，指针是只读的，也就是 p3 本身的值不能被修改；在前面两种情况下，指针所指向的数据是只读的，也就是 p1、p2 本身的值可以修改（指向不同的数据），但它们指向的数据不能被修改。 const 离变量名">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-03-21T06:52:51.000Z">
-<meta property="article:modified_time" content="2022-03-22T03:32:38.581Z">
+<meta property="article:published_time" content="2022-03-21T08:39:51.000Z">
+<meta property="article:modified_time" content="2022-03-22T03:30:22.243Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="原创">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>C复习记录2 - Sxhpai</title>
+  <title>C复习记录3 - Sxhpai</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -176,7 +176,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="C复习记录2">
+            <span class="h2" id="subtitle" title="C复习记录3">
               
             </span>
 
@@ -186,7 +186,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-03-21 14:52" pubdate>
+      <time datetime="2022-03-21 16:39" pubdate>
         2022年3月21日 下午
       </time>
     </span>
@@ -197,7 +197,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.5k 字
+      1.7k 字
     </span>
   
 
@@ -206,7 +206,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      13 分钟
+      14 分钟
     </span>
   
 
@@ -243,48 +243,88 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">C复习记录2</h1>
+            <h1 style="display: none">C复习记录3</h1>
             
             <div class="markdown-body">
-              <h1 id="C语言——复习记录2"><a href="#C语言——复习记录2" class="headerlink" title="C语言——复习记录2"></a>C语言——复习记录2</h1><h2 id="11、指针"><a href="#11、指针" class="headerlink" title="11、指针"></a>11、指针</h2><ul>
-<li>数据在内存中的地址也称为指针，如果一个变量存储了一份数据的指针，我们就称它为指针变量。</li>
-<li>未初始化的指针必须赋值为NULL，好习惯。</li>
-<li>void*，它不是空指针的意思，而是实实在在的指针，只是指针指向的内存中不知道保存的是什么类型的数据。</li>
+              <h1 id="C语言——复习记录3"><a href="#C语言——复习记录3" class="headerlink" title="C语言——复习记录3"></a>C语言——复习记录3</h1><h2 id="20、const与指针"><a href="#20、const与指针" class="headerlink" title="20、const与指针"></a>20、const与指针</h2><ul>
+<li>const与指针  <figure class="highlight c"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><pre><code class="hljs C"><span class="hljs-comment">//以下三种组合方式</span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> *p1;<br><span class="hljs-type">int</span> <span class="hljs-type">const</span> *p2;<br><span class="hljs-type">int</span> * <span class="hljs-type">const</span> p3;<br></code></pre></td></tr></table></figure>
+  在最后一种情况下，指针是只读的，也就是 p3 本身的值不能被修改；在前面两种情况下，指针所指向的数据是只读的，也就是 p1、p2 本身的值可以修改（指向不同的数据），但它们指向的数据不能被修改。</li>
+<li>const 离变量名近就是用来修饰指针变量的，离变量名远就是用来修饰指针指向的数据，如果近的和远的都有，那么就同时修饰指针变量以及它指向的数据。</li>
 </ul>
-<h2 id="12、字符串常量和字符数组"><a href="#12、字符串常量和字符数组" class="headerlink" title="12、字符串常量和字符数组"></a>12、字符串常量和字符数组</h2><ul>
-<li>字符数组和字符串常量（指向字符串的指针）的本质区别在于，在内存中的存储区域不一样，字符数组存储在全局数据区或栈区，第二种形式的字符串存储在常量区。全局数据区和栈区的字符串（也包括其他数据）有读取和写入的权限，而常量区的字符串（也包括其他数据）只有读取权限，没有写入权限。</li>
+<h2 id="21、C语言中的地址（虚拟地址）"><a href="#21、C语言中的地址（虚拟地址）" class="headerlink" title="21、C语言中的地址（虚拟地址）"></a>21、C语言中的地址（虚拟地址）</h2><ul>
+<li>把程序给出的地址看做是一种虚拟地址（Virtual Address），然后通过某些映射的方法，将这个虚拟地址转换成实际的物理地址。这样，只要我们能够妥善地控制这个虚拟地址到物理地址的映射过程，就可以保证程序每次运行时都可以使用相同的地址</li>
 </ul>
-<h2 id="13、指针函数"><a href="#13、指针函数" class="headerlink" title="13、指针函数"></a>13、指针函数</h2><ul>
-<li>指的是某些返回值为指针变量的函数，成为指针函数。</li>
-<li>用指针作为函数返回值时需要注意的一点是，函数运行结束后会销毁在它内部定义的所有局部数据，包括局部变量、局部数组和形式参数，函数返回的指针请尽量不要指向这些数据，C语言没有任何机制来保证这些数据会一直有效，它们在后续使用过程中可能会引发运行时错误。</li>
+<h2 id="22、内存对齐"><a href="#22、内存对齐" class="headerlink" title="22、内存对齐"></a>22、内存对齐</h2><ul>
+<li>将一个数据尽量放在一个步长之内，避免跨步长存储，这称为内存对齐。在32位编译模式下，默认以4字节对齐；在64位编译模式下，默认以8字节对齐。</li>
+<li>为了提高存取效率，编译器会自动进行内存对齐</li>
+<li>内存对齐不是C语言的特性，它属于计算机的运行原理，C++、Java、Python等其他编程语言同样也会有内存对齐的问题。</li>
 </ul>
-<h2 id="14、数组名在什么时候会转换为指针？"><a href="#14、数组名在什么时候会转换为指针？" class="headerlink" title="14、数组名在什么时候会转换为指针？"></a>14、数组名在什么时候会转换为指针？</h2><ul>
-<li>C语言标准规定，当数组名作为数组定义的标识符（也就是定义或声明数组时）、sizeof 或 &amp; 的操作数时，它才表示整个数组本身，在其他的表达式中，数组名会被转换为指向第 0 个元素的指针（地址）。</li>
+<h2 id="23、linux下C语言布局"><a href="#23、linux下C语言布局" class="headerlink" title="23、linux下C语言布局"></a>23、linux下C语言布局</h2><table>
+<thead>
+<tr>
+<th>内存分区</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>程序代码区(code)</td>
+<td>存放函数体的二进制代码。一个C语言程序由多个函数构成，C语言程序的执行就是函数之间的相互调用。</td>
+</tr>
+<tr>
+<td>常量区(constant)</td>
+<td>存放一般的常量、字符串常量等。这块内存只有读取权限，没有写入权限，因此它们的值在程序运行期间不能改变。</td>
+</tr>
+<tr>
+<td>全局数据区(global data)</td>
+<td>存放全局变量、静态变量等。这块内存有读写权限，因此它们的值在程序运行期间可以任意改变。</td>
+</tr>
+<tr>
+<td>堆区(heap)</td>
+<td>一般由程序员分配和释放，若程序员不释放，程序运行结束时由操作系统回收。注意：这里所说的堆区与数据结构中的堆不是一个概念，堆区的分配方式倒是类似于链表。</td>
+</tr>
+<tr>
+<td>动态链接库</td>
+<td>用于在程序运行期间加载和卸载动态链接库。</td>
+</tr>
+<tr>
+<td>栈区(stack)</td>
+<td>存放函数的参数值、局部变量的值等，其操作方式类似于数据结构中的栈。</td>
+</tr>
+</tbody></table>
+<h2 id="24、sizeof-单目操作符"><a href="#24、sizeof-单目操作符" class="headerlink" title="24、sizeof()单目操作符"></a>24、sizeof()单目操作符</h2><ul>
+<li>用以获取数据类型额长度时必须加括号。</li>
 </ul>
-<h2 id="15、数组下标"><a href="#15、数组下标" class="headerlink" title="15、数组下标[ ]"></a>15、数组下标[ ]</h2><ul>
-<li>就是对数组下标的引用总是可以写成“一个指向数组的起始地址的指针加上偏移量”</li>
-<li>作为函数形参时，以下三种形式等价，最后都会解释成第一种形式  <figure class="highlight c"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><pre><code class="hljs C">    <span class="hljs-type">void</span> <span class="hljs-title function_">func</span><span class="hljs-params">(<span class="hljs-type">int</span> *parr)</span>&#123; ...... &#125;<br>    <span class="hljs-type">void</span> <span class="hljs-title function_">func</span><span class="hljs-params">(<span class="hljs-type">int</span> arr[])</span>&#123; ...... &#125;<br>    <span class="hljs-type">void</span> <span class="hljs-title function_">func</span><span class="hljs-params">(<span class="hljs-type">int</span> arr[<span class="hljs-number">5</span>])</span>&#123; ...... &#125;<br>    ```  <br>      <br><br>## <span class="hljs-number">16</span>、指针数组和二维数组的指针<br>- 指针数组和二维数组的指针<br>    ```C<br>    <span class="hljs-type">int</span> *(arr1[<span class="hljs-number">5</span>]);  <span class="hljs-comment">//可以去掉括号直接写作 int *p1[5];</span><br>    <span class="hljs-type">int</span> (*p2)[<span class="hljs-number">5</span>];   <span class="hljs-comment">//二维数组的指针，不可去掉括号。[5]表示二维数组每行含有的元素个数。</span><br></code></pre></td></tr></table></figure></li>
-</ul>
-<ul>
-<li>( ) 优先级高于 [ ]，[ ] 优先级高于 * 。优先级由高到低：<ul>
-<li>定义中被括号( )括起来的那部分。</li>
-<li>后缀操作符：括号( )表示这是一个函数，方括号[ ]表示这是一个数组。</li>
-<li>前缀操作符：星号*表示“指向xxx的指针”。  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-type">int</span> *p1[<span class="hljs-number">6</span>];  <span class="hljs-comment">//指针数组</span><br><span class="hljs-type">int</span> *(p2[<span class="hljs-number">6</span>]);  <span class="hljs-comment">//指针数组，和上面的形式等价</span><br><span class="hljs-type">int</span> (*p3)[<span class="hljs-number">6</span>];  <span class="hljs-comment">//二维数组指针</span><br><span class="hljs-type">int</span> (*p4)(<span class="hljs-type">int</span>, <span class="hljs-type">int</span>);  <span class="hljs-comment">//函数指针</span><br></code></pre></td></tr></table></figure></li>
+<h2 id="25、野指针"><a href="#25、野指针" class="headerlink" title="25、野指针"></a>25、野指针</h2><ul>
+<li>如果一个指针指向的内存没有访问权限，或者指向一块已经释放掉的内存，那么就无法对该指针进行操作，这样的指针称为野指针（Wild Pointer）</li>
+<li>规避野指针方法：<ul>
+<li>指针变量如果暂时不需要赋值，一定要初始化为NULL，因为任何指针变量刚被创建时不会自动成为NULL指针，它的缺省值是随机的。</li>
+<li>当指针指向的内存被释放掉时，要将指针的值设置为 NULL，因为 free() 只是释放掉了内存，并为改变指针的值。</li>
 </ul>
 </li>
-<li>二维数组的指针实际指向一维数组，一维数组指针实际指向基本类型。</li>
 </ul>
-<h2 id="17-gt-在C语言中的唯一用途"><a href="#17-gt-在C语言中的唯一用途" class="headerlink" title="17. -&gt; 在C语言中的唯一用途"></a>17. -&gt; 在C语言中的唯一用途</h2><ul>
-<li>通过结构体指针直接取得结构体成员</li>
+<h2 id="26、内存泄漏"><a href="#26、内存泄漏" class="headerlink" title="26、内存泄漏"></a>26、内存泄漏</h2><ul>
+<li>使用 malloc()、calloc()、realloc() 动态分配的内存，如果没有指针指向它，就无法进行任何操作，这段内存会一直被程序占用，直到程序运行结束由操作系统回收。</li>
+<li>在程序中使用 malloc() 分配内存时都对应地写出一个 free() 函数</li>
 </ul>
-<h2 id="18-枚举"><a href="#18-枚举" class="headerlink" title="18. 枚举"></a>18. 枚举</h2><ul>
-<li>枚举和宏其实非常类似：宏在预处理阶段将名字替换成对应的值，枚举在编译阶段将名字替换成对应的值。我们可以将枚举理解为编译阶段的宏。</li>
-<li>这意味着，Mon、Tues、Wed 等都不是变量，它们不占用数据区（常量区、全局数据区、栈区和堆区）的内存，而是直接被编译到命令里面，放到代码区，所以不能用&amp;取得它们的地址。这就是枚举的本质。</li>
+<h2 id="27、寄存器变量"><a href="#27、寄存器变量" class="headerlink" title="27、寄存器变量"></a>27、寄存器变量</h2><ul>
+<li>一般情况下，变量的值是存储在内存中的，CPU 每次使用数据都要从内存中读取。如果有一些变量使用非常频繁，从内存中读取就会消耗很多时间，这时就可以将变量存在寄存器中。</li>
 </ul>
-<h2 id="19-大小端"><a href="#19-大小端" class="headerlink" title="19. 大小端"></a>19. 大小端</h2><ul>
-<li>大端模式（Big-endian）是指将数据的低位（比如 1234 中的 34 就是低位）放在内存的高地址上，而数据的高位（比如 1234 中的 12 就是高位）放在内存的低地址上。</li>
-<li>小端模式（Little-endian）是指将数据的低位放在内存的低地址上，而数据的高位放在内存的高地址上。数据的低位放在内存的低地址上，而数据的高位放在内存的高地址上。</li>
+<h2 id="28、全局变量"><a href="#28、全局变量" class="headerlink" title="28、全局变量"></a>28、全局变量</h2><ul>
+<li>它的作用域默认是整个程序，也就是所有的代码文件，包括.c和.h文件</li>
+<li>如果你一直在编写单个源文件的程序，那么请注意，全局变量的作用范围不是从变量定义处到该文件结束，在其他文件中也有效。</li>
 </ul>
+<h2 id="29、extern"><a href="#29、extern" class="headerlink" title="29、extern"></a>29、extern</h2><ul>
+<li><div class="code-wrapper"><pre><code class="C">  extern int m;   //变量的声明
+  int m = 100;    //变量的定义
+</code></pre></div>
+</li>
+<li>变量声明 与 定义 应该分开写。</li>
+<li>extern 是用来声明的，不管具体的定义是在当前文件内部还是外部，都是正确的。</li>
+</ul>
+<h2 id="30、编译器和连接器"><a href="#30、编译器和连接器" class="headerlink" title="30、编译器和连接器"></a>30、编译器和连接器</h2><ul>
+<li>编译器和连接器的一项重要任务就是将助记符替换位地址，一切都是地址。</li>
+</ul>
+<h2 id="31、static变量作用"><a href="#31、static变量作用" class="headerlink" title="31、static变量作用"></a>31、static变量作用</h2><p>（1）<strong>隐藏</strong><br>    程序有多个模块时，将全局变量或函数的作用范围限制在当前模块，对其他模块隐藏。<br>（2）<strong>保持变量内容的持久化</strong><br>    将局部变量存储到全局数据区，使它不会随着函数调用结束而被销毁。  </p>
 
             </div>
             <hr>
@@ -319,9 +359,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/03/21/C3/">
+                      <a href="/2022/03/22/DS/DS0/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">C复习记录3</span>
+                        <span class="hidden-mobile">数据结构——开场白</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -329,8 +369,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/03/21/C/">
-                        <span class="hidden-mobile">C复习记录1</span>
+                      <a href="/2022/03/21/C/C2/">
+                        <span class="hidden-mobile">C复习记录2</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
