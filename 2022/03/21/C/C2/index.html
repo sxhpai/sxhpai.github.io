@@ -24,7 +24,7 @@
 <meta property="og:description" content="C语言——复习记录211、指针 数据在内存中的地址也称为指针，如果一个变量存储了一份数据的指针，我们就称它为指针变量。 未初始化的指针必须赋值为NULL，好习惯。 void*，它不是空指针的意思，而是实实在在的指针，只是指针指向的内存中不知道保存的是什么类型的数据。  12、字符串常量和字符数组 字符数组和字符串常量（指向字符串的指针）的本质区别在于，在内存中的存储区域不一样，字符数组存储在全局数">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-21T06:52:51.000Z">
-<meta property="article:modified_time" content="2022-03-22T03:32:38.581Z">
+<meta property="article:modified_time" content="2022-03-26T13:23:41.997Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="原创">
 <meta name="twitter:card" content="summary_large_image">
@@ -263,7 +263,11 @@
 </ul>
 <h2 id="15、数组下标"><a href="#15、数组下标" class="headerlink" title="15、数组下标[ ]"></a>15、数组下标[ ]</h2><ul>
 <li>就是对数组下标的引用总是可以写成“一个指向数组的起始地址的指针加上偏移量”</li>
-<li>作为函数形参时，以下三种形式等价，最后都会解释成第一种形式  <figure class="highlight c"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><pre><code class="hljs C">    <span class="hljs-type">void</span> <span class="hljs-title function_">func</span><span class="hljs-params">(<span class="hljs-type">int</span> *parr)</span>&#123; ...... &#125;<br>    <span class="hljs-type">void</span> <span class="hljs-title function_">func</span><span class="hljs-params">(<span class="hljs-type">int</span> arr[])</span>&#123; ...... &#125;<br>    <span class="hljs-type">void</span> <span class="hljs-title function_">func</span><span class="hljs-params">(<span class="hljs-type">int</span> arr[<span class="hljs-number">5</span>])</span>&#123; ...... &#125;<br>    ```  <br>      <br><br>## <span class="hljs-number">16</span>、指针数组和二维数组的指针<br>- 指针数组和二维数组的指针<br>    ```C<br>    <span class="hljs-type">int</span> *(arr1[<span class="hljs-number">5</span>]);  <span class="hljs-comment">//可以去掉括号直接写作 int *p1[5];</span><br>    <span class="hljs-type">int</span> (*p2)[<span class="hljs-number">5</span>];   <span class="hljs-comment">//二维数组的指针，不可去掉括号。[5]表示二维数组每行含有的元素个数。</span><br></code></pre></td></tr></table></figure></li>
+<li>作为函数形参时，以下三种形式等价，最后都会解释成第一种形式  <figure class="highlight c"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><pre><code class="hljs C"><span class="hljs-type">void</span> <span class="hljs-title function_">func</span><span class="hljs-params">(<span class="hljs-type">int</span> *parr)</span>&#123; ...... &#125;<br><span class="hljs-type">void</span> <span class="hljs-title function_">func</span><span class="hljs-params">(<span class="hljs-type">int</span> arr[])</span>&#123; ...... &#125;<br><span class="hljs-type">void</span> <span class="hljs-title function_">func</span><span class="hljs-params">(<span class="hljs-type">int</span> arr[<span class="hljs-number">5</span>])</span>&#123; ...... &#125;<br></code></pre></td></tr></table></figure></li>
+<li>最后都是指针（地址）。</li>
+</ul>
+<h2 id="16、指针数组和二维数组的指针"><a href="#16、指针数组和二维数组的指针" class="headerlink" title="16、指针数组和二维数组的指针"></a>16、指针数组和二维数组的指针</h2><ul>
+<li>指针数组和二维数组的指针  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-type">int</span> *(arr1[<span class="hljs-number">5</span>]);  <span class="hljs-comment">//可以去掉括号直接写作 int *p1[5];</span><br><span class="hljs-type">int</span> (*p2)[<span class="hljs-number">5</span>];   <span class="hljs-comment">//二维数组的指针，不可去掉括号。[5]表示二维数组每行含有的元素个数。</span><br></code></pre></td></tr></table></figure></li>
 </ul>
 <ul>
 <li>( ) 优先级高于 [ ]，[ ] 优先级高于 * 。优先级由高到低：<ul>
