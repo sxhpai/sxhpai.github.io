@@ -1,0 +1,617 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="开场 树是 n 个结点的有限集。n&#x3D;0 时称为空树。 在任意一棵非空树中： 有且仅有一个特定的称为根的结点； 当 n &gt; 1 时，其余结点可分为 m (m &gt; 0)  个互不相交的有限集 $ T_1, T_2, T_3, …, T_m $，其中每一个集合本身又是一棵树，并且称为根的子树。   注意以下两点： n &gt; 0 时，根结点是唯一的，不可能存在多个根节点。 m &amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构——树">
+<meta property="og:url" content="http://example.com/2022/04/04/DS/DS4/index.html">
+<meta property="og:site_name" content="Sxhpai">
+<meta property="og:description" content="开场 树是 n 个结点的有限集。n&#x3D;0 时称为空树。 在任意一棵非空树中： 有且仅有一个特定的称为根的结点； 当 n &gt; 1 时，其余结点可分为 m (m &gt; 0)  个互不相交的有限集 $ T_1, T_2, T_3, …, T_m $，其中每一个集合本身又是一棵树，并且称为根的子树。   注意以下两点： n &gt; 0 时，根结点是唯一的，不可能存在多个根节点。 m &amp;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-04T04:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-04T12:59:23.694Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="DS笔记">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>数据结构——树 - Sxhpai</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Sxhpai</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="数据结构——树">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-04-04 12:00" pubdate>
+        2022年4月4日 中午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.9k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      24 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">数据结构——树</h1>
+            
+            <div class="markdown-body">
+              <h3 id="开场"><a href="#开场" class="headerlink" title="开场"></a>开场</h3><ul>
+<li>树是 n 个结点的有限集。n&#x3D;0 时称为空树。</li>
+<li>在任意一棵非空树中：<ol>
+<li>有且仅有一个特定的称为根的结点；</li>
+<li>当 n &gt; 1 时，其余结点可分为 m (m &gt; 0)  个互不相交的有限集 $ T_1, T_2, T_3, …, T_m $，其中每一个集合本身又是一棵树，并且称为根的子树。</li>
+</ol>
+</li>
+<li>注意以下两点：<ol>
+<li>n &gt; 0 时，根结点是唯一的，不可能存在多个根节点。</li>
+<li>m &gt; 0 时，子树的个数没有限制，但它们一定是互不相交的。</li>
+</ol>
+</li>
+</ul>
+<h3 id="树与线性表的对比"><a href="#树与线性表的对比" class="headerlink" title="树与线性表的对比"></a>树与线性表的对比</h3><table>
+<thead>
+<tr>
+<th align="center">线性结构</th>
+<th align="center">树</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">第一个数据元素，无前驱</td>
+<td align="center">根节点，无双亲，唯一</td>
+</tr>
+<tr>
+<td align="center">最后一个数据元素，无后继</td>
+<td align="center">叶节点，无孩子，可以多个</td>
+</tr>
+<tr>
+<td align="center">中间元素，一个前驱一个后继</td>
+<td align="center">中间结点，一个双亲多个孩子</td>
+</tr>
+</tbody></table>
+<h3 id="树的抽象数据类型"><a href="#树的抽象数据类型" class="headerlink" title="树的抽象数据类型"></a>树的抽象数据类型</h3><blockquote>
+<p>ADT    </p>
+<ul>
+<li>树（tree）</li>
+</ul>
+<p>Data</p>
+<ul>
+<li>树是由一个根节点和若干棵子树构成。树中结点具有相同数据类型及层次关系。</li>
+</ul>
+<p>Operstion</p>
+<ul>
+<li>InitTree( *T )：构造空树。</li>
+<li>DestroyTree( *T )：销毁树 T。</li>
+<li>CreateTree( *T,  definition )：按 definition 中给出树的定义来构造树。</li>
+<li>ClearTree( *T )：若树T存在，则将树T清为空树。</li>
+<li>TreeEmpty( T )：若 T 为空树，返回 true，否则返回 false。</li>
+<li>TreeDepth( T )：返回 T 的深度。</li>
+<li>Root( T )：返回T的根节点。</li>
+<li>Value( T, cur_e )：cur_e 是树 T 中一个结点，返回此节点的值。</li>
+<li>Assign( T, cur_e, value )：给树 T 的结点 cur_e 赋值为 value。</li>
+<li>Parent( T, cur_e )：若cur_e是树 T 的非根结点，则返回它的双亲，否则返回空。</li>
+<li>LeftChild( T, cur_e )：若cur_e是树T的非叶结点，则返回它的最左孩子，否则返回空。</li>
+<li>RightSibling( T, cur_e )：若 cur_e 有兄弟，则返回它的左右兄弟，否则返回空。</li>
+<li>InsertChild( *T, *p, i, c )：其中 p 指向树 T 的某个结点，i 为所指结点 p 的度加上1，非空树 c 与 T  不相交，操作结果为插入 c 为数 T 中 p 指结点的第 i 棵子树。</li>
+<li>DeleteChild( *T, *p, i)：其中 p 指向树 T 个某个结点，i 为所指结点 p 的度， 操作结果为删除 T 中 p 所指结点的第 i 棵子树。</li>
+</ul>
+<p>endADT</p>
+</blockquote>
+<h3 id="树的存储结构"><a href="#树的存储结构" class="headerlink" title="树的存储结构"></a>树的存储结构</h3><h4 id="（1）双亲表示法"><a href="#（1）双亲表示法" class="headerlink" title="（1）双亲表示法"></a>（1）双亲表示法</h4><figure class="highlight c"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><pre><code class="hljs C"><span class="hljs-comment">/* 树的双亲表示法结点结构定义 */</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX_TREE_SIZE 100</span><br><span class="hljs-keyword">typedef</span> <span class="hljs-type">int</span> TElemType;	<span class="hljs-comment">// 树结点的数据类型，目前暂定为整型</span><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">PTNode</span>	/* 结点结构 */</span><br><span class="hljs-class">&#123;</span><br>	TElemType data;	<span class="hljs-comment">//结点数据</span><br>	<span class="hljs-type">int</span> parent;		<span class="hljs-comment">//双亲位置</span><br>&#125;PTNode;<br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span>		/* 结点数组 */</span><br><span class="hljs-class">&#123;</span><br>	PTNode nodes[MAX_TREE_SIZE];	<span class="hljs-comment">// 结点数组</span><br>	<span class="hljs-type">int</span> r, n;				<span class="hljs-comment">// 根的位置和结点数</span><br>&#125;PTree;<br></code></pre></td></tr></table></figure>
+
+<h4 id="（2）孩子表示法"><a href="#（2）孩子表示法" class="headerlink" title="（2）孩子表示法"></a>（2）孩子表示法</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-comment">/* 树的孩子表示法结构定义 */</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX_TREE_SIZE 100</span><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CTNode</span>	//孩子结点</span><br><span class="hljs-class">&#123;</span><br>	<span class="hljs-type">int</span> child;<br>	<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CTNode</span> *<span class="hljs-title">next</span>;</span><br>&#125; *ChildPtr;<br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span>			//表头结点</span><br><span class="hljs-class">&#123;</span><br>	TElemType data;<br>	ChildPtr firstchild;<br>&#125; CTBox;<br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span>			//树结构</span><br><span class="hljs-class">&#123;</span><br>	CTBox nodes[MAX_TREE_SIZE];	<span class="hljs-comment">//结点数组</span><br>	<span class="hljs-type">int</span> r, n;		<span class="hljs-comment">//根的位置和结点数</span><br>&#125; CTree;<br></code></pre></td></tr></table></figure>
+
+<h4 id="（3）孩子双亲表示法"><a href="#（3）孩子双亲表示法" class="headerlink" title="（3）孩子双亲表示法"></a>（3）孩子双亲表示法</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-comment">/* 孩子双亲表示法结构定义 */</span><br><span class="hljs-comment">//该结构是前两者的结合</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX_TREE_SIZE 100</span><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CTNode</span>	/* 孩子结点 */</span><br><span class="hljs-class">&#123;</span><br>	<span class="hljs-type">int</span> child;<br>	<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CTNode</span> *<span class="hljs-title">next</span>;</span><br>&#125; *ChildPtr;<br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span>			/* 表头结点 */</span><br><span class="hljs-class">&#123;</span><br>	TElemType data;<br>	<span class="hljs-type">int</span> parent;			<span class="hljs-comment">//双亲的位置 </span><br>	ChildPtr firstchild;	<br>&#125; CTBox;<br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span>			/* 树结构 */</span><br><span class="hljs-class">&#123;</span><br>	CTBox nodes[MAX_TREE_SIZE];	<span class="hljs-comment">//结点数组</span><br>	<span class="hljs-type">int</span> r, n;		<span class="hljs-comment">//根的位置和结点数</span><br>&#125; CTree;<br></code></pre></td></tr></table></figure>
+
+<h4 id="（4）孩子兄弟表示法"><a href="#（4）孩子兄弟表示法" class="headerlink" title="（4）孩子兄弟表示法"></a>（4）孩子兄弟表示法</h4><ul>
+<li><font color = '#00FF'> 此种方法最大的好处就是：它把一棵复杂的树变成了一棵二叉树</font></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-comment">/* 孩子兄弟表示法结构定义 */</span><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CSNode</span></span><br><span class="hljs-class">&#123;</span><br>	TElemType data;<br>	<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CSNode</span> *<span class="hljs-title">firstchild</span>, *<span class="hljs-title">rightchild</span>;</span><br>&#125;CSNode,*CTree;<br></code></pre></td></tr></table></figure>
+
+<h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><h4 id="（1）二叉树特点"><a href="#（1）二叉树特点" class="headerlink" title="（1）二叉树特点"></a>（1）二叉树特点</h4><ul>
+<li>每个结点最后有两棵子树。</li>
+<li>左子树和右子树是有顺序的，次序不能颠倒。</li>
+<li>即使树中某个结点只有一棵子树，也要区分它是左子树还是右子树。</li>
+<li>二叉树的五种基本形态：<ol>
+<li>空二叉树。</li>
+<li>只有一个根节点。</li>
+<li>根结点只有左子树。</li>
+<li>根结点只有右子树。</li>
+<li>根结点既有左子树，又有右子树。</li>
+</ol>
+</li>
+<li>特殊二叉树<ul>
+<li>斜树</li>
+<li>满二叉树</li>
+<li>完全二叉树</li>
+</ul>
+</li>
+</ul>
+<h4 id="（2）二叉树性质"><a href="#（2）二叉树性质" class="headerlink" title="（2）二叉树性质"></a><font color = '#00BFFF'>（2）二叉树性质</font></h4><ul>
+<li>性质 1：在二叉树的第 $ i $ 层上至多有 $2^{i-1}$ 个结点。$ (i\geq1) $</li>
+<li>性质 2：深度为 $ k $ 的二叉树至多有 $ 2^k-1 $ 个结点。 $ (k\geq1)$</li>
+<li>性质 3：对任何一个二叉树 T，如果终端结点数为 $ n_0 $ ，度为 2 的结点数为 $ n_2 $，则 $ n_0 &#x3D; n_2 + 1$。</li>
+<li>性质 4：具有 $ n $ 个结点的完全二叉树的深度为 $ ⌊\log_{2}{n}⌋ + 1 $  ( $ ⌊x⌋ $ 表示不大于 $ x $ 的最大整数) 。</li>
+<li>性质 5：如果对一棵有 $ n $ 个结点的完全二叉树（其深度为 $ ⌊ \log _ {2} {n}  ⌋  + 1 $ ）的结点按层序号编号（从第 $ 1 $ 层到第 $ ⌊\log _ {2}{n}⌋ + 1 $ 层，每层从左到右），对任一结点 $i ( 1 \leq i \leq n ) $ 有：<ol>
+<li>如果 $ i &#x3D; 1 $ ，则结点 $ i $ 是二叉树的根，无双亲；如果 $ i &gt; 1 $，则其双亲是结点 $  ⌊i&#x2F;2⌋ $。</li>
+<li>如果 $ 2i &gt; n $ ，则结点 $ i $ 无左孩子（结点 $ i $ 为叶子结点）；否则其左孩子是结点 $ 2i $ 。</li>
+<li>如果 $ 2i+1&gt;n $ ，则结点 $ i $ 无右孩子；否则其右孩子是结点 $ 2i + 1 $。</li>
+</ol>
+</li>
+</ul>
+<h3 id="二叉树的存储结构"><a href="#二叉树的存储结构" class="headerlink" title="二叉树的存储结构"></a>二叉树的存储结构</h3><h4 id="二叉树的顺序存储结构"><a href="#二叉树的顺序存储结构" class="headerlink" title="二叉树的顺序存储结构"></a>二叉树的顺序存储结构</h4><ul>
+<li>这种存储方式适合存储完全的二叉树，一般的二叉树用这种方式存储会造成存储空间的浪费。</li>
+</ul>
+<h4 id="二叉链表"><a href="#二叉链表" class="headerlink" title="二叉链表"></a>二叉链表</h4><ul>
+<li><p>二叉树的每个结点有一个数据域、两个指针域。称这种链表为二叉链表。</p>
+</li>
+<li><div class="code-wrapper"><pre><code class="C">/* 二叉树的二叉链表结点结构定义 */
+typedef struct BiTNode&#123;    /*结点结构*/
+    TElemType data;    //结点数据
+    struct BiTNode *lchild, *rchild;    //左右孩子指针
+&#125;BiTNode,*BiTree;
+</code></pre></div>
+</li>
+<li><p>如同讨论树的存储结构一样，如果有需要，还可以再增加一个指向其<font color = '#00FFFF'>双亲的指针域</font>，那样就称之为三叉链表。</p>
+</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/C/">C</a>
+                    
+                      <a class="hover-with-bg" href="/categories/C/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/DS%E7%AC%94%E8%AE%B0/">DS笔记</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/31/DS/DS3/">
+                        <span class="hidden-mobile">数据结构——串</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
