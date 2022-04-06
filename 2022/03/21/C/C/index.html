@@ -16,15 +16,15 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="C语言——复习记录11、在计算机内存中，整数一律采用补码形式来存储2、小数的长度是固定的，float始终占4个字节，double始终占8个字节3、wchar_t一种“数据类型” 在微软编译器下，它的长度是2个字节，等价于unsinged short   在GCC&#x2F;LLVM&#x2F;Clang下，它的长度是4个字节，等价于unsigned int  4、C语言字符编码 对于 char 类">
+    <meta name="description" content="C语言——复习记录11、在计算机内存中，整数一律采用补码形式来存储2、小数的长度是固定的，float始终占4个字节，double始终占8个字节3、wchar_t一种“数据类型” 在微软编译器下，它的长度是2个字节，等价于unsinged short   在GCC&#x2F;LLVM&#x2F;Clang下，它的长度是4个字节，等价于unsigned int    4、C语言字符编码 对于 char 类型的窄字符，始终">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C复习记录1">
 <meta property="og:url" content="http://example.com/2022/03/21/C/C/index.html">
 <meta property="og:site_name" content="Sxhpai">
-<meta property="og:description" content="C语言——复习记录11、在计算机内存中，整数一律采用补码形式来存储2、小数的长度是固定的，float始终占4个字节，double始终占8个字节3、wchar_t一种“数据类型” 在微软编译器下，它的长度是2个字节，等价于unsinged short   在GCC&#x2F;LLVM&#x2F;Clang下，它的长度是4个字节，等价于unsigned int  4、C语言字符编码 对于 char 类">
+<meta property="og:description" content="C语言——复习记录11、在计算机内存中，整数一律采用补码形式来存储2、小数的长度是固定的，float始终占4个字节，double始终占8个字节3、wchar_t一种“数据类型” 在微软编译器下，它的长度是2个字节，等价于unsinged short   在GCC&#x2F;LLVM&#x2F;Clang下，它的长度是4个字节，等价于unsigned int    4、C语言字符编码 对于 char 类型的窄字符，始终">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-21T05:52:51.000Z">
-<meta property="article:modified_time" content="2022-03-22T04:35:39.781Z">
+<meta property="article:modified_time" content="2022-03-22T04:35:39.000Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="原创">
 <meta name="twitter:card" content="summary_large_image">
@@ -248,24 +248,26 @@
             <div class="markdown-body">
               <h1 id="C语言——复习记录1"><a href="#C语言——复习记录1" class="headerlink" title="C语言——复习记录1"></a>C语言——复习记录1</h1><h2 id="1、在计算机内存中，整数一律采用补码形式来存储"><a href="#1、在计算机内存中，整数一律采用补码形式来存储" class="headerlink" title="1、在计算机内存中，整数一律采用补码形式来存储"></a>1、在计算机内存中，整数一律采用补码形式来存储</h2><h2 id="2、小数的长度是固定的，float始终占4个字节，double始终占8个字节"><a href="#2、小数的长度是固定的，float始终占4个字节，double始终占8个字节" class="headerlink" title="2、小数的长度是固定的，float始终占4个字节，double始终占8个字节"></a>2、小数的长度是固定的，float始终占4个字节，double始终占8个字节</h2><h2 id="3、wchar-t一种“数据类型”"><a href="#3、wchar-t一种“数据类型”" class="headerlink" title="3、wchar_t一种“数据类型”"></a>3、wchar_t一种“数据类型”</h2><ul>
 <li>在微软编译器下，它的长度是2个字节，等价于unsinged short  </li>
-<li>在GCC&#x2F;LLVM&#x2F;Clang下，它的长度是4个字节，等价于unsigned int</li>
+<li>在GCC/LLVM/Clang下，它的长度是4个字节，等价于unsigned int  </li>
 </ul>
 <h2 id="4、C语言字符编码"><a href="#4、C语言字符编码" class="headerlink" title="4、C语言字符编码"></a>4、C语言字符编码</h2><ul>
 <li>对于 char 类型的窄字符，始终使用 ASCII 编码。</li>
 <li>对于 wchar_t 类型的宽字符和宽字符串，使用 UTF-16 或者 UTF-32 编码，它们都是基于 Unicode 字符集的。</li>
-<li>对于 char 类型的窄字符串，微软编译器使用本地编码，GCC、LLVM&#x2F;Clang 使用和源文件编码相同的编码。</li>
+<li>对于 char 类型的窄字符串，微软编译器使用本地编码，GCC、LLVM/Clang 使用和源文件编码相同的编码。  </li>
 </ul>
 <h2 id="5、C语言的输入输出与缓冲区"><a href="#5、C语言的输入输出与缓冲区" class="headerlink" title="5、C语言的输入输出与缓冲区"></a>5、C语言的输入输出与缓冲区</h2><ul>
 <li>对于输出操作，清空缓冲区会使得缓冲区中的所有数据立即显示到屏幕上；很明显，这些数据没有地方存放了，只能输出了。</li>
 <li>对于输入操作，清空缓冲区就是丢弃残留字符，让程序直接等待用户输入，避免引发奇怪的行为。<blockquote>
-<p>清空缓冲区方法：将输入缓冲区中的数据都读取出来。</p>
+<p>清空缓冲区方法：将输入缓冲区中的数据都读取出来。  </p>
 </blockquote>
 </li>
 </ul>
 <h2 id="6、C语言的数组是静态的，大小不可变"><a href="#6、C语言的数组是静态的，大小不可变" class="headerlink" title="6、C语言的数组是静态的，大小不可变"></a>6、C语言的数组是静态的，大小不可变</h2><h2 id="7、数组的越界和溢出"><a href="#7、数组的越界和溢出" class="headerlink" title="7、数组的越界和溢出"></a>7、数组的越界和溢出</h2><ul>
 <li>C语言数组是静态的，不能自动扩容，当下标小于零或大于等于数组长度时，就发生了越界。</li>
 <li>C语言为了提高效率，保证操作的灵活性，并不会对越界行为进行检查，即使越界了，也能够正常编译，只有在运行期间才可能会发生问题。</li>
-<li><font color="red"> <strong>由于C语言的”放任“，我们访问数组时必须非常小心，要确保不会发生越界。</strong>  </font></li>
+<li><font color="red"> __由于C语言的”放任“，我们访问数组时必须非常小心，要确保不会发生越界。__  </font>  
+
+</li>
 </ul>
 <h2 id="8、递归"><a href="#8、递归" class="headerlink" title="8、递归"></a>8、递归</h2><ul>
 <li>要想让递归函数逐层进入再逐层退出，需要解决两个方面的问题:<ul>
@@ -275,8 +277,7 @@
 </li>
 </ul>
 <ul>
-<li><p>尾递归，中间递归，多层递归，烧脑程度逐级上升。</p>
-</li>
+<li>尾递归，中间递归，多层递归，烧脑程度逐级上升。</li>
 <li><p>递归的时间开销极大，尽量用 <strong>迭代</strong> 来替换递归函数        </p>
   <figure class="highlight c"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></div></td><td class="code"><pre><code class="hljs C"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;time.h&gt;</span></span><br><br><br><span class="hljs-comment">//斐波那契数列，求第n个斐波那契数。</span><br><br><span class="hljs-comment">//递归法</span><br><span class="hljs-type">long</span> <span class="hljs-title function_">func_digui</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span><br>&#123;<br>	<span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">2</span>) <br>    &#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>	&#125;<br>	<span class="hljs-keyword">else</span><br>	&#123;<br>		<span class="hljs-keyword">return</span> func_digui(n - <span class="hljs-number">1</span>) + func_digui(n - <span class="hljs-number">2</span>);<br>	&#125;<br>&#125;<br><br><span class="hljs-comment">//迭代法</span><br><span class="hljs-type">long</span> <span class="hljs-title function_">func_diedai</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span><br>&#123;<br>	<span class="hljs-type">long</span> p3;<br>	<span class="hljs-type">long</span> p2;<br>	<span class="hljs-type">long</span> p1;<br><br>	p2 = p1 = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">while</span> (n &gt; <span class="hljs-number">2</span>)<br>    &#123;<br>        n -= <span class="hljs-number">1</span>;<br><br>        p3 = p2;<br>        p2 = p1;<br>        p1 = p2 + p3;<br>    &#125;<br> <span class="hljs-keyword">return</span> p1;<br>&#125;<br><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>    <span class="hljs-type">int</span> n;<br>    <span class="hljs-type">long</span> res1,res2;<br><br>    <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Input a number: &quot;</span>);<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;n);<br><br>    <span class="hljs-type">clock_t</span> time_start_recursion, time_end_recursion;<br>    <span class="hljs-type">clock_t</span> time_start_iteration, time_end_iteration;<br><br><br>    <span class="hljs-comment">//递归时间</span><br>    time_start_recursion = clock();<br>    res1 = func_digui(n);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;result = %ld\n&quot;</span>, res1);<br>    time_end_recursion = clock();<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;run time with recursion: %lfs\n&quot;</span>, (<span class="hljs-type">double</span>)(time_end_recursion - time_start_recursion) / CLOCKS_PER_SEC);<br><br>    <span class="hljs-comment">//迭代的时间</span><br>    time_start_iteration = clock();<br>    res2 = func_diedai(n);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;result = %ld\n&quot;</span>, res2);<br>    time_end_iteration = clock();<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;run time with iteration: %lfs\n&quot;</span>, (<span class="hljs-type">double</span>)(time_end_iteration - time_start_iteration) / CLOCKS_PER_SEC);<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure></li>
 </ul>
@@ -532,5 +533,20 @@
 <script  src="/js/boot.js" ></script>
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>
