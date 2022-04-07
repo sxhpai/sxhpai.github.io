@@ -24,7 +24,7 @@
 <meta property="og:description" content="开场 树是 n 个结点的有限集。n&#x3D;0 时称为空树。 在任意一棵非空树中： 有且仅有一个特定的称为根的结点； 当 n &gt; 1 时，其余结点可分为 m (m &gt; 0)  个互不相交的有限集 $ T_1, T_2, T_3, …, T_m $，其中每一个集合本身又是一棵树，并且称为根的子树。   注意以下两点： n &gt; 0 时，根结点是唯一的，不可能存在多个根节点。 m &gt; 0">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-04T04:00:00.000Z">
-<meta property="article:modified_time" content="2022-04-06T02:11:52.642Z">
+<meta property="article:modified_time" content="2022-04-07T02:27:37.302Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="DS笔记">
 <meta name="twitter:card" content="summary_large_image">
@@ -197,7 +197,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.8k 字
+      4.9k 字
     </span>
   
 
@@ -206,7 +206,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      32 分钟
+      41 分钟
     </span>
   
 
@@ -319,7 +319,7 @@
 
 </li>
 </ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-comment">/* 孩子兄弟表示法结构定义 */</span><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CSNode</span></span><br><span class="hljs-class">&#123;</span><br>	TElemType data;<br>	<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CSNode</span> *<span class="hljs-title">firstchild</span>, *<span class="hljs-title">rightchild</span>;</span><br>&#125;CSNode,*CTree;<br></code></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-comment">/* 孩子兄弟表示法结构定义 */</span><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CSNode</span></span><br><span class="hljs-class">&#123;</span><br>	TElemType data;<br>	<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CSNode</span> *<span class="hljs-title">firstchild</span>, *<span class="hljs-title">rightsib</span>;</span><br>&#125;CSNode,*CTree;<br></code></pre></td></tr></table></figure>
 <h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><h4 id="（1）二叉树特点"><a href="#（1）二叉树特点" class="headerlink" title="（1）二叉树特点"></a>（1）二叉树特点</h4><ul>
 <li>每个结点最后有两棵子树。</li>
 <li>左子树和右子树是有顺序的，次序不能颠倒。</li>
@@ -343,7 +343,7 @@
 <li>性质 1：在二叉树的第 $i$ 层上至多有 $2^{i-1}$ 个结点。$ (i\geq1) $</li>
 <li>性质 2：深度为 $ k $ 的二叉树至多有 $ 2^k-1 $ 个结点。 $ (k\geq1)$</li>
 <li>性质 3：对任何一个二叉树 T，如果终端结点数为 $ n_0 $ ，度为 2 的结点数为 $ n_2 $，则 $ n_0 = n_2 + 1$。</li>
-<li>性质 4：具有 $ n $ 个结点的完全二叉树的深度为 $ ⌊\log_{2}{n}⌋ + 1 $  ( $ ⌊x⌋ $ 表示不大于 $ x $ 的最大整数) 。</li>
+<li>性质 4：具有 $ n $ 个结点的完全二叉树的深度为 $ ⌊\log_{2}{n}⌋ + 1 $  ( $ ⌊x⌋ $ 表示不大于 $ x $ 的最大整数）。</li>
 <li>性质 5：如果对一棵有 $ n $ 个结点的完全二叉树（其深度为 $ ⌊ \log _ {2} {n}  ⌋  + 1 $ ）的结点按层序号编号（从第 $ 1 $ 层到第 $ ⌊\log _ {2}{n}⌋ + 1 $ 层，每层从左到右），对任一结点 $i ( 1 \leq i \leq n ) $ 有：<ol>
 <li>如果 $ i = 1 $ ，则结点 $ i $ 是二叉树的根，无双亲；如果 $ i &gt; 1 $，则其双亲是结点 $  ⌊i/2⌋ $。</li>
 <li>如果 $ 2i &gt; n $ ，则结点 $ i $ 无左孩子（结点 $ i $ 为叶子结点）；否则其左孩子是结点 $ 2i $ 。</li>
@@ -388,6 +388,48 @@
 <ul>
 <li>中序遍历二叉树线索表表示的二叉树T，相当于对链表的扫描，时间复杂度为 O(n)。</li>
 <li>实际问题中，如果所用的二叉树需经常遍历或查找结点时需要某种遍历序列中的前驱和后继，那么采用线索二叉表的存储结构就是非常不错的选择。</li>
+</ul>
+<h3 id="树、森林与二叉树的转换"><a href="#树、森林与二叉树的转换" class="headerlink" title="树、森林与二叉树的转换"></a>树、森林与二叉树的转换</h3><h4 id="（1）树转换为二叉树"><a href="#（1）树转换为二叉树" class="headerlink" title="（1）树转换为二叉树"></a>（1）树转换为二叉树</h4><ol>
+<li>加线。在所有兄弟结点之间加一条连线</li>
+<li>去线。对树中每个结点，只保留它与第一个孩子结点的连线，删除它与其他孩子结点之间的连线。</li>
+<li>层次调整。以树的根结点为轴心，将整棵树顺时针旋转一定的角度，使之结构层次分明。注意第一个孩子是二叉树结点的孩子，兄弟转换过来的孩子是结点的右孩子。</li>
+</ol>
+<h4 id="（2）森林转换为二叉树"><a href="#（2）森林转换为二叉树" class="headerlink" title="（2）森林转换为二叉树"></a>（2）森林转换为二叉树</h4><ol>
+<li>把每棵树树转换为二叉树。</li>
+<li>第一棵二叉树不动，从第二棵树开始，依次把后一棵树的根结点作为前一棵二叉树的根结点的右孩子，用线连接起来。当所有的二叉树连接起来后就得到了由森林转换来的二叉树。</li>
+</ol>
+<h3 id="（3）二叉树转换为树"><a href="#（3）二叉树转换为树" class="headerlink" title="（3）二叉树转换为树"></a>（3）二叉树转换为树</h3><ol>
+<li>加线。若某结点的左孩子结点存在，则将这个左孩子的右孩子结点、这个左孩子的右孩子结点的右孩子结点、这个左孩子的右孩子结点的右孩子结点的右孩子结点……。反正就是左孩子的 n 个右孩子结点都作为此结点的孩子。将该结点与这些右孩子结点用线连接起来。</li>
+<li>去线。删除原二叉树中所有结点与其右孩子结点的连线。</li>
+<li>层次调整。使之结构层次分明。</li>
+</ol>
+<h3 id="（4）二叉树转换为森林"><a href="#（4）二叉树转换为森林" class="headerlink" title="（4）二叉树转换为森林"></a>（4）二叉树转换为森林</h3><ul>
+<li>判断一棵二叉树能够转换为一棵树还是森林，标准很简单，那就是只要看这棵二叉树的根结点有没有右孩子，有就是森林，没有就是一棵树。</li>
+</ul>
+<ol>
+<li>从根结点开始，若右孩子存在，则把与右孩子结点的连线删除，再查看分离后的二叉树，若右孩子存在，则连线删除……，直到所有右孩子连线都删除为止，得到分离的二叉树。</li>
+<li>再将每棵分离后的二叉树转换为树即可。   </li>
+</ol>
+<h3 id="（5）树与森林的遍历"><a href="#（5）树与森林的遍历" class="headerlink" title="（5）树与森林的遍历"></a>（5）树与森林的遍历</h3><ul>
+<li>树的遍历分为两种方式<ul>
+<li>第一种：先根遍历，即先访问树的根结点，然后依次先根遍历根的每棵子树。</li>
+<li>第二种：后根遍历，即先依次后根遍历每棵子树，然后再访问根结点。</li>
+</ul>
+</li>
+<li>森林的遍历分为两种方式<ul>
+<li>第一种：前序遍历：先访问森林中第一棵树的根结点，然后再依次先根遍历根的每棵子树，再依次用同样的方式遍历除去第一棵树的剩余树构成的森林。</li>
+<li>第二种：后序遍历：是先访问森林中第一棵树，后根遍历的方式遍历每棵子树，然后再访问根结点，再依次同样方式遍历除去第一棵树的剩余树构成的森林。</li>
+</ul>
+</li>
+<li>经分析可以发现：<font color = '#00FFFF'><strong>树的先根遍历和二叉树的前序遍历结果相同，树的后根遍历和二叉树的中序遍历结果相同</strong></font>。</li>
+<li>所以，当以二叉链表作树的存储结构时，树的先根遍历和后根遍历完全可以借用二叉树的前序遍历和中序遍历算法实现。</li>
+</ul>
+<h3 id="赫夫曼树"><a href="#赫夫曼树" class="headerlink" title="赫夫曼树"></a>赫夫曼树</h3><ul>
+<li>路径长度：从树的一个结点到另一个结点之间的分支结构构成两个结点之间的路径，路径上的分支数目称做路径长度。</li>
+<li>树的路径长度：就是从根结点到每一个结点的路径长度之和。</li>
+<li>结点的带权路径长度：从该结点到树根结点之间的路径长度与结点上权的乘积。</li>
+<li>树的带权路径长度：所有叶子结点带权路径长度之和。</li>
+<li>带权路径长度 WPL 最小的二叉树称做赫夫曼树。</li>
 </ul>
 
             </div>
@@ -637,20 +679,5 @@
 <script  src="/js/boot.js" ></script>
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>
