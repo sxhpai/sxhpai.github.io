@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>数据结构——图</title>
+    <link href="/2022/04/07/DS/DS5/"/>
+    <url>/2022/04/07/DS/DS5/</url>
+    
+    <content type="html"><![CDATA[<h3 id="图"><a href="#图" class="headerlink" title="图"></a>图</h3><ul><li>图（Graph）是由顶点的有穷非空集合和顶点之间的集合组成，通常表示为：G(V,E)，其中，G表示一个图，V是图G中顶点的集合，E是图G中边的集合。</li><li>对于图的定义需要明确：<ul><li>线性表中我们把数据元素叫元素，树中将数据元素叫结点，在图中数据元素，我们则称之为<strong>顶点</strong>。</li><li>线性表中可以没有数据元素，称为空表。树中可以没有结点，叫做空树。图不允许没有顶点。</li><li>线性表中，相邻的数据元素之间具有线性关系，树结构中，相邻两层的结点具有层次关系，而图中，任意两个顶点之间都可能有关系，顶点之间的逻辑关系用<strong>边</strong>来表示，边集可以是空的。</li></ul></li><li>在无向图中，如果任意两个顶点之间都存在边，则称该图为无向完全图。无向完全图有$\frac{n*(n-1)}{2}$条边。</li><li>在有向图中，如果任意两个顶点之间都存在方向互为相反的两条弧，则称该图为有向完全图。有向完全图有$n*(n-1)$条边。</li><li>有些图的边或弧具有与它相关的数字，这种与图的边或弧相关的树叫做权。这种带权的图通常称为网。</li><li>树中根结点到任意结点的路径是唯一的，但是图中顶点与顶点之间的路径却是不唯一的。</li></ul><blockquote><p>如果一个图有 n 个顶点和小于 n-1 条边，则是非联通图，如果它多于 n-1 边条，必定构成一个环。不过有 n-1 条边并不一定是生成树。</p><ul><li>无向图中连通且 n 个顶点 n-1 条边叫生成树。</li></ul></blockquote><h3 id="图的抽象数据类型"><a href="#图的抽象数据类型" class="headerlink" title="图的抽象数据类型"></a>图的抽象数据类型</h3><blockquote><p>ADT    </p><ul><li>图（Graph）</li></ul><p>Data</p><ul><li>顶点的有穷非空集合和边的集合。</li></ul><p>Operation</p><ul><li>CreateGraph(*G,V,VR)：按照顶点集 V 和边弧集 VR 的定义构造图 G。</li><li>DestroyGraph(*G)：图 G 存在则销毁。</li><li>LocateVex(G,u)：若图 G 中存在顶点 u ,则返回图中的位置。</li><li>GetVex(G,v)：返回图 G 中顶点 v 的值。</li><li>PutVex(G,v,value)：将图 G 中顶点 v 赋值 value。</li><li>FirstAdjVex(G,*v)：返回顶点 v 的一个邻接顶点，若顶点在 G 中无邻接顶点返回空。</li><li>NextAdjVex(G,v,*w)：返回顶点 v 相对于顶点 w 的下一个邻接顶点，若 w 是 v 的最后一个邻接点则返回”空“。</li><li>InsertArc(*G,v,w)：在图中增添弧<v,w>，若 G 是无向图，还需要增添对称弧 <w,v>。</li><li>DeleteArc(*G,v,w)：在图 G 中删除弧<v,w>，若 G 是无向图，则还删除对称弧 <w,v>。</li><li>DFSTraverse(G)：对图 G 中进行深度优先遍历，在遍历过程对每个顶点调用。</li><li>HFSTraverse(G)：对图 G 中进行广度优先遍历，在遍历过程对每个顶点调用。</li></ul><p>endADT</p></blockquote><h3 id="图的存储结构"><a href="#图的存储结构" class="headerlink" title="图的存储结构"></a>图的存储结构</h3><h4 id="（1）邻接矩阵"><a href="#（1）邻接矩阵" class="headerlink" title="（1）邻接矩阵"></a>（1）邻接矩阵</h4><h4 id="（2）邻接表"><a href="#（2）邻接表" class="headerlink" title="（2）邻接表"></a>（2）邻接表</h4><h4 id="（3）十字链表"><a href="#（3）十字链表" class="headerlink" title="（3）十字链表"></a>（3）十字链表</h4><h4 id="（4）邻接多重表"><a href="#（4）邻接多重表" class="headerlink" title="（4）邻接多重表"></a>（4）邻接多重表</h4><h4 id="（5）边集数组"><a href="#（5）边集数组" class="headerlink" title="（5）边集数组"></a>（5）边集数组</h4><h3 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>C</category>
+      
+      <category>数据结构</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>DS笔记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>数据结构——树</title>
     <link href="/2022/04/04/DS/DS4/"/>
     <url>/2022/04/04/DS/DS4/</url>
