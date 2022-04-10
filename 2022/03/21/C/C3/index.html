@@ -22,8 +22,8 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"};
-    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/favicon.png","favicon":"/images/favicon.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/favicon.png","favicon":"/images/favicon.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
   </script>
 <meta name="generator" content="Hexo 6.1.0"></head>
@@ -92,14 +92,6 @@
                             </a>
                         </li>
                     
-                        <li class="menu-item">
-                            <a class=""
-                               href="/changelog"
-                            >
-                                更新日志
-                            </a>
-                        </li>
-                    
                     
                         <li class="menu-item search search-popup-trigger">
                             <i class="fas fa-search"></i>
@@ -141,11 +133,6 @@
                        href="/tags">标签</a>
                 </li>
             
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/changelog">更新日志</a>
-                </li>
-            
         </ul>
     </div>
 
@@ -176,8 +163,6 @@
                 <div class="info">
                     <div class="author">
                         <span class="name">sxhpai</span>
-                        
-                            <span class="author-label">Lv2</span>
                         
                     </div>
                     <div class="meta-info">
@@ -381,24 +366,6 @@
         
 
         
-            <div class="comment-container">
-                <div class="comments-container">
-    <div id="comment-anchor"></div>
-    <div class="comment-area-title">
-        <i class="fas fa-comments">&nbsp;评论</i>
-    </div>
-    
-
-        
-            
-
-
-        
-    
-</div>
-
-            </div>
-        
     </div>
 </div>
 
@@ -458,10 +425,6 @@
 
         <!-- go comment -->
         
-            <li class="go-comment">
-                <i class="fas fa-comment"></i>
-            </li>
-        
     </ul>
 </div>
 
@@ -516,7 +479,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C%E8%AF%AD%E8%A8%80%E2%80%94%E2%80%94%E5%A4%8D%E4%B9%A0%E8%AE%B0%E5%BD%953"><span class="nav-number">1.</span> <span class="nav-text">C语言——复习记录3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#20%E3%80%81const%E4%B8%8E%E6%8C%87%E9%92%88"><span class="nav-number">1.1.</span> <span class="nav-text">20、const与指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#21%E3%80%81C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E5%9C%B0%E5%9D%80%EF%BC%88%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">21、C语言中的地址（虚拟地址）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22%E3%80%81%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90"><span class="nav-number">1.3.</span> <span class="nav-text">22、内存对齐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#23%E3%80%81linux%E4%B8%8BC%E8%AF%AD%E8%A8%80%E5%B8%83%E5%B1%80"><span class="nav-number">1.4.</span> <span class="nav-text">23、linux下C语言布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#24%E3%80%81sizeof-%E5%8D%95%E7%9B%AE%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-number">1.5.</span> <span class="nav-text">24、sizeof()单目操作符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#25%E3%80%81%E9%87%8E%E6%8C%87%E9%92%88"><span class="nav-number">1.6.</span> <span class="nav-text">25、野指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#26%E3%80%81%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F"><span class="nav-number">1.7.</span> <span class="nav-text">26、内存泄漏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#27%E3%80%81%E5%AF%84%E5%AD%98%E5%99%A8%E5%8F%98%E9%87%8F"><span class="nav-number">1.8.</span> <span class="nav-text">27、寄存器变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#28%E3%80%81%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="nav-number">1.9.</span> <span class="nav-text">28、全局变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#29%E3%80%81extern"><span class="nav-number">1.10.</span> <span class="nav-text">29、extern</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#30%E3%80%81%E7%BC%96%E8%AF%91%E5%99%A8%E5%92%8C%E8%BF%9E%E6%8E%A5%E5%99%A8"><span class="nav-number">1.11.</span> <span class="nav-text">30、编译器和连接器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#31%E3%80%81static%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8"><span class="nav-number">1.12.</span> <span class="nav-text">31、static变量作用</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C%E8%AF%AD%E8%A8%80%E2%80%94%E2%80%94%E5%A4%8D%E4%B9%A0%E8%AE%B0%E5%BD%953"><span class="nav-text">C语言——复习记录3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#20%E3%80%81const%E4%B8%8E%E6%8C%87%E9%92%88"><span class="nav-text">20、const与指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#21%E3%80%81C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E5%9C%B0%E5%9D%80%EF%BC%88%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80%EF%BC%89"><span class="nav-text">21、C语言中的地址（虚拟地址）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22%E3%80%81%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90"><span class="nav-text">22、内存对齐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#23%E3%80%81linux%E4%B8%8BC%E8%AF%AD%E8%A8%80%E5%B8%83%E5%B1%80"><span class="nav-text">23、linux下C语言布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#24%E3%80%81sizeof-%E5%8D%95%E7%9B%AE%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">24、sizeof()单目操作符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#25%E3%80%81%E9%87%8E%E6%8C%87%E9%92%88"><span class="nav-text">25、野指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#26%E3%80%81%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F"><span class="nav-text">26、内存泄漏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#27%E3%80%81%E5%AF%84%E5%AD%98%E5%99%A8%E5%8F%98%E9%87%8F"><span class="nav-text">27、寄存器变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#28%E3%80%81%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="nav-text">28、全局变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#29%E3%80%81extern"><span class="nav-text">29、extern</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#30%E3%80%81%E7%BC%96%E8%AF%91%E5%99%A8%E5%92%8C%E8%BF%9E%E6%8E%A5%E5%99%A8"><span class="nav-text">30、编译器和连接器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#31%E3%80%81static%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8"><span class="nav-text">31、static变量作用</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
