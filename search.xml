@@ -113,62 +113,6 @@
       </tags>
   </entry>
   <entry>
-    <title>数据结构——开场白</title>
-    <url>/2022/03/22/DS/DS0/</url>
-    <content><![CDATA[<h1 id="大话数据结构——开场白"><a href="#大话数据结构——开场白" class="headerlink" title="大话数据结构——开场白"></a>大话数据结构——开场白</h1><h3 id="1、数据结构"><a href="#1、数据结构" class="headerlink" title="1、数据结构"></a>1、数据结构</h3><p>1.基本概念  </p>
-<blockquote>
-<ul>
-<li>数据：是描述客观事物的符号，是计算机中可以操作的对象，是能被计算机识别，并输入给计算机处理的符号集合。</li>
-<li>数据元素：是组成数据、具有一定意义的基本单位，在计算机中通常作为整体处理。也被称为记录。</li>
-<li>数据项：一个数据元素由若干数据项组成。数据项是数据不可分割的最小单位。</li>
-<li>数据对象：是性质相同的数据元素的集合，是数据的子集。有时也将其成为数据。</li>
-<li>数据结构：<font color = 'red'><strong>是相互之间存在一种或多种特定关系的数据元素的集合。</strong>  </font></li>
-</ul>
-</blockquote>
-<p>2.逻辑结构和物理结构  </p>
-<blockquote>
-<ul>
-<li>逻辑结构：数据对象中数据元素之间的相互关系。<ol>
-<li>集合结构：集合结构中的数据元素，除了同属一个集合外，没有其他关系。</li>
-<li>线性结构：线性结构中数据元素之间是一对一的关系。</li>
-<li>树形结构：树形结构中的数据元素之间存在一种一对多的层次关系。</li>
-<li>图形结构：图形结构的数据元素是多对多的关系。  </li>
-</ol>
-</li>
-<li>物理结构：数据的逻辑结构在计算机中的存储结构。<ol>
-<li>顺序存储：是把数据元素放在地址连续的存储单元里，其数据间的逻辑关系和物理关系是一致的。</li>
-<li>链式存储：是把数据元素放在任意的存储单元里，这组存储单元可以是连续的，也可以是不连续的。  </li>
-</ol>
-</li>
-</ul>
-</blockquote>
-<h3 id="2、算法"><a href="#2、算法" class="headerlink" title="2、算法"></a>2、算法</h3><ul>
-<li>对算法设计的要求:  </li>
-</ul>
-<blockquote>
-<ol>
-<li>正确性：指的是算法至少应该具有输入、输出和加工处理无歧义性、能正确反映问题的需求、能够得到问题的正确答案。  </li>
-<li>可读性：</li>
-<li>健壮性：当输入数据不合法时，算法也能做出相关处理，而不是产生异常或莫名其妙的结构。</li>
-<li>时间效率高 、存储量低  </li>
-</ol>
-</blockquote>
-<ul>
-<li>时间复杂度（大O阶）    </li>
-</ul>
-<blockquote>
-<p>常数阶、线性阶、平方阶、对数阶、nlogn阶、立方阶、指数阶。时间复杂度依次增大。  </p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>C</category>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>DS笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C复习记录3</title>
     <url>/2022/03/21/C/C3/</url>
     <content><![CDATA[<h1 id="C语言——复习记录3"><a href="#C语言——复习记录3" class="headerlink" title="C语言——复习记录3"></a>C语言——复习记录3</h1><h2 id="20、const与指针"><a href="#20、const与指针" class="headerlink" title="20、const与指针"></a>20、const与指针</h2><ul>
@@ -263,6 +207,62 @@
       </tags>
   </entry>
   <entry>
+    <title>数据结构——开场白</title>
+    <url>/2022/03/22/DS/DS0/</url>
+    <content><![CDATA[<h1 id="大话数据结构——开场白"><a href="#大话数据结构——开场白" class="headerlink" title="大话数据结构——开场白"></a>大话数据结构——开场白</h1><h3 id="1、数据结构"><a href="#1、数据结构" class="headerlink" title="1、数据结构"></a>1、数据结构</h3><p>1.基本概念  </p>
+<blockquote>
+<ul>
+<li>数据：是描述客观事物的符号，是计算机中可以操作的对象，是能被计算机识别，并输入给计算机处理的符号集合。</li>
+<li>数据元素：是组成数据、具有一定意义的基本单位，在计算机中通常作为整体处理。也被称为记录。</li>
+<li>数据项：一个数据元素由若干数据项组成。数据项是数据不可分割的最小单位。</li>
+<li>数据对象：是性质相同的数据元素的集合，是数据的子集。有时也将其成为数据。</li>
+<li>数据结构：<font color = 'red'><strong>是相互之间存在一种或多种特定关系的数据元素的集合。</strong>  </font></li>
+</ul>
+</blockquote>
+<p>2.逻辑结构和物理结构  </p>
+<blockquote>
+<ul>
+<li>逻辑结构：数据对象中数据元素之间的相互关系。<ol>
+<li>集合结构：集合结构中的数据元素，除了同属一个集合外，没有其他关系。</li>
+<li>线性结构：线性结构中数据元素之间是一对一的关系。</li>
+<li>树形结构：树形结构中的数据元素之间存在一种一对多的层次关系。</li>
+<li>图形结构：图形结构的数据元素是多对多的关系。  </li>
+</ol>
+</li>
+<li>物理结构：数据的逻辑结构在计算机中的存储结构。<ol>
+<li>顺序存储：是把数据元素放在地址连续的存储单元里，其数据间的逻辑关系和物理关系是一致的。</li>
+<li>链式存储：是把数据元素放在任意的存储单元里，这组存储单元可以是连续的，也可以是不连续的。  </li>
+</ol>
+</li>
+</ul>
+</blockquote>
+<h3 id="2、算法"><a href="#2、算法" class="headerlink" title="2、算法"></a>2、算法</h3><ul>
+<li>对算法设计的要求:  </li>
+</ul>
+<blockquote>
+<ol>
+<li>正确性：指的是算法至少应该具有输入、输出和加工处理无歧义性、能正确反映问题的需求、能够得到问题的正确答案。  </li>
+<li>可读性：</li>
+<li>健壮性：当输入数据不合法时，算法也能做出相关处理，而不是产生异常或莫名其妙的结构。</li>
+<li>时间效率高 、存储量低  </li>
+</ol>
+</blockquote>
+<ul>
+<li>时间复杂度（大O阶）    </li>
+</ul>
+<blockquote>
+<p>常数阶、线性阶、平方阶、对数阶、nlogn阶、立方阶、指数阶。时间复杂度依次增大。  </p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>C</category>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>DS笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据结构——线性表</title>
     <url>/2022/03/26/DS/DS1/</url>
     <content><![CDATA[<h2 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a><a class="link"   href="https://github.com/sxhpai/DataStructure/tree/main/Linear%20table" >线性表<i class="fas fa-external-link-alt"></i></a></h2><h3 id="0-线性表的抽象数据类型"><a href="#0-线性表的抽象数据类型" class="headerlink" title="0. 线性表的抽象数据类型"></a>0. 线性表的抽象数据类型</h3><blockquote>
@@ -319,120 +319,6 @@
 </li>
 </ul>
 <h3 id="6-循环链表"><a href="#6-循环链表" class="headerlink" title="6. 循环链表"></a>6. 循环链表</h3><h3 id="7-双向链表"><a href="#7-双向链表" class="headerlink" title="7. 双向链表"></a>7. 双向链表</h3><h3 id="8-双向循环链表"><a href="#8-双向循环链表" class="headerlink" title="8. 双向循环链表"></a>8. 双向循环链表</h3>]]></content>
-      <categories>
-        <category>C</category>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>DS笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据结构——串</title>
-    <url>/2022/03/31/DS/DS3/</url>
-    <content><![CDATA[<h3 id="开场"><a href="#开场" class="headerlink" title="开场"></a>开场</h3><ul>
-<li>串的逻辑结构和线性表很相似，不同之处在于串针对的是字符集，也就是串中的元素都是字符。</li>
-<li>串的基本操作与线性表是有很大差别的。线性表更加关注的是单个元素的操作，比如查找一个元素，插入或删除一个元素，但串中更多是查找子串的位置、得到指定位置字串、替换字串等操作。</li>
-</ul>
-<h3 id="串的抽象数据类型"><a href="#串的抽象数据类型" class="headerlink" title="串的抽象数据类型"></a>串的抽象数据类型</h3><blockquote>
-<p>ADT  </p>
-<ul>
-<li>串（String）</li>
-</ul>
-<p>Data  </p>
-<ul>
-<li>串中元素仅由一个字符组成，相邻元素具有前驱和后继关系。</li>
-</ul>
-<p>Operation  </p>
-<ul>
-<li>StrAssign(T, * chars)：生成一个其值等于字符串常量chars的串T。</li>
-<li>StrCopy(T,S)：串S存在，由串S复制得串T。</li>
-<li>ClearString(S)：串S存在，将串清空。</li>
-<li>StringEmpty(S)：若串S为空，返回true，否则返回false。</li>
-<li>StrLength(S)：返回串S的元素个数，即串的长度。</li>
-<li>StrCompare(S,T)：若 S &lt; T,返回值&gt; 0，若S=T ，返回0，若S &lt; T ，返回值 &lt; 0 。</li>
-<li>Concat(T,S1,S2)：用T返回由S1和S2联接而成的新串。</li>
-<li>SubString(Sub,S,pos,len)：串S存在，1 &lt;= pos &lt;= StrLength(S)，且0 &lt;= len &lt;= StrLength(S) - pos +1,用Sub返回串S的第pos个字符起长度为len的字串。</li>
-<li><font color = '#00FFFF'>Index(S,T,pos)</font>：串S和T存在，T是非空串，1 &lt;= pos &lt;= StrLength(S)。若主串S中存在和串T值相同的子串，则返回他在主串S中第pos个字之后第一次出现的位置，否则返回0。</li>
-<li>Replace(S,T,V)：串S、T和V存在，T是非空串。用V替换主串S中出现的所有与T相等的不重叠的字串。</li>
-<li>StrInsert(S,pos,T)：串S和串T存在，1 &lt;= pos &lt;= StrLength(S) + 1。在串S的第pos个字符之前插入串T。</li>
-<li>StrDelete：串S存在，1 &lt;= pos &lt;= StrLength(S)-len + 1。从串S中删除第pos个字符起长度为len的字串。  </li>
-</ul>
-<p>endADT </p>
-</blockquote>
-<h3 id="串存储结构的三种实现方法"><a href="#串存储结构的三种实现方法" class="headerlink" title="串存储结构的三种实现方法"></a>串存储结构的三种实现方法</h3><ol>
-<li>定长顺序存储：普通的数组（又称为静态数组）存储。</li>
-<li>堆分配存储：用动态数组存储字符串。</li>
-<li>块链存储：用链表存储字符串。<ul>
-<li>链表各个结点存储数据个数的多少可参考以下几个因素<ol>
-<li>串的长度和存储空间的大小：若串包含数据量很大，且链表申请的存储空间有限，此时应尽可能的让各个节点存储更多的数据，提高空间的利用率（每多一个节点，就要多申请一个指针域的空间）；反之，如果串不是特别长，或者存储空间足够，就需要再结合其他因素综合考虑。</li>
-<li>程序实现的功能：如果实际场景中需要对存储的串做大量的插入或删除操作，则应尽可能减少各结点存储数据的数量；反之，需要再结合其他因素。</li>
-</ol>
-</li>
-</ul>
-</li>
-</ol>
-<h3 id="朴素的串的模式匹配算法"><a href="#朴素的串的模式匹配算法" class="headerlink" title="朴素的串的模式匹配算法"></a>朴素的串的模式匹配算法</h3><ul>
-<li><strong><font color = '#00FFFF'>子串在一个主串的定位操作,通常称做串的模式匹配</font></strong></li>
-</ul>
-<h3 id="KMP模式匹配算法"><a href="#KMP模式匹配算法" class="headerlink" title="KMP模式匹配算法"></a>KMP模式匹配算法</h3><p>代码。</p>
-]]></content>
-      <categories>
-        <category>C</category>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>DS笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据结构——图</title>
-    <url>/2022/04/09/DS/DS5/</url>
-    <content><![CDATA[<h3 id="图"><a href="#图" class="headerlink" title="图"></a>图</h3><ul>
-<li>图（Graph）是由顶点的有穷非空集合和顶点之间的集合组成，通常表示为：G(V,E)，其中，G表示一个图，V是图G中顶点的集合，E是图G中边的集合。</li>
-<li>对于图的定义需要明确：<ul>
-<li>线性表中我们把数据元素叫元素，树中将数据元素叫结点，在图中数据元素，我们则称之为<strong>顶点</strong>。</li>
-<li>线性表中可以没有数据元素，称为空表。树中可以没有结点，叫做空树。图不允许没有顶点。</li>
-<li>线性表中，相邻的数据元素之间具有线性关系，树结构中，相邻两层的结点具有层次关系，而图中，任意两个顶点之间都可能有关系，顶点之间的逻辑关系用<strong>边</strong>来表示，边集可以是空的。</li>
-</ul>
-</li>
-<li>在无向图中，如果任意两个顶点之间都存在边，则称该图为无向完全图。无向完全图有$\frac{n*(n-1)}{2}$条边。</li>
-<li>在有向图中，如果任意两个顶点之间都存在方向互为相反的两条弧，则称该图为有向完全图。有向完全图有$n*(n-1)$条边。</li>
-<li>有些图的边或弧具有与它相关的数字，这种与图的边或弧相关的树叫做权。这种带权的图通常称为网。</li>
-<li>树中根结点到任意结点的路径是唯一的，但是图中顶点与顶点之间的路径却是不唯一的。</li>
-</ul>
-<blockquote>
-<p>如果一个图有 n 个顶点和小于 n-1 条边，则是非联通图，如果它多于 n-1 边条，必定构成一个环。不过有 n-1 条边并不一定是生成树。</p>
-<ul>
-<li>无向图中连通且 n 个顶点 n-1 条边叫生成树。</li>
-</ul>
-</blockquote>
-<h3 id="图的抽象数据类型"><a href="#图的抽象数据类型" class="headerlink" title="图的抽象数据类型"></a>图的抽象数据类型</h3><blockquote>
-<p>ADT    </p>
-<ul>
-<li>图（Graph）</li>
-</ul>
-<p>Data</p>
-<ul>
-<li>顶点的有穷非空集合和边的集合。</li>
-</ul>
-<p>Operation</p>
-<ul>
-<li>CreateGraph(*G,V,VR)：按照顶点集 V 和边弧集 VR 的定义构造图 G。</li>
-<li>DestroyGraph(*G)：图 G 存在则销毁。</li>
-<li>LocateVex(G,u)：若图 G 中存在顶点 u ,则返回图中的位置。</li>
-<li>GetVex(G,v)：返回图 G 中顶点 v 的值。</li>
-<li>PutVex(G,v,value)：将图 G 中顶点 v 赋值 value。</li>
-<li>FirstAdjVex(G,*v)：返回顶点 v 的一个邻接顶点，若顶点在 G 中无邻接顶点返回空。</li>
-<li>NextAdjVex(G,v,*w)：返回顶点 v 相对于顶点 w 的下一个邻接顶点，若 w 是 v 的最后一个邻接点则返回”空“。</li>
-<li>InsertArc(*G,v,w)：在图中增添弧<v,w>，若 G 是无向图，还需要增添对称弧 <w,v>。</li>
-<li>DeleteArc(*G,v,w)：在图 G 中删除弧<v,w>，若 G 是无向图，则还删除对称弧 <w,v>。</li>
-<li>DFSTraverse(G)：对图 G 中进行深度优先遍历，在遍历过程对每个顶点调用。</li>
-<li>HFSTraverse(G)：对图 G 中进行广度优先遍历，在遍历过程对每个顶点调用。</li>
-</ul>
-<p>endADT</p>
-</blockquote>
-<h3 id="图的存储结构"><a href="#图的存储结构" class="headerlink" title="图的存储结构"></a>图的存储结构</h3><h4 id="（1）邻接矩阵"><a href="#（1）邻接矩阵" class="headerlink" title="（1）邻接矩阵"></a>（1）邻接矩阵</h4><h4 id="（2）邻接表"><a href="#（2）邻接表" class="headerlink" title="（2）邻接表"></a>（2）邻接表</h4><h4 id="（3）十字链表"><a href="#（3）十字链表" class="headerlink" title="（3）十字链表"></a>（3）十字链表</h4><h4 id="（4）邻接多重表"><a href="#（4）邻接多重表" class="headerlink" title="（4）邻接多重表"></a>（4）邻接多重表</h4><h4 id="（5）边集数组"><a href="#（5）边集数组" class="headerlink" title="（5）边集数组"></a>（5）边集数组</h4><h3 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h3>]]></content>
       <categories>
         <category>C</category>
         <category>数据结构</category>
@@ -523,6 +409,64 @@
 </li>
 <li>总的来说，在可以确定队列长度最大值的情况下，建议用循环队列，如果无法预估队列的长度，则用链队列。</li>
 </ul>
+]]></content>
+      <categories>
+        <category>C</category>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>DS笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构——串</title>
+    <url>/2022/03/31/DS/DS3/</url>
+    <content><![CDATA[<h3 id="开场"><a href="#开场" class="headerlink" title="开场"></a>开场</h3><ul>
+<li>串的逻辑结构和线性表很相似，不同之处在于串针对的是字符集，也就是串中的元素都是字符。</li>
+<li>串的基本操作与线性表是有很大差别的。线性表更加关注的是单个元素的操作，比如查找一个元素，插入或删除一个元素，但串中更多是查找子串的位置、得到指定位置字串、替换字串等操作。</li>
+</ul>
+<h3 id="串的抽象数据类型"><a href="#串的抽象数据类型" class="headerlink" title="串的抽象数据类型"></a>串的抽象数据类型</h3><blockquote>
+<p>ADT  </p>
+<ul>
+<li>串（String）</li>
+</ul>
+<p>Data  </p>
+<ul>
+<li>串中元素仅由一个字符组成，相邻元素具有前驱和后继关系。</li>
+</ul>
+<p>Operation  </p>
+<ul>
+<li>StrAssign(T, * chars)：生成一个其值等于字符串常量chars的串T。</li>
+<li>StrCopy(T,S)：串S存在，由串S复制得串T。</li>
+<li>ClearString(S)：串S存在，将串清空。</li>
+<li>StringEmpty(S)：若串S为空，返回true，否则返回false。</li>
+<li>StrLength(S)：返回串S的元素个数，即串的长度。</li>
+<li>StrCompare(S,T)：若 S &lt; T,返回值&gt; 0，若S=T ，返回0，若S &lt; T ，返回值 &lt; 0 。</li>
+<li>Concat(T,S1,S2)：用T返回由S1和S2联接而成的新串。</li>
+<li>SubString(Sub,S,pos,len)：串S存在，1 &lt;= pos &lt;= StrLength(S)，且0 &lt;= len &lt;= StrLength(S) - pos +1,用Sub返回串S的第pos个字符起长度为len的字串。</li>
+<li><font color = '#00FFFF'>Index(S,T,pos)</font>：串S和T存在，T是非空串，1 &lt;= pos &lt;= StrLength(S)。若主串S中存在和串T值相同的子串，则返回他在主串S中第pos个字之后第一次出现的位置，否则返回0。</li>
+<li>Replace(S,T,V)：串S、T和V存在，T是非空串。用V替换主串S中出现的所有与T相等的不重叠的字串。</li>
+<li>StrInsert(S,pos,T)：串S和串T存在，1 &lt;= pos &lt;= StrLength(S) + 1。在串S的第pos个字符之前插入串T。</li>
+<li>StrDelete：串S存在，1 &lt;= pos &lt;= StrLength(S)-len + 1。从串S中删除第pos个字符起长度为len的字串。  </li>
+</ul>
+<p>endADT </p>
+</blockquote>
+<h3 id="串存储结构的三种实现方法"><a href="#串存储结构的三种实现方法" class="headerlink" title="串存储结构的三种实现方法"></a>串存储结构的三种实现方法</h3><ol>
+<li>定长顺序存储：普通的数组（又称为静态数组）存储。</li>
+<li>堆分配存储：用动态数组存储字符串。</li>
+<li>块链存储：用链表存储字符串。<ul>
+<li>链表各个结点存储数据个数的多少可参考以下几个因素<ol>
+<li>串的长度和存储空间的大小：若串包含数据量很大，且链表申请的存储空间有限，此时应尽可能的让各个节点存储更多的数据，提高空间的利用率（每多一个节点，就要多申请一个指针域的空间）；反之，如果串不是特别长，或者存储空间足够，就需要再结合其他因素综合考虑。</li>
+<li>程序实现的功能：如果实际场景中需要对存储的串做大量的插入或删除操作，则应尽可能减少各结点存储数据的数量；反之，需要再结合其他因素。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="朴素的串的模式匹配算法"><a href="#朴素的串的模式匹配算法" class="headerlink" title="朴素的串的模式匹配算法"></a>朴素的串的模式匹配算法</h3><ul>
+<li><strong><font color = '#00FFFF'>子串在一个主串的定位操作,通常称做串的模式匹配</font></strong></li>
+</ul>
+<h3 id="KMP模式匹配算法"><a href="#KMP模式匹配算法" class="headerlink" title="KMP模式匹配算法"></a>KMP模式匹配算法</h3><p>代码。</p>
 ]]></content>
       <categories>
         <category>C</category>
@@ -721,6 +665,62 @@
 <li>带权路径长度 WPL 最小的二叉树称做赫夫曼树。</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>C</category>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>DS笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构——图</title>
+    <url>/2022/04/09/DS/DS5/</url>
+    <content><![CDATA[<h3 id="图"><a href="#图" class="headerlink" title="图"></a>图</h3><ul>
+<li>图（Graph）是由顶点的有穷非空集合和顶点之间的集合组成，通常表示为：G(V,E)，其中，G表示一个图，V是图G中顶点的集合，E是图G中边的集合。</li>
+<li>对于图的定义需要明确：<ul>
+<li>线性表中我们把数据元素叫元素，树中将数据元素叫结点，在图中数据元素，我们则称之为<strong>顶点</strong>。</li>
+<li>线性表中可以没有数据元素，称为空表。树中可以没有结点，叫做空树。图不允许没有顶点。</li>
+<li>线性表中，相邻的数据元素之间具有线性关系，树结构中，相邻两层的结点具有层次关系，而图中，任意两个顶点之间都可能有关系，顶点之间的逻辑关系用<strong>边</strong>来表示，边集可以是空的。</li>
+</ul>
+</li>
+<li>在无向图中，如果任意两个顶点之间都存在边，则称该图为无向完全图。无向完全图有$\frac{n*(n-1)}{2}$条边。</li>
+<li>在有向图中，如果任意两个顶点之间都存在方向互为相反的两条弧，则称该图为有向完全图。有向完全图有$n*(n-1)$条边。</li>
+<li>有些图的边或弧具有与它相关的数字，这种与图的边或弧相关的树叫做权。这种带权的图通常称为网。</li>
+<li>树中根结点到任意结点的路径是唯一的，但是图中顶点与顶点之间的路径却是不唯一的。</li>
+</ul>
+<blockquote>
+<p>如果一个图有 n 个顶点和小于 n-1 条边，则是非联通图，如果它多于 n-1 边条，必定构成一个环。不过有 n-1 条边并不一定是生成树。</p>
+<ul>
+<li>无向图中连通且 n 个顶点 n-1 条边叫生成树。</li>
+</ul>
+</blockquote>
+<h3 id="图的抽象数据类型"><a href="#图的抽象数据类型" class="headerlink" title="图的抽象数据类型"></a>图的抽象数据类型</h3><blockquote>
+<p>ADT    </p>
+<ul>
+<li>图（Graph）</li>
+</ul>
+<p>Data</p>
+<ul>
+<li>顶点的有穷非空集合和边的集合。</li>
+</ul>
+<p>Operation</p>
+<ul>
+<li>CreateGraph(*G,V,VR)：按照顶点集 V 和边弧集 VR 的定义构造图 G。</li>
+<li>DestroyGraph(*G)：图 G 存在则销毁。</li>
+<li>LocateVex(G,u)：若图 G 中存在顶点 u ,则返回图中的位置。</li>
+<li>GetVex(G,v)：返回图 G 中顶点 v 的值。</li>
+<li>PutVex(G,v,value)：将图 G 中顶点 v 赋值 value。</li>
+<li>FirstAdjVex(G,*v)：返回顶点 v 的一个邻接顶点，若顶点在 G 中无邻接顶点返回空。</li>
+<li>NextAdjVex(G,v,*w)：返回顶点 v 相对于顶点 w 的下一个邻接顶点，若 w 是 v 的最后一个邻接点则返回”空“。</li>
+<li>InsertArc(*G,v,w)：在图中增添弧<v,w>，若 G 是无向图，还需要增添对称弧 <w,v>。</li>
+<li>DeleteArc(*G,v,w)：在图 G 中删除弧<v,w>，若 G 是无向图，则还删除对称弧 <w,v>。</li>
+<li>DFSTraverse(G)：对图 G 中进行深度优先遍历，在遍历过程对每个顶点调用。</li>
+<li>HFSTraverse(G)：对图 G 中进行广度优先遍历，在遍历过程对每个顶点调用。</li>
+</ul>
+<p>endADT</p>
+</blockquote>
+<h3 id="图的存储结构"><a href="#图的存储结构" class="headerlink" title="图的存储结构"></a>图的存储结构</h3><h4 id="（1）邻接矩阵"><a href="#（1）邻接矩阵" class="headerlink" title="（1）邻接矩阵"></a>（1）邻接矩阵</h4><h4 id="（2）邻接表"><a href="#（2）邻接表" class="headerlink" title="（2）邻接表"></a>（2）邻接表</h4><h4 id="（3）十字链表"><a href="#（3）十字链表" class="headerlink" title="（3）十字链表"></a>（3）十字链表</h4><h4 id="（4）邻接多重表"><a href="#（4）邻接多重表" class="headerlink" title="（4）邻接多重表"></a>（4）邻接多重表</h4><h4 id="（5）边集数组"><a href="#（5）边集数组" class="headerlink" title="（5）边集数组"></a>（5）边集数组</h4><h3 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h3>]]></content>
       <categories>
         <category>C</category>
         <category>数据结构</category>
