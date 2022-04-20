@@ -231,16 +231,16 @@
             <hr>
 <h3 id="开场"><a href="#开场" class="headerlink" title="开场"></a>开场</h3><ul>
 <li>栈是限定仅在队尾进行插入和删除操作的线性表。</li>
-<li>队列是只允许在一端进行插入操作、而在另一端进行删除操作的线性表。</li>
+<li>队列是只允许在一端进行插入操作、而在另一端进行删除操作的线性表。  </li>
 </ul>
 <h3 id="栈的抽象数据类型"><a href="#栈的抽象数据类型" class="headerlink" title="栈的抽象数据类型"></a>栈的抽象数据类型</h3><blockquote>
 <p>ADT  </p>
 <ul>
-<li>栈（stack）</li>
+<li>栈（stack）  </li>
 </ul>
 <p>Data  </p>
 <ul>
-<li>同线性表。元素具有相同的类型，相邻元素具有前驱和后继关系。</li>
+<li>同线性表。元素具有相同的类型，相邻元素具有前驱和后继关系。  </li>
 </ul>
 <p>Operation  </p>
 <ul>
@@ -250,8 +250,8 @@
 <li>StackEmpty(*S)：若栈为空，返回true，否则返回false。</li>
 <li>GetTop(S,*e)：若栈存在且空，用e返回S的栈顶元素。</li>
 <li><font color="red">Push(*S,e)</font>：若栈S存在，插入新元素e到栈中并成为栈顶元素。</li>
-<li><font color="red">Pop(*S,*e)</font>：删除栈S中栈顶元素，并用e返回其值。</li>
-<li>StackLength(S)：返回栈S的元素个数。</li>
+<li><font color="red">Pop(<em>S,</em>e)</font>：删除栈S中栈顶元素，并用e返回其值。</li>
+<li>StackLength(S)：返回栈S的元素个数。  </li>
 </ul>
 <p>endADT  </p>
 </blockquote>
@@ -263,23 +263,23 @@
 <li>空间性能<ul>
 <li>顺序栈需要事先确定一个固定的长度，可能会存在内存空间浪费的问题。但是它的优势是存取时定位很方便。</li>
 <li>链栈要求每个元素都有自己的指针域，这同样也增加了一些内存开销。但它的优势是栈的长度无限制。</li>
-<li>如果栈的使用过程中元素变化不可预料，有时很小，有时非常大，那么最好是用链栈，反之，如果它的变化在可控范围内，建议使用顺序栈。</li>
+<li>如果栈的使用过程中元素变化不可预料，有时很小，有时非常大，那么最好是用链栈，反之，如果它的变化在可控范围内，建议使用顺序栈。  </li>
 </ul>
 </li>
 <li><strong>栈与队列</strong><ul>
 <li>栈是限定仅在表尾进行插入和删除操作的线性表。栈是先进后出的线性表</li>
-<li>队列是只允许在一端进行插入操作，而在另一端进行删除操作的线性表。队列是先进先出的线性表。</li>
+<li>队列是只允许在一端进行插入操作，而在另一端进行删除操作的线性表。队列是先进先出的线性表。  </li>
 </ul>
 </li>
 </ul>
 <h3 id="队列的抽象数据类型"><a href="#队列的抽象数据类型" class="headerlink" title="队列的抽象数据类型"></a>队列的抽象数据类型</h3><blockquote>
 <p>ADT </p>
 <ul>
-<li>队列（Queue）</li>
+<li>队列（Queue）  </li>
 </ul>
 <p>Data  </p>
 <ul>
-<li>同线性表。元素具有相同的类型，相邻元素具有前驱和后继关系。</li>
+<li>同线性表。元素具有相同的类型，相邻元素具有前驱和后继关系。  </li>
 </ul>
 <p>Operation</p>
 <ul>
@@ -289,8 +289,8 @@
 <li>QueueEmpty(Q)：若队列Q为空，返回true，否则返回false。</li>
 <li>GetHead(Q,*e)：若队列Q存在且非空，用e返回队列Q的队头元素。</li>
 <li><font color="red">EnQueue(*Q,e)</font>：若队列Q存在，插入新元素e到队列Q中并成为队尾元素。</li>
-<li><font color="red">DeQueue(*Q,*e)</font>：删除队列Q中对头元素，并用e返回其值。</li>
-<li>QueueLength(Q)：返回队列Q的元素个数</li>
+<li><font color="red">DeQueue(<em>Q,</em>e)</font>：删除队列Q中对头元素，并用e返回其值。</li>
+<li>QueueLength(Q)：返回队列Q的元素个数  </li>
 </ul>
 <p>endADT  </p>
 </blockquote>
