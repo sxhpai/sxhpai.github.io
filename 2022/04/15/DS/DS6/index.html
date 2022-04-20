@@ -228,11 +228,11 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="开场"><a title="开场" class="headerlink" href="#开场"></a>开场</h3><ul>
+            <h3 id="开场"><a href="#开场" class="headerlink" title="开场"></a>开场</h3><ul>
 <li>__<font color="0#FF">查找</font>就是根据给定的某个值，在查找表中确定一个其关键字等于给定值的数据元素（或记录）__。</li>
 <li></li>
 </ul>
-<h3 id="查找概论"><a title="查找概论" class="headerlink" href="#查找概论"></a>查找概论</h3><ul>
+<h3 id="查找概论"><a href="#查找概论" class="headerlink" title="查找概论"></a>查找概论</h3><ul>
 <li><p>查找表：由同一类型的数据元素（或记录）构成的集合。</p>
 </li>
 <li><p>关键字（Key）是数据元素中某个数据项的值，用它可以标识一个数据元素。也可以标识一个记录的某个数据项，我们称为关键码。</p>
@@ -260,12 +260,12 @@
 <ul>
 <li>为了查找的效率，我们需要专门为查找操作设置数据结构，这种面向查找操作的数据结构称为<strong>查找结构</strong>。</li>
 </ul>
-<h3 id="顺序表查找"><a title="顺序表查找" class="headerlink" href="#顺序表查找"></a>顺序表查找</h3><p>顺序查找又叫线性查找，是基本的查找技术，它的查找过程是：从表中的第一个（或最后一个）记录开始，逐个进行记录的关键字和给定值比较，若某个记录的关键字和给定值相等，则查找成功，找到所查的记录；如果直到最后一个（或第一个）记录，其关键字和给定值比较都不等时，则表中没有所查的记录，查找不成功。</p>
+<h3 id="顺序表查找"><a href="#顺序表查找" class="headerlink" title="顺序表查找"></a>顺序表查找</h3><p>顺序查找又叫线性查找，是基本的查找技术，它的查找过程是：从表中的第一个（或最后一个）记录开始，逐个进行记录的关键字和给定值比较，若某个记录的关键字和给定值相等，则查找成功，找到所查的记录；如果直到最后一个（或第一个）记录，其关键字和给定值比较都不等时，则表中没有所查的记录，查找不成功。</p>
 <ol>
 <li>顺序查找算法（ O(n) ）</li>
 <li>顺序查找优化（放置哨兵，提高查找效率）（ O(n) ）</li>
 </ol>
-<h3 id="有序表查找"><a title="有序表查找" class="headerlink" href="#有序表查找"></a>有序表查找</h3><ol>
+<h3 id="有序表查找"><a href="#有序表查找" class="headerlink" title="有序表查找"></a>有序表查找</h3><ol>
 <li><p>折半查找	（O( logn )）</p>
 <ul>
 <li><p>折半查找，又称二分查找。它的前提是线性表中的记录必须是关键码有序（通常从小到大有序），线性表必须采用顺序存储。折半查找的基本思想是：在有序表中，取中间记录作为比较对象，若给定值与中间的关键字相等，则查找成功；若给定值小于中间记录的关键字，则在中间记录的左半区继续查找；若给定值大于中间记录的关键字，则在中间记录的右半区继续查找。不断重复上述过程，直到查找成功，或所有查找区域无记录，查找失败为止。</p>
@@ -273,7 +273,7 @@
 <li><p>折半查找，不适合需要频繁执行插入或删除操作的数据集。因为维护有序的排序会带来不小的工作量。</p>
 </li>
 </ul>
-
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二分查找</span></span><br><span class="line"><span class="comment">//a为数组，n为n要查找的数组有效长度（从a[1]开始到a[n]结束的长度），key为要查询的关键字</span></span><br><span class="line"><span class="comment">/******************* 时间复杂度: O(logn)****************/</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Binary_Search</span><span class="params">(<span class="type">int</span> *a, <span class="type">int</span> n, <span class="type">int</span> key)</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> low,high,mid;</span><br><span class="line">    low = <span class="number">1</span>;            <span class="comment">//定义最低下标为记录首位</span></span><br><span class="line">    high = n;           <span class="comment">//定义最高下标为记录末位</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(low &lt;= high) &#123;</span><br><span class="line">        mid = (low + high)/<span class="number">2</span>;   <span class="comment">//二分</span></span><br><span class="line">        <span class="keyword">if</span> (key &lt; a[mid]) &#123;     <span class="comment">//若查找值比中值小</span></span><br><span class="line">            high = mid - <span class="number">1</span>;     <span class="comment">//最高下标调整到中位下标小一位</span></span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (key &gt; a[mid]) &#123;  <span class="comment">//若查找值比中值大</span></span><br><span class="line">            low = mid + <span class="number">1</span>;      <span class="comment">//最低下标调整到中位下标大一位</span></span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;         <span class="comment">//若相等则说明 mid 即为查找到的位置</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 </li>
@@ -281,7 +281,7 @@
 <ul>
 <li>**插值公式${key - a[low]}\over{a[high] - a[low]}$**，二分查找的优化。</li>
 </ul>
-
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//插值查找，二分查找的优化</span></span><br><span class="line"><span class="comment">//a为数组，n为n要查找的数组有效长度（从a[1]开始到a[n]结束的长度），key为要查询的关键字</span></span><br><span class="line"><span class="comment">/******************* 时间复杂度: O(logn)****************/</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Interpolation_Search</span><span class="params">(<span class="type">int</span> *a, <span class="type">int</span> n, <span class="type">int</span> key)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> low, high, mid;</span><br><span class="line">    low = <span class="number">1</span>;</span><br><span class="line">    high = n;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>( low &lt;= high ) &#123;</span><br><span class="line">        <span class="comment">// mid = (low + high)/2;</span></span><br><span class="line">        mid = low + (high - low)*(key - a[low])/(a[high] - a[low]);<span class="comment">/**** 插值公式****/</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(key &lt; a[mid]) &#123;</span><br><span class="line">            high = mid - <span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (key &gt; a[mid]) &#123;</span><br><span class="line">            low = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>斐波那契查找（O(logn)）</p>
 <ul>
@@ -289,17 +289,17 @@
 </ul>
 <blockquote>
 <ol>
-<li>当 key = a[mid] 时，查找就成功；</li>
+<li>当 key &#x3D; a[mid] 时，查找就成功；</li>
 <li>当 key &lt; a[mid] 时，新范围是第 low 个到第 mid-1 个，此时范围个数为 F[k-1]-1 个；</li>
 <li>当 key &gt; a[mid] 时，新范围是第 mid+1 个到第 high 个，此时范围个数为 F[k-2]-1 个。</li>
 </ol>
 </blockquote>
-
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//斐波那契查找，二分查找的优化</span></span><br><span class="line"><span class="comment">//a为数组，n为n要查找的数组有效长度（从a[1]开始到a[n]结束的长度），key为要查询的关键字</span></span><br><span class="line"><span class="comment">/******************* 时间复杂度: O(logn)****************/</span></span><br><span class="line"><span class="type">int</span> F[] = &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">13</span>,<span class="number">21</span>,<span class="number">34</span>,<span class="number">55</span>,<span class="number">89</span>&#125;;   <span class="comment">//定义一个斐波那契数列</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">Fibonacci_Search</span><span class="params">(<span class="type">int</span> *a, <span class="type">int</span> n, <span class="type">int</span> key)</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> low, high, mid, i, k;</span><br><span class="line">    low = <span class="number">1</span>;                        <span class="comment">//定义最低下标为记录首位</span></span><br><span class="line">    high = n;                       <span class="comment">//定义最高下标为记录末位</span></span><br><span class="line">    k = <span class="number">0</span>;                  </span><br><span class="line">    <span class="keyword">while</span> (n &gt; F[k] - <span class="number">1</span>) &#123;          <span class="comment">//计算 n 位于斐波那契数列的位置</span></span><br><span class="line">        k++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> ( i = n; i &lt; F[k] - <span class="number">1</span>; i++) &#123;   <span class="comment">//将不满的数值补全</span></span><br><span class="line">        a[i] = a[n];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//查询</span></span><br><span class="line">    <span class="keyword">while</span>(low &lt;= high) &#123;</span><br><span class="line">        mid = low + F[k - <span class="number">1</span>] - <span class="number">1</span>;       <span class="comment">//计算当前分隔的下标</span></span><br><span class="line">        <span class="keyword">if</span> (key &lt; a[mid]) &#123;</span><br><span class="line">            high = mid - <span class="number">1</span>;     <span class="comment">//最高下标调整到分隔下标 mid-1 处</span></span><br><span class="line">            k = k - <span class="number">1</span>;          <span class="comment">//斐波那契数列下标减一位</span></span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (key &gt; a[mid]) &#123;</span><br><span class="line">            low = mid + <span class="number">1</span>;      <span class="comment">//最低位下标调整到分隔下 mid=1 处</span></span><br><span class="line">            k = k - <span class="number">2</span>;          <span class="comment">//斐波那契数列下标减两位</span></span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (mid &lt;= n) &#123;</span><br><span class="line">                <span class="keyword">return</span> mid;     <span class="comment">//若相等则说明 mid 即为查找到的位置</span></span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> n;       <span class="comment">//若 mid&gt;n 说明是补全数值，返回 n</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>三种有序表查找本质上是分隔点的选择不同，各有优劣。</p>
 </li>
 </ol>
-<h3 id="线性索引查找"><a title="线性索引查找" class="headerlink" href="#线性索引查找"></a>线性索引查找</h3><ul>
+<h3 id="线性索引查找"><a href="#线性索引查找" class="headerlink" title="线性索引查找"></a>线性索引查找</h3><ul>
 <li><p>数据结构的最终目的是提高数据的处理速度，索引是为了加快查找速度而设计的一种数据结构。索引就是把一个关键字与它对应的记录相关联的过程。</p>
 </li>
 <li><p>索引按照结构可以分为线性索引、树状索引和多级索引。这里只有线性索引。</p>
@@ -314,7 +314,7 @@
 <li>倒排索引：搜索引擎的基础。</li>
 </ol>
 </blockquote>
-<h3 id="二叉排序树"><a title="二叉排序树" class="headerlink" href="#二叉排序树"></a>二叉排序树</h3><ul>
+<h3 id="二叉排序树"><a href="#二叉排序树" class="headerlink" title="二叉排序树"></a>二叉排序树</h3><ul>
 <li>二叉排序树，又称为二叉查找树。他或者是一棵空树，或者是具有下列性质的二叉树。<ul>
 <li>若它的左子树不空，则左子树上所有结点的值均小于它的根结构的值；</li>
 <li>若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值；</li>
@@ -323,7 +323,7 @@
 </li>
 <li>构造一棵二叉排序树的目的，并不是为了排序，而是为了提高查找和插入删除关键字的速度。</li>
 </ul>
-<h3 id="平衡二叉树"><a title="平衡二叉树" class="headerlink" href="#平衡二叉树"></a>平衡二叉树</h3><ul>
+<h3 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h3><ul>
 <li>平衡二叉树，是一种二叉排序树，其中每一个节点的左子树和右子树的高度差至多等于1。</li>
 <li>我们将二叉树上结点的左子树深度减去右子树深度的值称为平衡因子 BF ，那么平衡二叉树上所有结点的平衡因子只可能是 -1，0，1。只要二叉树上有一个结点的平衡因子的绝对值大于1，则该二叉树就是不平衡的。</li>
 <li>距离插入结点最近的，且平衡因子的绝对值大于 1 的结点为根的子树，我们称为最小不平衡树。</li>
@@ -336,7 +336,7 @@
 </li>
 </ul>
 </blockquote>
-<h3 id="多路查找树（B树）"><a title="多路查找树（B树）" class="headerlink" href="#多路查找树（B树）"></a>多路查找树（B树）</h3><h3 id="散列查找（哈希表）概述"><a title="散列查找（哈希表）概述" class="headerlink" href="#散列查找（哈希表）概述"></a>散列查找（哈希表）概述</h3><h3 id="散列函数的构造方法"><a title="散列函数的构造方法" class="headerlink" href="#散列函数的构造方法"></a>散列函数的构造方法</h3><h3 id="处理散列冲突的方法"><a title="处理散列冲突的方法" class="headerlink" href="#处理散列冲突的方法"></a>处理散列冲突的方法</h3><h3 id="散列表查找实现"><a title="散列表查找实现" class="headerlink" href="#散列表查找实现"></a>散列表查找实现</h3>
+<h3 id="多路查找树（B树）"><a href="#多路查找树（B树）" class="headerlink" title="多路查找树（B树）"></a>多路查找树（B树）</h3><h3 id="散列查找（哈希表）概述"><a href="#散列查找（哈希表）概述" class="headerlink" title="散列查找（哈希表）概述"></a>散列查找（哈希表）概述</h3><h3 id="散列函数的构造方法"><a href="#散列函数的构造方法" class="headerlink" title="散列函数的构造方法"></a>散列函数的构造方法</h3><h3 id="处理散列冲突的方法"><a href="#处理散列冲突的方法" class="headerlink" title="处理散列冲突的方法"></a>处理散列冲突的方法</h3><h3 id="散列表查找实现"><a href="#散列表查找实现" class="headerlink" title="散列表查找实现"></a>散列表查找实现</h3>
         </div>
 
         
