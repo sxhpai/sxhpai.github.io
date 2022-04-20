@@ -204,9 +204,9 @@
         <div class="article-content markdown-body">
             <h1 id="My-Test-Blog"><a title="My Test Blog" class="headerlink" href="#My-Test-Blog"></a>My Test Blog</h1>
 
-<p><img alt="alt" src="/.com//upyun.png"></p>
+<p><img alt="alt" src="/.com//04/20/test/upyun.png"></p>
 <p><img src="/images/a.jpg"></p>
-<p><img alt="a" src="/.com//a.jpg"></p>
+<p><img alt="a" src="/.com//04/20/test/a.jpg"></p>
 
         </div>
 
@@ -448,5 +448,20 @@
 
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>
