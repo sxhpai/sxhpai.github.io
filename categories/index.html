@@ -14,9 +14,9 @@
         Sxhpai
     </title>
     
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="../css/style.css">
 
-    <link rel="shortcut icon" href="/images/favicon.png">
+    <link rel="shortcut icon" href="../images/favicon.png">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
@@ -60,7 +60,7 @@
                     
                         <li class="menu-item">
                             <a class=""
-                               href="/"
+                               href="../index.html"
                             >
                                 首页
                             </a>
@@ -68,7 +68,7 @@
                     
                         <li class="menu-item">
                             <a class=""
-                               href="/archives"
+                               href="../archives"
                             >
                                 归档
                             </a>
@@ -76,7 +76,7 @@
                     
                         <li class="menu-item">
                             <a class="active"
-                               href="/categories"
+                               href="../categories"
                             >
                                 分类
                             </a>
@@ -84,7 +84,7 @@
                     
                         <li class="menu-item">
                             <a class=""
-                               href="/tags"
+                               href="../tags"
                             >
                                 标签
                             </a>
@@ -92,7 +92,7 @@
                     
                         <li class="menu-item">
                             <a class=""
-                               href="/about"
+                               href="../about"
                             >
                                 关于
                             </a>
@@ -121,27 +121,27 @@
             
                 <li class="drawer-menu-item flex-center">
                     <a class=""
-                       href="/">首页</a>
+                       href="../index.html">首页</a>
                 </li>
             
                 <li class="drawer-menu-item flex-center">
                     <a class=""
-                       href="/archives">归档</a>
+                       href="../archives">归档</a>
                 </li>
             
                 <li class="drawer-menu-item flex-center">
                     <a class="active"
-                       href="/categories">分类</a>
+                       href="../categories">分类</a>
                 </li>
             
                 <li class="drawer-menu-item flex-center">
                     <a class=""
-                       href="/tags">标签</a>
+                       href="../tags">标签</a>
                 </li>
             
                 <li class="drawer-menu-item flex-center">
                     <a class=""
-                       href="/about">关于</a>
+                       href="../about">关于</a>
                 </li>
             
         </ul>
@@ -162,7 +162,7 @@
                     <div class="fade-in-down-animation">
     <div class="category-list-container">
         <div class="category-list-content">
-            <ul class="all-category-list"><li class="all-category-list-item"><a class="all-category-list-link" href="/categories/C/">C</a><span class="all-category-list-count">10</span><ul class="all-category-list-child"><li class="all-category-list-item"><a class="all-category-list-link" href="/categories/C/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a><span class="all-category-list-count">7</span></li></ul></li><li class="all-category-list-item"><a class="all-category-list-link" href="/categories/C-C/">C/C++</a><span class="all-category-list-count">1</span></li></ul>
+            <ul class="all-category-list"><li class="all-category-list-item"><a class="all-category-list-link" href="C/">C</a><span class="all-category-list-count">10</span><ul class="all-category-list-child"><li class="all-category-list-item"><a class="all-category-list-link" href="C/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a><span class="all-category-list-count">7</span></li></ul></li><li class="all-category-list-item"><a class="all-category-list-link" href="C-C/">C/C++</a><span class="all-category-list-count">1</span></li></ul>
         </div>
         <div class="category-comments">
             
@@ -319,5 +319,20 @@
 
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>

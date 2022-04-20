@@ -14,9 +14,9 @@
         Sxhpai
     </title>
     
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="../css/style.css">
 
-    <link rel="shortcut icon" href="/images/favicon.png">
+    <link rel="shortcut icon" href="../../../../../images/favicon.png">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
@@ -60,7 +60,7 @@
                     
                         <li class="menu-item">
                             <a class=""
-                               href="/"
+                               href="../../../../../index.html"
                             >
                                 首页
                             </a>
@@ -68,7 +68,7 @@
                     
                         <li class="menu-item">
                             <a class=""
-                               href="/archives"
+                               href="../../../../../archives"
                             >
                                 归档
                             </a>
@@ -76,7 +76,7 @@
                     
                         <li class="menu-item">
                             <a class=""
-                               href="/categories"
+                               href="../../../../../categories"
                             >
                                 分类
                             </a>
@@ -84,7 +84,7 @@
                     
                         <li class="menu-item">
                             <a class=""
-                               href="/tags"
+                               href="../../../../../tags"
                             >
                                 标签
                             </a>
@@ -92,7 +92,7 @@
                     
                         <li class="menu-item">
                             <a class=""
-                               href="/about"
+                               href="../../../../../about"
                             >
                                 关于
                             </a>
@@ -121,27 +121,27 @@
             
                 <li class="drawer-menu-item flex-center">
                     <a class=""
-                       href="/">首页</a>
+                       href="../../../../../index.html">首页</a>
                 </li>
             
                 <li class="drawer-menu-item flex-center">
                     <a class=""
-                       href="/archives">归档</a>
+                       href="../../../../../archives">归档</a>
                 </li>
             
                 <li class="drawer-menu-item flex-center">
                     <a class=""
-                       href="/categories">分类</a>
+                       href="../../../../../categories">分类</a>
                 </li>
             
                 <li class="drawer-menu-item flex-center">
                     <a class=""
-                       href="/tags">标签</a>
+                       href="../../../../../tags">标签</a>
                 </li>
             
                 <li class="drawer-menu-item flex-center">
                     <a class=""
-                       href="/about">关于</a>
+                       href="../../../../../about">关于</a>
                 </li>
             
         </ul>
@@ -169,7 +169,7 @@
         
             <div class="article-header">
                 <div class="avatar">
-                    <img src="/images/favicon.png">
+                    <img src="../../../../../images/favicon.png">
                 </div>
                 <div class="info">
                     <div class="author">
@@ -189,11 +189,11 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/C/">C</a>&nbsp;
+                        <a href="../../../../../categories/C/">C</a>&nbsp;
                     </li>
                 
                     <li>
-                        &gt; <a href="/categories/C/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>&nbsp;
+                        &gt; <a href="../../../../../categories/C/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>&nbsp;
                     </li>
                 
             </ul>
@@ -205,7 +205,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/DS%E7%AC%94%E8%AE%B0/">DS笔记</a>&nbsp;
+                        <a href="../../../../../tags/DS%E7%AC%94%E8%AE%B0/">DS笔记</a>&nbsp;
                     </li>
                 
             </ul>
@@ -229,7 +229,7 @@
 
         <div class="article-content markdown-body">
             <h3 id="开场"><a href="#开场" class="headerlink" title="开场"></a>开场</h3><ul>
-<li><strong><font color="0#FF">查找</font>就是根据给定的某个值，在查找表中确定一个其关键字等于给定值的数据元素（或记录）</strong>。</li>
+<li>__<font color="0#FF">查找</font>就是根据给定的某个值，在查找表中确定一个其关键字等于给定值的数据元素（或记录）__。</li>
 <li></li>
 </ul>
 <h3 id="查找概论"><a href="#查找概论" class="headerlink" title="查找概论"></a>查找概论</h3><ul>
@@ -237,7 +237,7 @@
 </li>
 <li><p>关键字（Key）是数据元素中某个数据项的值，用它可以标识一个数据元素。也可以标识一个记录的某个数据项，我们称为关键码。</p>
 </li>
-<li><p>若此关键字可以唯一地标识一个记录，则称关键字为<strong><em>主关键字</em></strong>。</p>
+<li><p>若此关键字可以唯一地标识一个记录，则称关键字为__<em>主关键字</em>__。</p>
 </li>
 <li><p>对于那些可以识别多个数据元素（或记录）的关键字，我们称为次关键字。</p>
 </li>
@@ -266,7 +266,7 @@
 <li>顺序查找优化（放置哨兵，提高查找效率）（ O(n) ）</li>
 </ol>
 <h3 id="有序表查找"><a href="#有序表查找" class="headerlink" title="有序表查找"></a>有序表查找</h3><ol>
-<li><p>折半查找    （O( logn )）</p>
+<li><p>折半查找	（O( logn )）</p>
 <ul>
 <li><p>折半查找，又称二分查找。它的前提是线性表中的记录必须是关键码有序（通常从小到大有序），线性表必须采用顺序存储。折半查找的基本思想是：在有序表中，取中间记录作为比较对象，若给定值与中间的关键字相等，则查找成功；若给定值小于中间记录的关键字，则在中间记录的左半区继续查找；若给定值大于中间记录的关键字，则在中间记录的右半区继续查找。不断重复上述过程，直到查找成功，或所有查找区域无记录，查找失败为止。</p>
 </li>
@@ -274,12 +274,12 @@
 </li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二分查找</span></span><br><span class="line"><span class="comment">//a为数组，n为n要查找的数组有效长度（从a[1]开始到a[n]结束的长度），key为要查询的关键字</span></span><br><span class="line"><span class="comment">/******************* 时间复杂度: O(logn)****************/</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Binary_Search</span><span class="params">(<span class="type">int</span> *a, <span class="type">int</span> n, <span class="type">int</span> key)</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> low,high,mid;</span><br><span class="line">    low = <span class="number">1</span>;            <span class="comment">//定义最低下标为记录首位</span></span><br><span class="line">    high = n;           <span class="comment">//定义最高下标为记录末位</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(low &lt;= high) &#123;</span><br><span class="line">        mid = (low + high)/<span class="number">2</span>;   <span class="comment">//二分</span></span><br><span class="line">        <span class="keyword">if</span> (key &lt; a[mid]) &#123;     <span class="comment">//若查找值比中值小</span></span><br><span class="line">            high = mid - <span class="number">1</span>;     <span class="comment">//最高下标调整到中位下标小一位</span></span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (key &gt; a[mid]) &#123;  <span class="comment">//若查找值比中值大</span></span><br><span class="line">            low = mid + <span class="number">1</span>;      <span class="comment">//最低下标调整到中位下标大一位</span></span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;         <span class="comment">//若相等则说明 mid 即为查找到的位置</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 </li>
-</ol>
-<ol>
 <li><p>插值查找（O( logn )）</p>
 <ul>
-<li><strong>插值公式${key - a[low]}\over{a[high] - a[low]}$</strong>，二分查找的优化。</li>
+<li>**插值公式${key - a[low]}\over{a[high] - a[low]}$**，二分查找的优化。</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//插值查找，二分查找的优化</span></span><br><span class="line"><span class="comment">//a为数组，n为n要查找的数组有效长度（从a[1]开始到a[n]结束的长度），key为要查询的关键字</span></span><br><span class="line"><span class="comment">/******************* 时间复杂度: O(logn)****************/</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Interpolation_Search</span><span class="params">(<span class="type">int</span> *a, <span class="type">int</span> n, <span class="type">int</span> key)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> low, high, mid;</span><br><span class="line">    low = <span class="number">1</span>;</span><br><span class="line">    high = n;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>( low &lt;= high ) &#123;</span><br><span class="line">        <span class="comment">// mid = (low + high)/2;</span></span><br><span class="line">        mid = low + (high - low)*(key - a[low])/(a[high] - a[low]);<span class="comment">/**** 插值公式****/</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(key &lt; a[mid]) &#123;</span><br><span class="line">            high = mid - <span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (key &gt; a[mid]) &#123;</span><br><span class="line">            low = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -289,7 +289,7 @@
 </ul>
 <blockquote>
 <ol>
-<li>当 key = a[mid] 时，查找就成功；</li>
+<li>当 key &#x3D; a[mid] 时，查找就成功；</li>
 <li>当 key &lt; a[mid] 时，新范围是第 low 个到第 mid-1 个，此时范围个数为 F[k-1]-1 个；</li>
 <li>当 key &gt; a[mid] 时，新范围是第 mid+1 个到第 high 个，此时范围个数为 F[k-2]-1 个。</li>
 </ol>
@@ -304,7 +304,8 @@
 </li>
 <li><p>索引按照结构可以分为线性索引、树状索引和多级索引。这里只有线性索引。</p>
 </li>
-<li>线性索引介绍三种：稠密索引、分块索引、倒排索引。</li>
+<li><p>线性索引介绍三种：稠密索引、分块索引、倒排索引。</p>
+</li>
 </ul>
 <blockquote>
 <ol>
@@ -361,7 +362,7 @@
             <ul class="post-tags-box">
                 
                     <li class="tag-item">
-                        <a href="/tags/DS%E7%AC%94%E8%AE%B0/">#DS笔记</a>&nbsp;
+                        <a href="../../../../../tags/DS%E7%AC%94%E8%AE%B0/">#DS笔记</a>&nbsp;
                     </li>
                 
             </ul>
@@ -373,7 +374,7 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/04/20/test/"
+                           href="../../../20/test/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
@@ -389,7 +390,7 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/04/09/DS/DS5/"
+                           href="../../../09/DS/DS5/"
                         >
                             <span class="title flex-center">
                                 <span class="post-nav-title-item">数据结构——图</span>
@@ -584,5 +585,20 @@
 
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>
