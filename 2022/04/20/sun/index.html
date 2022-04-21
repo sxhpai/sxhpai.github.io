@@ -177,24 +177,65 @@
                         
                     </div>
                     <div class="meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-04-20 21:01:12</span>
-        <span class="mobile">2022-04-20 21:01</span>
-    </span>
-    
-    
+                        .article-meta-info {
+  font-size: 0.8rem;
+  color: var(--third-text-color);
 
-    
-    
-    
-    
-        <span class="article-pv article-meta-item">
-            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
-        </span>
-    
-</div>
+  .article-meta-item {
+    margin-right: 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .article-date {
+
+    .mobile {
+      display: none;
+    }
+
+    +keep-tablet() {
+      .pc {
+        display: none;
+      }
+
+      .mobile {
+        display: inline;
+      }
+    }
+
+  }
+
+
+  .article-tags, .article-categories {
+    display: inline;
+
+    ul, li {
+      display: inline;
+    }
+
+    a {
+      color: var(--third-text-color);
+
+      &:hover {
+        color: var(--primary-color);
+      }
+    }
+  }
+
+  .article-tags {
+    +keep-tablet() {
+      display: none;
+    }
+  }
+
+  .article-min2read, .article-wordcount {
+    +keep-mobile() {
+      display: none;
+    }
+  }
+}
 
                     </div>
                 </div>
@@ -205,16 +246,15 @@
             <ul>
 <li>孙兴慧</li>
 </ul>
-<p><img src="/.com//04/20/sun/s.jpg" alt="sun"></p>
+<p><img src="/2022/04/20/sun/s.jpg" alt="sun"></p>
 <p><img src="/images/s.jpg" alt="image"></p>
-<img src="/.com//04/20/sun/s.jpg" class title="This is an example image">
-
+<img src="/2022/04/20/sun/04/20/sun/s.jpg" class title="This is an example image">
 <ul>
-<li><img src="/.com//s.jpg"></li>
-<li><img src="/.com//s.jpg"></li>
-<li><img src="/.com//s.jpg"></li>
+<li><img src="/2022/04/20/sun/s.jpg"></li>
+<li><img src="/2022/04/20/sun/s.jpg"></li>
+<li><img src="/2022/04/20/sun/s.jpg"></li>
 </ul>
-<p><img src="/.com//s.jpg" alt="sun"></p>
+<p><img src="/2022/04/20/sun/s.jpg" alt="sun"></p>
 
         </div>
 
