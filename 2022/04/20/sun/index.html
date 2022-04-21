@@ -205,17 +205,17 @@
             <ul>
 <li>孙兴慧</li>
 </ul>
-<p><img src="/.com//04/20/sun/04/20/sun/s.jpg" alt="sun"></p>
-<ul>
-<li><img src="/.com//04/20/sun/s.jpg"></li>
-<li><img src="/.com//04/20/sun/s.jpg"></li>
-<li><img src="/.com//04/20/sun/s.jpg"></li>
-</ul>
-<img src="/.com//04/20/sun/04/20/sun/s.jpg" class title="This is an example image">
-
-
-
 <p><img src="/.com//04/20/sun/s.jpg" alt="sun"></p>
+<ul>
+<li><img src="/.com//s.jpg"></li>
+<li><img src="/.com//s.jpg"></li>
+<li><img src="/.com//s.jpg"></li>
+</ul>
+<img src="/.com//04/20/sun/s.jpg" class title="This is an example image">
+
+
+
+<p><img src="/.com//s.jpg" alt="sun"></p>
 
         </div>
 
@@ -442,5 +442,20 @@
 
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>
