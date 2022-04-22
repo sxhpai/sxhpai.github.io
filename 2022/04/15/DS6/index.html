@@ -391,14 +391,14 @@
 </ul>
 </blockquote>
 </li>
-<li><p>可以说，<font color="#00FFFF">__B 树__的数据结构就是为 内外存的数据交互准备的。</font></p>
+<li><p>可以说，<font color="#00FFFF">__B 树__的数据结构就是为 内外存 的数据交互准备的。</font></p>
 </li>
 <li><p>再含有$n$个关键字的 B 树上查找时，从根结点到关键字结点的路径上涉及的结点数不超过<font color="#00FFFF">$log_{\frac{⌈m⌉}{2}} \left( \frac{n+1}{2}\right)+1$</font>。</p>
 </li>
 </ul>
 <h4 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h4><p><img src="/2022/04/15/DS6/BplusTree.png" alt="B+树"></p>
 <ul>
-<li><p>B+树是<font color="#00FFFF"><strong>应文件系统所需</strong></font>而出的一种B树的变形树，注意严格意义上讲，它其实已经不是第六章定义的树了。</p>
+<li><p>B+树是<font color="#00FFFF">应文件系统所需</font>而出的一种B树的变形树，注意严格意义上讲，它其实已经不是第六章定义的树了。</p>
 </li>
 <li><p>在B树中，出现在分支结点中的元素会被当做它们在该分支结点位置的中序后继者（叶子结点）中再次列出。另外，每一个叶子结点都会保存一个指向后一叶子结点的指针。</p>
 <blockquote>
@@ -415,7 +415,135 @@
 <li><p>B+ 树的插入、删除过程也都有与 B 树类似，只不过插入和删除的元素都是在叶子结点上进行而已。</p>
 </li>
 </ul>
-<h3 id="散列查找（哈希表）概述"><a href="#散列查找（哈希表）概述" class="headerlink" title="散列查找（哈希表）概述"></a>散列查找（哈希表）概述</h3><h3 id="散列函数的构造方法"><a href="#散列函数的构造方法" class="headerlink" title="散列函数的构造方法"></a>散列函数的构造方法</h3><h3 id="处理散列冲突的方法"><a href="#处理散列冲突的方法" class="headerlink" title="处理散列冲突的方法"></a>处理散列冲突的方法</h3><h3 id="散列表查找实现"><a href="#散列表查找实现" class="headerlink" title="散列表查找实现"></a>散列表查找实现</h3>
+<h3 id="散列查找（哈希表）概述"><a href="#散列查找（哈希表）概述" class="headerlink" title="散列查找（哈希表）概述"></a>散列查找（哈希表）概述</h3><blockquote>
+<center>
+    <b>
+        存储位置 = f(关键字)
+    </b>
+</center>
+
+<p>散列技术是在记录的存储位置和它的关键字之间建立一个确定的对应关系 f ，使得每个关键字 key 对应一个存储位置 f (key)。</p>
+<ul>
+<li>查找时根据这个确定的对应关系找到给定值 key 的映射 f(key)，若查找集合中存在这个记录，则必定在 f(key)的位置上。</li>
+<li>我们把这种对应关系 f 称为散列函数，又称为哈希（Hash）函数。按照这种思想，采用散列技术将记录存储在一块连续的存储空间中，这块连续存储空间称为散列表或哈希表（Hash Table）。关键字对应的记录存储位置我们称为散列地址。</li>
+<li>散列技术既是一种存储方法，也是一种查找方法。</li>
+<li><font color="#00FFFF">散列主要是面向查找的存储结构</font></li>
+<li>__散列技术最合适的求解问题是查找与给定值相等的记录__。</li>
+<li>理想情况下，每一个关键字，通过散列函数计算出来的地址都是不一样的，可现实中，这只是一个理想。我们经常碰到，两个关键字 key<sub>1</sub>≠key<sub>2</sub>，但是却有 f(key<sub>1</sub>) &#x3D; f(key<sub>2</sub>)，这种现象我们称为冲突，并把 key<sub>1</sub>和key<sub>2</sub>称为这个散列函数的同义词。</li>
+</ul>
+</blockquote>
+<h3 id="散列函数的构造方法"><a href="#散列函数的构造方法" class="headerlink" title="散列函数的构造方法"></a>散列函数的构造方法</h3><ul>
+<li><p>散列函数设计的两个原则：</p>
+<ol>
+<li>计算简单，散列函数的计算时间不应该超过其他查找技术与关键字比较的时间。</li>
+<li>散列地址分布均匀，冲突带来的问题，最好的办法就是尽量让散列地址均匀地分布在存储空间中，这样可以保证存储空间的有效利用，并减少为处理冲突而耗费的时间。</li>
+</ol>
+</li>
+<li><p>“间谍们”设计的散列函数（这些方法都是将原来数字按某种规律变成另一个数字而已。）</p>
+<ol>
+<li><p>直接定址法</p>
+<blockquote>
+<center>f(key) = a × key + b （a、b为常数）</center>
+
+<p>取关键字的某个线性函数值为散列地址。</p>
+</blockquote>
+<p>优点：简单、均匀，也不会产生冲突，但问题是这__<em>需要知道关键字的分布情况</em>__，适合查找表较小且连续的情况。并不常用。</p>
+</li>
+<li><p>数字分析法</p>
+<p>抽取的方法是使用关键字的一部分来计算散列存储位置的方法，这在散列函数中是常常用到的手段。</p>
+<p>数字分析法通常适合处理关键字位数比较大的情况，如果__<em>事先知道关键字的分布且关键字的若干位分布较均匀</em>__，就可以考虑用这个方法。</p>
+</li>
+<li><p>平方取中法</p>
+<p>平方取中法比较适合于__<em>不知道关键字的分布</em>__，而位数又不是很大的情况。</p>
+</li>
+<li><p>折叠法</p>
+<p>折叠法__<em>事先不需要知道关键字的分布</em>__，适合关键字位数较多的情况。</p>
+</li>
+<li><p>除留余数法</p>
+<blockquote>
+<center>f(key) = key mod p ( p ≤ m )</center>
+
+<p>mod 取模（求余数）的意思。</p>
+</blockquote>
+<p>根据前辈的经验，若散列表表长为 m，通常 p 为小于或等于表长（最好接近 m ）的最小质数或不包含小于 20 质因子的合数。</p>
+</li>
+<li><p>随机数法</p>
+<blockquote>
+<center> f(key) = random(key)</center>
+</blockquote>
+<p>选择一个随机数，取关键字的随机函数值为它的散列地址。当__<em>关键字长度不等时</em>__，采用这个方法构造散列函数是比较合适的。</p>
+</li>
+<li><p>散列函数选取时，应当考虑的一些因素</p>
+<ul>
+<li>计算散列地址所需的时间</li>
+<li>关键字的长度</li>
+<li>散列表的大小</li>
+<li>关键字的分布情况</li>
+<li>记录查找的频率</li>
+</ul>
+<p>综合这些因素，才能决策选择哪种散列函数最合适。</p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="处理散列冲突的方法"><a href="#处理散列冲突的方法" class="headerlink" title="处理散列冲突的方法"></a>处理散列冲突的方法</h3><ol>
+<li><p>开放定址法</p>
+<ul>
+<li><p>所谓开放地址法，就是一旦发生了冲突，就去寻找下一空的散列地址，只要散列表足够大，空的散列地址总能找到，并将记录存入。</p>
+<pre><code>  &gt; &lt;center&gt;f&lt;sub&gt;i&lt;/sub&gt; (key) = ( f (key) + d&lt;sub&gt;i&lt;/sub&gt;) MOD m &amp;nbsp;&amp;nbsp; (d&lt;sub&gt;i&lt;/sub&gt; = 1,2,3,……,m-1) &lt;/center&gt;
+  &gt;
+  &gt; 这种解决冲突的开放定址法称为线性探测法。
+  
+  &gt; &lt;center&gt; f&lt;sub&gt;i&lt;/sub&gt; ( key ) = ( f ( key ) + d&lt;sub&gt;i&lt;/sub&gt; ) MOD m &amp;nbsp; (d&lt;sub&gt;i&lt;/sub&gt; = 1&lt;sup&gt;2&lt;/sup&gt;,-1&lt;sup&gt;2&lt;/sup&gt;,2&lt;sup&gt;2&lt;/sup&gt;,-2&lt;sup&gt;2&lt;/sup&gt;,3&lt;sup&gt;2&lt;/sup&gt;,-3&lt;sup&gt;2&lt;/sup&gt;,……,q&lt;sup&gt;2&lt;/sup&gt;,-q&lt;sup&gt;2&lt;/sup&gt;,(m-1)&lt;sup&gt;2&lt;/sup&gt; )&lt;/center&gt;
+  &gt;
+  &gt; 这种方法我们称为二次探测法。
+  
+  &gt; 还有一种方法，对于位移量$d_i$采用随机函数计算得到，我们称之为随机探测法。
+</code></pre>
+</li>
+<li><p>总之，开放地址法只要再散列表未填满时，总是能找到不发生冲突的地址，是我们常用的解决冲突的办法。</p>
+</li>
+</ul>
+</li>
+<li><p>再散列函数法</p>
+<ul>
+<li><p>准备多个散列函数，一个发生冲突就换一个，相信总有一个可以把冲突解决掉。</p>
+</li>
+<li><p>这种方法能够使得关键字不产生聚集，当然，相应地也增加了计算的时间。</p>
+</li>
+</ul>
+</li>
+<li><p>链地址法</p>
+<ul>
+<li><p>将所有关键字为同义词的记录存储再一个单链表中，我们称这种表为同义词子表，在散列表中只存储所有同义词子表的头指针。</p>
+</li>
+<li><p>链地址法对于可能造成很多冲突的散列函数来说，提供了绝不会出现找不到地址的保障。当然，这也就带来了查找时需要遍历单链表的性能损耗。</p>
+</li>
+</ul>
+</li>
+<li><p>公共溢出区法</p>
+<ul>
+<li>我们为所有冲突的关键字建立了一个公共的溢出区来存放。</li>
+<li>在查找时，对给定值通过散列函数计算出散列地址后，先与基本表的相应位置进行比对，如果相等，则查找成功；如果不相等，则到溢出表去进行顺序查找。</li>
+<li>如果相对于基本表而言，有冲突的数据很少的情况下，公共溢出区的结构对查找性能来说还是非常高的。</li>
+</ul>
+</li>
+</ol>
+<h3 id="散列表查找实现"><a href="#散列表查找实现" class="headerlink" title="散列表查找实现"></a>散列表查找实现</h3><h4 id="散列表查找算法的实现"><a href="#散列表查找算法的实现" class="headerlink" title="散列表查找算法的实现"></a>散列表查找算法的实现</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> SUCCESS 1</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> UNSUCCESS 0</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> HASHSIZE 12      <span class="comment">//定义散列表长为数组的长度</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> NULLKEY -32768</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> OK 1</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ERROR 0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">int</span> Status;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    <span class="type">int</span> *elem;      <span class="comment">//数据元素存储基址，动态分配数组</span></span><br><span class="line">    <span class="type">int</span> count;      <span class="comment">//当前数据元素个数</span></span><br><span class="line">&#125;HashTable;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> m = <span class="number">0</span>;      <span class="comment">//散列表表长，全局变量</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 初始化散列表 */</span></span><br><span class="line">Status <span class="title function_">InitHashTable</span><span class="params">( HashTable *H)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    m = HASHSIZE;</span><br><span class="line">    H-&gt;count = m;</span><br><span class="line">    H-&gt;elem = ( <span class="type">int</span> * )<span class="built_in">malloc</span>( m * <span class="keyword">sizeof</span>( <span class="type">int</span> ) ); <span class="comment">//申请 m 个int 那么大的存储空间</span></span><br><span class="line">    <span class="keyword">for</span>( i = <span class="number">0</span>; i &lt; m; i++ ) &#123;</span><br><span class="line">        H-&gt;elem[i] = NULLKEY;       <span class="comment">//将所有的元素初始化为NULLKEY</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 散列函数 */</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Hash</span><span class="params">(<span class="type">int</span> key)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> key % m; <span class="comment">//除留余数法</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 插入关键字进散列表 */</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">InsertHash</span><span class="params">( HashTable *H, <span class="type">int</span> key)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> addr = Hash(key);</span><br><span class="line">    <span class="keyword">while</span>( H-&gt;elem[addr] != NULLKEY) &#123;   <span class="comment">// 如果不为空，则冲突</span></span><br><span class="line">        addr = (addr + <span class="number">1</span>) % m;          <span class="comment">// 开放定址法的线性探测</span></span><br><span class="line">    &#125;    </span><br><span class="line">    H-&gt;elem[addr] = key;                <span class="comment">// 直到有空位后插入关键字</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 散列表查找关键字 */</span></span><br><span class="line">Status <span class="title function_">SearchHash</span><span class="params">( HashTable H, <span class="type">int</span> key, <span class="type">int</span> *addr)</span></span><br><span class="line">&#123;</span><br><span class="line">    *addr = Hash(key);                  <span class="comment">//求散列地址，关键</span></span><br><span class="line">    <span class="keyword">while</span>(H.elem[*addr] != key) &#123;       <span class="comment">//若关键字与取得地址上的关键字不同，说明有冲突</span></span><br><span class="line">        *addr = (*addr + <span class="number">1</span>) % m;        <span class="comment">//开放地址法线性探测</span></span><br><span class="line">        <span class="keyword">if</span> ( H.elem[*addr] == NULLKEY || *addr == Hash(key) ) &#123;</span><br><span class="line">            <span class="comment">//如果循环回到原点</span></span><br><span class="line">            <span class="keyword">return</span> UNSUCCESS;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> SUCCESS;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="散列表查找性能分析"><a href="#散列表查找性能分析" class="headerlink" title="散列表查找性能分析"></a>散列表查找性能分析</h4><ul>
+<li>如果没有冲突，散列查找是我们本章介绍的所有查找中效率最高的，因为它的时间复杂度为 O(1)。</li>
+<li>散列表的平均查找长度取决于以下因素：<ul>
+<li>散列函数是否均匀，散列函数的好坏直接影响着出现冲突的频繁程度。不过，由于不同的散列函数对同一组随机的关键字，产生冲突的可能性是相同的，因此我们可以不考虑它对平均查找长度的影响。</li>
+<li>处理冲突的方法。相同的关键字、相同的散列函数，但处理冲突的方法不同，会使得平均查找长度不同。比如线性探测处理冲突可能会产生冲堆积，显然就没有二次探测好，而链地址法处理冲突不会产生任何堆积，因而具有更佳的平均查找性能。</li>
+<li>散列表的装填因子。所谓装填因子  a &#x3D; 填入表中的记录个数 &#x2F; 散列表长度。a 标志着散列表的装满的程度。当填入表中的记录越多，a就越大，产生冲突的可能性就越大。也就是说，散列表的平均查找长度取决于装填因子，而不是取决于查找集合中的记录个数。</li>
+</ul>
+</li>
+<li>不管记录个数  n 有多大，我们总可以选择一个合适的装填因子以便将平均查找长度限定在一个范围之内，此时我们散列查找的时间复杂度就真的是 O(1)了。为了做到这一点，通常我们都是将散列表的空间设置得比查找集合大，此时虽然浪费了一定的空间，但换来的是查找相连的大大提升，总的来时，非常值得。</li>
+</ul>
+
         </div>
 
         
@@ -583,7 +711,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%9C%BA"><span class="nav-text">开场</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E6%A6%82%E8%AE%BA"><span class="nav-text">查找概论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%9F%A5%E6%89%BE"><span class="nav-text">顺序表查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E5%BA%8F%E8%A1%A8%E6%9F%A5%E6%89%BE"><span class="nav-text">有序表查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E7%B4%A2%E5%BC%95%E6%9F%A5%E6%89%BE"><span class="nav-text">线性索引查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91"><span class="nav-text">二叉排序树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-text">平衡二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%E7%AE%97%E6%B3%95"><span class="nav-text">平衡二叉树算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E8%B7%AF%E6%9F%A5%E6%89%BE%E6%A0%91%EF%BC%88B%E6%A0%91%EF%BC%89"><span class="nav-text">多路查找树（B树）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3%E6%A0%91"><span class="nav-text">2-3树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-4%E6%A0%91"><span class="nav-text">2-3-4树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B%E6%A0%91"><span class="nav-text">B树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-%E6%A0%91"><span class="nav-text">B+树</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%A3%E5%88%97%E6%9F%A5%E6%89%BE%EF%BC%88%E5%93%88%E5%B8%8C%E8%A1%A8%EF%BC%89%E6%A6%82%E8%BF%B0"><span class="nav-text">散列查找（哈希表）概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%A3%E5%88%97%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-text">散列函数的构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E6%95%A3%E5%88%97%E5%86%B2%E7%AA%81%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">处理散列冲突的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%A3%E5%88%97%E8%A1%A8%E6%9F%A5%E6%89%BE%E5%AE%9E%E7%8E%B0"><span class="nav-text">散列表查找实现</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%9C%BA"><span class="nav-text">开场</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E6%A6%82%E8%AE%BA"><span class="nav-text">查找概论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%9F%A5%E6%89%BE"><span class="nav-text">顺序表查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E5%BA%8F%E8%A1%A8%E6%9F%A5%E6%89%BE"><span class="nav-text">有序表查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E7%B4%A2%E5%BC%95%E6%9F%A5%E6%89%BE"><span class="nav-text">线性索引查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91"><span class="nav-text">二叉排序树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-text">平衡二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%E7%AE%97%E6%B3%95"><span class="nav-text">平衡二叉树算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E8%B7%AF%E6%9F%A5%E6%89%BE%E6%A0%91%EF%BC%88B%E6%A0%91%EF%BC%89"><span class="nav-text">多路查找树（B树）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3%E6%A0%91"><span class="nav-text">2-3树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-4%E6%A0%91"><span class="nav-text">2-3-4树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B%E6%A0%91"><span class="nav-text">B树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-%E6%A0%91"><span class="nav-text">B+树</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%A3%E5%88%97%E6%9F%A5%E6%89%BE%EF%BC%88%E5%93%88%E5%B8%8C%E8%A1%A8%EF%BC%89%E6%A6%82%E8%BF%B0"><span class="nav-text">散列查找（哈希表）概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%A3%E5%88%97%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-text">散列函数的构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E6%95%A3%E5%88%97%E5%86%B2%E7%AA%81%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">处理散列冲突的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%A3%E5%88%97%E8%A1%A8%E6%9F%A5%E6%89%BE%E5%AE%9E%E7%8E%B0"><span class="nav-text">散列表查找实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%A3%E5%88%97%E8%A1%A8%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-text">散列表查找算法的实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%A3%E5%88%97%E8%A1%A8%E6%9F%A5%E6%89%BE%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90"><span class="nav-text">散列表查找性能分析</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
