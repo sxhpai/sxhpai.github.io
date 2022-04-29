@@ -9,7 +9,7 @@
     
     <title>
         
-            分类 |
+            note1 |
         
         Sxhpai
     </title>
@@ -75,7 +75,7 @@
                         </li>
                     
                         <li class="menu-item">
-                            <a class="active"
+                            <a class=""
                                href="/categories"
                             >
                                 分类
@@ -130,7 +130,7 @@
                 </li>
             
                 <li class="drawer-menu-item flex-center">
-                    <a class="active"
+                    <a class=""
                        href="/categories">分类</a>
                 </li>
             
@@ -160,13 +160,235 @@
 
                 
                     <div class="fade-in-down-animation">
-    <div class="category-list-container">
-        <div class="category-list-content">
-            <ul class="all-category-list"><li class="all-category-list-item"><a class="all-category-list-link" href="/categories/C/">C</a><span class="all-category-list-count">11</span><ul class="all-category-list-child"><li class="all-category-list-item"><a class="all-category-list-link" href="/categories/C/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a><span class="all-category-list-count">8</span></li></ul></li><li class="all-category-list-item"><a class="all-category-list-link" href="/categories/C/">C++</a><span class="all-category-list-count">1</span><ul class="all-category-list-child"><li class="all-category-list-item"><a class="all-category-list-link" href="/categories/C/leetcode/">leetcode</a><span class="all-category-list-count">1</span><ul class="all-category-list-child"><li class="all-category-list-item"><a class="all-category-list-link" href="/categories/C/leetcode/%E6%95%B0%E7%BB%84/">数组</a><span class="all-category-list-count">1</span></li></ul></li></ul></li><li class="all-category-list-item"><a class="all-category-list-link" href="/categories/C-C/">C/C++</a><span class="all-category-list-count">1</span></li></ul>
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">note1</span>
         </div>
-        <div class="category-comments">
-            
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/favicon.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">sxhpai</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-04-28 19:39:15</span>
+        <span class="mobile">2022-04-28 19:39</span>
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E5%8F%96%E6%A8%A1/">取模</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h3 id="取模运算"><a href="#取模运算" class="headerlink" title="取模运算"></a>取模运算</h3><h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>取模运算（mod）和取余（rem）两个概念有重叠的部分，但又不完全一致；主要区别在于对负整数进行除法运算时操作不同。取模主要用于计算机术语中；取余则更多是数学概念。</p>
+<h4 id="取模和取余的区别"><a href="#取模和取余的区别" class="headerlink" title="取模和取余的区别"></a>取模和取余的区别</h4><ul>
+<li>取余运算 在计算商值时，商值向 0 方向舍入；靠近 0 原则</li>
+<li>取模运算 在计算商值时，商值向负无穷方向舍入；尽可能让商值小的原则</li>
+</ul>
+<blockquote>
+<p>取模运算和求余数运算的计算方法相同：</p>
+<p>假设有两个整数，a和b。</p>
+<ol>
+<li>求商（整数）c :      c = a/b</li>
+<li>计算模或者余数：  r = a - c*b</li>
+</ol>
+</blockquote>
+<p>不同之处在第一步，在计算 c 的值时</p>
+<p><strong>取模</strong>——向负无穷方向舍入。</p>
+<p><strong>取余</strong>——向0方向舍入。</p>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p>取模：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>简述</th>
+<th style="text-align:left">商值</th>
+<th></th>
+<th>取模值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5 mod 3 = 2</td>
+<td style="text-align:left">5/3 = 1.66 商取小原则 商=1</td>
+<td>5 - 3 * 1 = 2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>-5 mod 3 = 1</td>
+<td style="text-align:left">-5/3 = -1.66 商取小原则 商=-2</td>
+<td>-5 - (3 * -2) = 1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>5 mod -3 = -1</td>
+<td style="text-align:left">5/-3 = -1.66 商取小原则 商=-2</td>
+<td>5 - (-3 * -2) = -1</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>-5 mod -3 = -2</td>
+<td style="text-align:left">-5/-3 = 1.66 商取小原则 商=1</td>
+<td>-5 - (-3 * 1) = 2</td>
+<td>-2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>取余：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>简述</th>
+<th>商值</th>
+<th></th>
+<th><strong>取余值</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5 rem 3 = 2</td>
+<td>5/3 = 1.66 商靠0原则 商=1</td>
+<td>5 - 3 * 1 = 2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>-5 rem 3 = -2</td>
+<td>-5/3 = -1.66 商靠0原则 商=-1</td>
+<td>-5 - (3 * -1) = - 2</td>
+<td>-2</td>
+</tr>
+<tr>
+<td>5 rem -3 = 2</td>
+<td>5/-3 = -1.66 商靠0原则 商=-1</td>
+<td>5 - (-3 * -1) = 2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>-5 rem -3 = -2</td>
+<td>-5/-3 = 1.66 商靠0原则 商=1</td>
+<td>-5 - (-3 * 1) = - 2</td>
+<td>-2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><ul>
+<li>把 -1 赋给 8 比特大小的 unsinged char 所得的结果是 255 。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unsinged <span class="type">char</span> a = <span class="number">-1</span>;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; a <span class="built_in">std</span>::<span class="built_in">endl</span>;	<span class="comment">// 输出为 -1 mod 2^8 = 255</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><pre><code class="lang-C">unsinged int u = 10;
+int i = -42;
+// 这里强制将 结果强制转换位无符号数，结果同 将运算结果赋值给无符号数的结果一样
+std::cout &lt;&lt; u + i &lt;&lt; std::endl;    //如果 int 占32位，输出 -42 mod 2^32 = 42949667264
+</code></pre>
+</li>
+</ul>
+
         </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：note1</li>
+        <li>本文作者：sxhpai</li>
+        <li>创建时间：2022-04-28 19:39:15</li>
+        <li>
+            本文链接：https://sxhpai.github.io/2022/04/28/note1/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E5%8F%96%E6%A8%A1/">#取模</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/04/29/Primer1/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Primer1</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/04/28/2022-04-28-leetcode/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">leetcod</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
     </div>
 </div>
 
@@ -214,6 +436,23 @@
     </div>
 
     
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
 
     <div class="right-bottom-side-tools">
         <div class="side-tools-container">
@@ -259,6 +498,14 @@
 
     </div>
 
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%96%E6%A8%A1%E8%BF%90%E7%AE%97"><span class="nav-text">取模运算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-text">背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%96%E6%A8%A1%E5%92%8C%E5%8F%96%E4%BD%99%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">取模和取余的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-text">例子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B"><span class="nav-text">实例</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
     
 
     <div class="image-viewer-container">
@@ -314,6 +561,8 @@
 
 
 <div class="post-scripts">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
     
 </div>
 

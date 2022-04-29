@@ -9,7 +9,7 @@
     
     <title>
         
-            数据结构——串 |
+            Primer1 |
         
         Sxhpai
     </title>
@@ -163,7 +163,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">数据结构——串</span>
+            <span class="title-hover-animation">Primer1</span>
         </div>
 
         
@@ -180,24 +180,9 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-03-31 12:00:00</span>
-        <span class="mobile">2022-03-31 12:00</span>
+        <span class="pc">2022-04-29 16:27:20</span>
+        <span class="mobile">2022-04-29 16:27</span>
     </span>
-    
-        <span class="article-categories article-meta-item">
-            <i class="fas fa-folder"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/categories/C/">C</a>&nbsp;
-                    </li>
-                
-                    <li>
-                        &gt; <a href="/categories/C/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
     
     
         <span class="article-tags article-meta-item">
@@ -205,7 +190,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/DS%E7%AC%94%E8%AE%B0/">DS笔记</a>&nbsp;
+                        <a href="/tags/C-Primer/">C++ Primer</a>&nbsp;
                     </li>
                 
             </ul>
@@ -228,52 +213,76 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="开场"><a href="#开场" class="headerlink" title="开场"></a>开场</h3><ul>
-<li>串的逻辑结构和线性表很相似，不同之处在于串针对的是字符集，也就是串中的元素都是字符。</li>
-<li>串的基本操作与线性表是有很大差别的。线性表更加关注的是单个元素的操作，比如查找一个元素，插入或删除一个元素，但串中更多是查找子串的位置、得到指定位置字串、替换字串等操作。</li>
-</ul>
-<h3 id="串的抽象数据类型"><a href="#串的抽象数据类型" class="headerlink" title="串的抽象数据类型"></a>串的抽象数据类型</h3><blockquote>
-<p>ADT  </p>
-<ul>
-<li>串（String）</li>
-</ul>
-<p>Data  </p>
-<ul>
-<li>串中元素仅由一个字符组成，相邻元素具有前驱和后继关系。</li>
-</ul>
-<p>Operation  </p>
-<ul>
-<li>StrAssign(T, * chars)：生成一个其值等于字符串常量chars的串T。</li>
-<li>StrCopy(T,S)：串S存在，由串S复制得串T。</li>
-<li>ClearString(S)：串S存在，将串清空。</li>
-<li>StringEmpty(S)：若串S为空，返回true，否则返回false。</li>
-<li>StrLength(S)：返回串S的元素个数，即串的长度。</li>
-<li>StrCompare(S,T)：若 S &lt; T,返回值&gt; 0，若S=T ，返回0，若S &lt; T ，返回值 &lt; 0 。</li>
-<li>Concat(T,S1,S2)：用T返回由S1和S2联接而成的新串。</li>
-<li>SubString(Sub,S,pos,len)：串S存在，1 &lt;= pos &lt;= StrLength(S)，且0 &lt;= len &lt;= StrLength(S) - pos +1,用Sub返回串S的第pos个字符起长度为len的字串。</li>
-<li><font color="#00FFFF">Index(S,T,pos)</font>：串S和T存在，T是非空串，1 &lt;= pos &lt;= StrLength(S)。若主串S中存在和串T值相同的子串，则返回他在主串S中第pos个字之后第一次出现的位置，否则返回0。</li>
-<li>Replace(S,T,V)：串S、T和V存在，T是非空串。用V替换主串S中出现的所有与T相等的不重叠的字串。</li>
-<li>StrInsert(S,pos,T)：串S和串T存在，1 &lt;= pos &lt;= StrLength(S) + 1。在串S的第pos个字符之前插入串T。</li>
-<li>StrDelete：串S存在，1 &lt;= pos &lt;= StrLength(S)-len + 1。从串S中删除第pos个字符起长度为len的字串。  </li>
-</ul>
-<p>endADT </p>
-</blockquote>
-<h3 id="串存储结构的三种实现方法"><a href="#串存储结构的三种实现方法" class="headerlink" title="串存储结构的三种实现方法"></a>串存储结构的三种实现方法</h3><ol>
-<li>定长顺序存储：普通的数组（又称为静态数组）存储。</li>
-<li>堆分配存储：用动态数组存储字符串。</li>
-<li>块链存储：用链表存储字符串。<ul>
-<li>链表各个结点存储数据个数的多少可参考以下几个因素<ol>
-<li>串的长度和存储空间的大小：若串包含数据量很大，且链表申请的存储空间有限，此时应尽可能的让各个节点存储更多的数据，提高空间的利用率（每多一个节点，就要多申请一个指针域的空间）；反之，如果串不是特别长，或者存储空间足够，就需要再结合其他因素综合考虑。</li>
-<li>程序实现的功能：如果实际场景中需要对存储的串做大量的插入或删除操作，则应尽可能减少各结点存储数据的数量；反之，需要再结合其他因素。</li>
-</ol>
+            <h3 id="第二章——变量和基本类型"><a href="#第二章——变量和基本类型" class="headerlink" title="第二章——变量和基本类型"></a>第二章——变量和基本类型</h3><h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><ul>
+<li><p><strong>对象是指：一块能存储数据并具有某种类型的内存空间</strong></p>
+</li>
+<li><font color="#00FFFF">对象是具有某种数据类型的内存空间。</font>
+</li>
+<li><p>对象的类型决定了其上的操作。</p>
 </li>
 </ul>
-</li>
-</ol>
-<h3 id="朴素的串的模式匹配算法"><a href="#朴素的串的模式匹配算法" class="headerlink" title="朴素的串的模式匹配算法"></a>朴素的串的模式匹配算法</h3><ul>
-<li><strong><font color="#00FFFF">子串在一个主串的定位操作,通常称做串的模式匹配</font></strong></li>
+<h4 id="变量命名规范"><a href="#变量命名规范" class="headerlink" title="变量命名规范"></a>变量命名规范</h4><ul>
+<li>标识符要能体现实际含义</li>
+<li>变量名一般用小写字母，如 index，不要用 Index 或 INDEX</li>
+<li>用户自定义类名一般以大写字母开头，如 Sales_item</li>
+<li>如果标识符由多个单词组成，则单词间应有明显区分，如 student_loan 或 studentLoan，不要用studentloan</li>
 </ul>
-<h3 id="KMP模式匹配算法"><a href="#KMP模式匹配算法" class="headerlink" title="KMP模式匹配算法"></a>KMP模式匹配算法</h3><p>代码。</p>
+<h4 id="变量定义的时机"><a href="#变量定义的时机" class="headerlink" title="变量定义的时机"></a>变量定义的时机</h4><ul>
+<li>一般来说，在对象第一次被使用的地方附近定义它是一种好的选择，这样做有助于更容易的找到变量的定义。更重要的是，当变量的定义与它第一次被使用的地方很近时，我们会赋给它一个比较合理的初始值。</li>
+</ul>
+<h4 id="复合类型"><a href="#复合类型" class="headerlink" title="复合类型"></a>复合类型</h4><ul>
+<li><p>指针（<font color="#00FFFF">初始化所有指针</font>）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//空指针的定义：</span></span><br><span class="line"><span class="type">int</span> *p1 = nullptr;		<span class="comment">// 等价于 int *p1 = 0; 这种方法最简单。最好使用这种。C11标准。</span></span><br><span class="line"><span class="type">int</span> *p2 = <span class="number">0</span>;			<span class="comment">// 直接将 p2 初始化为字面常量 0</span></span><br><span class="line"><span class="comment">// 需要首先#include cstdlib</span></span><br><span class="line"><span class="type">int</span> *p3 = <span class="literal">NULL</span>;			<span class="comment">// 等价于 int *p3 = 0;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>引用</li>
+</ul>
+<p>P56 和 P534 页 两种例外</p>
+<p>除了两种例外情况外，其他所有引用的类型都要和与之绑定的对象严格匹配。  </p>
+<ol>
+<li>第一种例外就是，在初始化常量引用时允许用任意表达式作为初始值。（P56）</li>
+<li>？</li>
+</ol>
+<p>除了两种例外情况外，其他所有指针的类型都要和其指向的对象严格匹配。</p>
+<ol>
+<li>第一种例外就是，允许令一个指向常量的指针指向一个非常量的对象。</li>
+</ol>
+<h4 id="const对象仅在文件内有效"><a href="#const对象仅在文件内有效" class="headerlink" title="const对象仅在文件内有效"></a>const对象仅在文件内有效</h4><ul>
+<li>默认情况下，const对象被设定为仅在文件内有效。当多个文件中出现了同名的const的变量时，其实等同于在不同文件中分别定义了独立的变量。</li>
+<li>有些时候有这样一种 const 变量，它的初始值不是一个常量表达式，但又确实又必要在文件间共享。这种情况下，我们不希望编译器为每个文件分别生成独立的变量。相反，我们想让这类 const 对象像其他（非常量）对象一样工作，也就是说，只在一个文件中定义 const ，而在其他多个文件中声明并使用它。<br><font color="9932CC">解决方法是</font>：对于const变量不管是声明还是定义都添加 extern 关键字，这样只需要定义一次就行了。</li>
+</ul>
+<h4 id="引用-与-const"><a href="#引用-与-const" class="headerlink" title="引用 与 const"></a>引用 与 const</h4><ul>
+<li><p>要想绑定const对象，只能使用常量引用。</p>
+</li>
+<li><p>常量引用是对 const引用。</p>
+</li>
+<li><p>初始化和对 const 的引用</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> dval = <span class="number">3.14</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> &amp;ri = dval;</span><br><span class="line"><span class="comment">//执行这两条语句到底发生了什么？</span></span><br><span class="line"><span class="comment">//发生了以下变化，编译器会把上述代码变成了如下形式：</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> temp = dval;	<span class="comment">//有双精度浮点数生成一个临时的整型变量</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> &amp;ri = temp;	<span class="comment">//让 ri 绑定这个临时量</span></span><br><span class="line"><span class="comment">//这种情况下， ri 绑定了一个临时量对象。</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对 const 的引用可能引用一个并非 const 的对象</p>
+<p>此时，引用是 const ，但引用绑定的值是非 const 对象。不能通过引用改变对象的值，但是并不影响对象通过其他操作改变自己的值。</p>
+</li>
+</ul>
+<h4 id="指针-与-const"><a href="#指针-与-const" class="headerlink" title="指针 与 const"></a>指针 与 const</h4><ul>
+<li>要想存放const对象的地址，只能使用指向常量的指针。</li>
+<li>指针与引用不同，指针是对象而引用不是，因此就像其他对象一样，允许把指针本身定为常量。<strong>常量指针</strong>必须初始化，而且一旦初始化完成，则它的值就不能再改变了。</li>
+<li>也就是说，因为指针是对象，所以有了两种情况：<ul>
+<li>常量指针：指针的指向不能变</li>
+<li>指向常量的指针：不能通过指针改变对象（这个对象可以是常量也可是非常量）的值。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>顶层const表示指针本身是一个常量，底层const表示指针所指的对象是一个常量。</li>
+</ul>
+<h4 id="常量表达式"><a href="#常量表达式" class="headerlink" title="常量表达式"></a>常量表达式</h4><ul>
+<li><p>是指，不会改变并 <strong>且</strong> 在编译过程中就能得到计算结果的表达式。</p>
+</li>
+<li><p>constexpr 常量，声明为 constexpr 的变量一定是一个常量，而且必须用常量表达式初始化：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> mf = <span class="number">20</span>;		<span class="comment">//20是常量表达式</span></span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> limit = mf + <span class="number">1</span>; <span class="comment">// mf + 1 是常量表达式</span></span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> sz = <span class="built_in">size</span>();	<span class="comment">//只有当 size 是一个constexpr函数时，才是一条正确的声明语句。</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 
         </div>
 
@@ -281,11 +290,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：数据结构——串</li>
+        <li>本文标题：Primer1</li>
         <li>本文作者：sxhpai</li>
-        <li>创建时间：2022-03-31 12:00:00</li>
+        <li>创建时间：2022-04-29 16:27:20</li>
         <li>
-            本文链接：https://sxhpai.github.io/2022/03/31/DS/DS3/
+            本文链接：https://sxhpai.github.io/2022/04/29/Primer1/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -300,7 +309,7 @@
             <ul class="post-tags-box">
                 
                     <li class="tag-item">
-                        <a href="/tags/DS%E7%AC%94%E8%AE%B0/">#DS笔记</a>&nbsp;
+                        <a href="/tags/C-Primer/">#C++ Primer</a>&nbsp;
                     </li>
                 
             </ul>
@@ -309,29 +318,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2022/04/04/DS/DS4/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">数据结构——树</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/03/30/DS/DS2/"
+                           href="/2022/04/28/note1/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">数据结构——栈与队列</span>
+                                <span class="post-nav-title-item">note1</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -457,7 +451,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%9C%BA"><span class="nav-text">开场</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%B2%E7%9A%84%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">串的抽象数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%B2%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84%E7%9A%84%E4%B8%89%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-text">串存储结构的三种实现方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%B4%E7%B4%A0%E7%9A%84%E4%B8%B2%E7%9A%84%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95"><span class="nav-text">朴素的串的模式匹配算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KMP%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95"><span class="nav-text">KMP模式匹配算法</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0%E2%80%94%E2%80%94%E5%8F%98%E9%87%8F%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B"><span class="nav-text">第二章——变量和基本类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1"><span class="nav-text">对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="nav-text">变量命名规范</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%AE%9A%E4%B9%89%E7%9A%84%E6%97%B6%E6%9C%BA"><span class="nav-text">变量定义的时机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B"><span class="nav-text">复合类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#const%E5%AF%B9%E8%B1%A1%E4%BB%85%E5%9C%A8%E6%96%87%E4%BB%B6%E5%86%85%E6%9C%89%E6%95%88"><span class="nav-text">const对象仅在文件内有效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%95%E7%94%A8-%E4%B8%8E-const"><span class="nav-text">引用 与 const</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E9%92%88-%E4%B8%8E-const"><span class="nav-text">指针 与 const</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E9%87%8F%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-text">常量表达式</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
