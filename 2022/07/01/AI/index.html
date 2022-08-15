@@ -9,7 +9,7 @@
     
     <title>
         
-            C++中的左值和右值 |
+            AI |
         
         Sxhpai
     </title>
@@ -163,7 +163,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">C++中的左值和右值</span>
+            <span class="title-hover-animation">AI</span>
         </div>
 
         
@@ -180,9 +180,20 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-06-07 15:02:03</span>
-        <span class="mobile">2022-06-07 15:02</span>
+        <span class="pc">2022-07-01 12:00:00</span>
+        <span class="mobile">2022-07-01 12:00</span>
     </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Python/">Python</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
     
     
         <span class="article-tags article-meta-item">
@@ -190,7 +201,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/C-Primer/">C++ Primer</a>&nbsp;
+                        <a href="/tags/Pytorch/">Pytorch</a>&nbsp;
                     </li>
                 
             </ul>
@@ -213,12 +224,33 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="C-中的左值和右值"><a href="#C-中的左值和右值" class="headerlink" title="C++中的左值和右值"></a>C++中的左值和右值</h3><p>C++ 的表达式要不然是右值，要不然就是左值。这两个名词是从 C 语言继承过来的，原本是为了帮助记忆：<strong>左值可以位于赋值语句的左侧，右值则不能</strong>。</p>
-<p>简单的归纳：</p>
-<blockquote>
-<p>当一个对象被用作右值的时候，用的是对象的值(内容)；当对象被用作左值的时候，用的是对象的身份（在内存中的位置）。</p>
-</blockquote>
-<p>一个重要的原则是在需要右值的地方可以用左值来代替，但是不能把右值当成左值使用。当一个左值被当成右值使用时，实际使用的是它的内容（值）。</p>
+            <h3 id="命令汇总"><a href="#命令汇总" class="headerlink" title="命令汇总"></a>命令汇总</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pip list #当前环境下的安装包情况</span><br><span class="line"></span><br><span class="line">nvidia-smi	#查看显卡信息</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">检测torch是否安装成功，以及GPU是否可以被torch使用</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入python环境</span></span><br><span class="line">import python</span><br><span class="line">torch.cuda.is_available()</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除镜像</span></span><br><span class="line">conda config --remove channels </span><br></pre></td></tr></table></figure>
+
+<h4 id="python三种编辑器比较"><a href="#python三种编辑器比较" class="headerlink" title="python三种编辑器比较"></a>python三种编辑器比较</h4><ol>
+<li>python 文件，以整体为一块运行（pycharm中的 .py 文件）<ul>
+<li>优点：通用，传播方便，适用于大型项目</li>
+<li>缺点：需要从头运行</li>
+</ul>
+</li>
+<li>python 控制台，以一行为一块运行，或任意行为一块运行<ul>
+<li>优点：显示每个变量属性</li>
+<li>缺点：不利于代码阅读及修改</li>
+</ul>
+</li>
+<li>python jupyter，以任意行为一块运行<ul>
+<li>优点：利于代码阅读及修改</li>
+<li>缺点：环境需要配置</li>
+</ul>
+</li>
+</ol>
+<h3 id="文件配置"><a href="#文件配置" class="headerlink" title="文件配置"></a>文件配置</h3><ul>
+<li>Dataset:	提供一种方式去获取数据及其label<ul>
+<li>如何获取每一个数据机器label</li>
+<li>告诉我们总共有多少数据</li>
+</ul>
+</li>
+<li>Dataloader:    为后面的网络提供不同的数据形式</li>
+</ul>
 
         </div>
 
@@ -226,11 +258,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：C++中的左值和右值</li>
+        <li>本文标题：AI</li>
         <li>本文作者：sxhpai</li>
-        <li>创建时间：2022-06-07 15:02:03</li>
+        <li>创建时间：2022-07-01 12:00:00</li>
         <li>
-            本文链接：https://sxhpai.github.io/2022/06/07/leftaright/
+            本文链接：https://sxhpai.github.io/2022/07/01/AI/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -245,7 +277,7 @@
             <ul class="post-tags-box">
                 
                     <li class="tag-item">
-                        <a href="/tags/C-Primer/">#C++ Primer</a>&nbsp;
+                        <a href="/tags/Pytorch/">#Pytorch</a>&nbsp;
                     </li>
                 
             </ul>
@@ -254,29 +286,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2022/06/28/C++Cin/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">C++ 输入方式总结</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/06/02/note2/"
+                           href="/2022/06/28/C++Cin/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">底层const 与 顶层const</span>
+                                <span class="post-nav-title-item">C++ 输入方式总结</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -402,7 +419,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#C-%E4%B8%AD%E7%9A%84%E5%B7%A6%E5%80%BC%E5%92%8C%E5%8F%B3%E5%80%BC"><span class="nav-text">C++中的左值和右值</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB"><span class="nav-text">命令汇总</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#python%E4%B8%89%E7%A7%8D%E7%BC%96%E8%BE%91%E5%99%A8%E6%AF%94%E8%BE%83"><span class="nav-text">python三种编辑器比较</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="nav-text">文件配置</span></a></li></ol>
     </div>
 </div>
         </aside>
