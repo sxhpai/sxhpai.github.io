@@ -221,7 +221,7 @@
 <li><p>对于大多数运算符来说，布尔类型的运算对象将被提升为 int 类型。</p>
 </li>
 <li><p>除了 -m 导致溢出的特殊情况，其他时候</p>
-<p> (-m)&#x2F;n 和 m&#x2F;(-n) 都等于 -(m&#x2F;n);</p>
+<p> (-m)/n 和 m/(-n) 都等于 -(m/n);</p>
 <p>m%(-n) 等于 m%n，(-m)%n 等于 -(m%n)。</p>
 </li>
 </ul>
@@ -229,21 +229,22 @@
 <li><p>短路求值，逻辑与运算符或逻辑或运算符都是先求左侧运算对象的值再求右侧运算对象的值，当且精当左侧运算对象无法确定表达式的结果时才会计算右侧运算对象的值。</p>
 </li>
 <li><p>进行比较运算时，除非比较的对象是布尔类型，否则不要使用布尔字面值 true 和 false 作为运算对象。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如果想测试一个算术对象或指针对象的真值，最直接的方法就是将其作为 if 语句的条件</span></span><br><span class="line"><span class="comment">// 如下所示：</span></span><br><span class="line"><span class="keyword">if</span> (val) &#123; <span class="comment">/*......*/</span> &#125;		<span class="comment">// 如果 val 是任意的非 0 值，条件为真</span></span><br><span class="line"><span class="keyword">if</span> (!val) &#123; <span class="comment">/*......*/</span> &#125;	<span class="comment">// 如果 val 是 0 ，条件为真</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如果想测试一个算术对象或指针对象的真值，最直接的方法就是将其作为 if 语句的条件</span></span><br><span class="line"><span class="comment">// 如下所示：</span></span><br><span class="line"><span class="keyword">if</span> (val) &#123; <span class="comment">/*......*/</span> &#125;		<span class="comment">// 如果 val 是任意的非 0 值，条件为真</span></span><br><span class="line"><span class="keyword">if</span> (!val) &#123; <span class="comment">/*......*/</span> &#125;	<span class="comment">// 如果 val 是 0 ，条件为真</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <h4 id="4-赋值运算符"><a href="#4-赋值运算符" class="headerlink" title="4. 赋值运算符"></a>4. 赋值运算符</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> ival, jval;</span><br><span class="line">ival = jval = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
-
 <ul>
-<li><p>赋值语句满足右结合律，所以靠右的赋值运算 jval &#x3D; 0 作为靠左的赋值运算符的右侧运算对象。</p>
+<li><p>赋值语句满足右结合律，所以靠右的赋值运算 jval = 0 作为靠左的赋值运算符的右侧运算对象。</p>
 </li>
 <li><p>赋值语句经常会出现在条件中。因为赋值运算的优先级相对较低，所以通常需要给赋值部分加上括号使其符合我们的原意。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这是一种形式繁琐、容易出错的写法</span></span><br><span class="line"><span class="type">int</span> i = <span class="built_in">get_value</span>();	<span class="comment">// 得到一个值</span></span><br><span class="line"><span class="keyword">while</span> (i != <span class="number">42</span>) &#123;</span><br><span class="line">    <span class="comment">// 其他处理...</span></span><br><span class="line">    i = <span class="built_in">get_value</span>();	<span class="comment">// 得到剩下的值</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这是更好的写法：条件部分表达得更加清晰</span></span><br><span class="line"><span class="keyword">while</span> ((i = <span class="built_in">get_value</span>()) != <span class="number">42</span>) &#123;</span><br><span class="line">    <span class="comment">// 其他处理...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 这个版本的 while 条件更容易表达我们的真实意图：不断循环读取数据直到遇到 42 为止。</span></span><br><span class="line"><span class="comment">// 其处理过程是，首先将 get_value 函数的返回值赋值给 i ，然后比较 i 和 42 是否相等。</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>切勿混淆相等运算符和赋值运算符</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (i = j) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// if 语句的条件把 j 的值赋值给 i，然后检查赋值的结果是否为真。如果 j 不为 0 ，条件将为真。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 想要的结果</span></span><br><span class="line"><span class="keyword">if</span> (i == j) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (i = j) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// if 语句的条件把 j 的值赋值给 i，然后检查赋值的结果是否为真。如果 j 不为 0 ，条件将为真。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 想要的结果</span></span><br><span class="line"><span class="keyword">if</span> (i == j) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <h4 id="5-递增和递减运算符"><a href="#5-递增和递减运算符" class="headerlink" title="5. 递增和递减运算符"></a>5. 递增和递减运算符</h4><ul>
-<li><p><font color="red">很多迭代器本身不支持算术运算，所以此时递增和递减运算符除了书写简洁外还是必须的。</font></p>
+<li><font color="red">很多迭代器本身不支持算术运算，所以此时递增和递减运算符除了书写简洁外还是必须的。</font>
 </li>
 <li><p>除非必须，否则不用递增递减运算符的后置版本。</p>
 <p>前置版本的递增运算符避免了不必要的工作，他把值加 1 后直接返回改变了的运算对象。与之相比，后置版本需要将原始值存储下来以便于返回这个未修改的内容。</p>
@@ -253,12 +254,10 @@
 </li>
 <li><p>提防复合表达式中，错用递增递减两个运算符。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> beg = s.<span class="built_in">begin</span>();</span><br><span class="line"><span class="comment">// 该循环是未定义的</span></span><br><span class="line"><span class="keyword">while</span> (beg != s.<span class="built_in">end</span>() &amp;&amp; !<span class="built_in">isspace</span>(*beg))</span><br><span class="line">    *beg = <span class="built_in">toupper</span>(*beg++);		<span class="comment">// 错误：该赋值语句未定义</span></span><br></pre></td></tr></table></figure>
-
 <p>将产生未定义行为。问题在于：赋值运算符左右两端的运算对象都用到了 beg，并且右侧的运算对象还改变了 beg 的值，所以该赋值语句是未定义的。</p>
 </li>
 </ul>
 <h4 id="6-成员访问运算符"><a href="#6-成员访问运算符" class="headerlink" title="6. 成员访问运算符"></a>6. 成员访问运算符</h4><h4 id="7-条件运算符"><a href="#7-条件运算符" class="headerlink" title="7. 条件运算符"></a>7. 条件运算符</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">? :</span><br><span class="line"><span class="comment">// 条件运算符</span></span><br><span class="line"><span class="comment">// 随着条件运算嵌套层数的增加，代码的可读性急剧下降。因此，条件运算的嵌套最好别超过两到三层</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><blockquote>
 <p>条件运算符满足右结合律，意味着运算对象（一般）按照从右向左的顺序组合。</p>
@@ -278,7 +277,8 @@
 </blockquote>
 </li>
 <li><p>位移运算符满足左结合律</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; <span class="string">&quot;hi&quot;</span> &lt;&lt; <span class="string">&quot;there&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于如下语句</span></span><br><span class="line"></span><br><span class="line">( (cout &lt;&lt; <span class="string">&quot;hi&quot;</span>) &lt;&lt; <span class="string">&quot;there&quot;</span> ) &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在这条语句中，运算对象&quot;hi&quot;和第一个 &lt;&lt; 组合在一起，它的结果和第二个 &lt;&lt; 组合在一起，接下来的结果再和第三个 &lt;&lt; 组合在一起。</span></span><br><span class="line"></span><br><span class="line">(cout &lt;&lt; <span class="string">&quot;hi&quot;</span>); <span class="comment">// 该语句的运算结果是：cout </span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; <span class="string">&quot;hi&quot;</span> &lt;&lt; <span class="string">&quot;there&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于如下语句</span></span><br><span class="line"></span><br><span class="line">( (cout &lt;&lt; <span class="string">&quot;hi&quot;</span>) &lt;&lt; <span class="string">&quot;there&quot;</span> ) &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在这条语句中，运算对象&quot;hi&quot;和第一个 &lt;&lt; 组合在一起，它的结果和第二个 &lt;&lt; 组合在一起，接下来的结果再和第三个 &lt;&lt; 组合在一起。</span></span><br><span class="line"></span><br><span class="line">(cout &lt;&lt; <span class="string">&quot;hi&quot;</span>); <span class="comment">// 该语句的运算结果是：cout </span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <h4 id="9-sizeof-运算符"><a href="#9-sizeof-运算符" class="headerlink" title="9. sizeof 运算符"></a>9. sizeof 运算符</h4><blockquote>
 <p>sizeof 运算符返回一条表达式或一个类型名字所占的字节数。</p>
@@ -311,10 +311,11 @@
 <p>当数组被用作 decltype 关键字的参数，或者作为取地址符（&amp;）、sizeof 及 typeid 等运算符的运算对象时，上述转换不会发生。</p>
 </li>
 <li><p>指针转换</p>
-<p>常量数值 0 或字面值 nullptr 能转换成任意指针类型；指向任意非常量的指针能转换成 void* ；指向任意对象的指针能转换成 const void* 。</p>
+<p>常量数值 0 或字面值 nullptr 能转换成任意指针类型；指向任意非常量的指针能转换成 void<em> ；指向任意对象的指针能转换成 const void</em> 。</p>
 </li>
 <li><p>类类型的转换</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">string s;</span><br><span class="line"><span class="keyword">while</span> (cin &gt;&gt; s) &#123;	<span class="comment">// while 的条件部分把 cin 转换成布尔值</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">string s;</span><br><span class="line"><span class="keyword">while</span> (cin &gt;&gt; s) &#123;	<span class="comment">// while 的条件部分把 cin 转换成布尔值</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <blockquote>
 <p>建议：避免强制类型转换</p>

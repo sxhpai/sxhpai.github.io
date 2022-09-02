@@ -229,7 +229,7 @@
 
         <div class="article-content markdown-body">
             <h3 id="开场"><a href="#开场" class="headerlink" title="开场"></a>开场</h3><ul>
-<li>树是 n 个结点的有限集。n&#x3D;0 时称为空树。</li>
+<li>树是 n 个结点的有限集。n=0 时称为空树。</li>
 <li>在任意一棵非空树中：<ol>
 <li>有且仅有一个特定的称为根的结点；</li>
 <li>当 n &gt; 1 时，其余结点可分为 m (m &gt; 0)  个互不相交的有限集 $ T_1, T_2, T_3, …, T_m $，其中每一个集合本身又是一棵树，并且称为根的子树。</li>
@@ -241,28 +241,32 @@
 </ol>
 </li>
 </ul>
-<h3 id="树与线性表的对比"><a href="#树与线性表的对比" class="headerlink" title="树与线性表的对比"></a>树与线性表的对比</h3><table>
+<h3 id="树与线性表的对比"><a href="#树与线性表的对比" class="headerlink" title="树与线性表的对比"></a>树与线性表的对比</h3><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="center">线性结构</th>
-<th align="center">树</th>
+<th style="text-align:center">线性结构</th>
+<th style="text-align:center">树</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">第一个数据元素，无前驱</td>
-<td align="center">根节点，无双亲，唯一</td>
+<tbody>
+<tr>
+<td style="text-align:center">第一个数据元素，无前驱</td>
+<td style="text-align:center">根节点，无双亲，唯一</td>
 </tr>
 <tr>
-<td align="center">最后一个数据元素，无后继</td>
-<td align="center">叶节点，无孩子，可以多个</td>
+<td style="text-align:center">最后一个数据元素，无后继</td>
+<td style="text-align:center">叶节点，无孩子，可以多个</td>
 </tr>
 <tr>
-<td align="center">中间元素，一个前驱一个后继</td>
-<td align="center">中间结点，一个双亲多个孩子</td>
+<td style="text-align:center">中间元素，一个前驱一个后继</td>
+<td style="text-align:center">中间结点，一个双亲多个孩子</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="树的抽象数据类型"><a href="#树的抽象数据类型" class="headerlink" title="树的抽象数据类型"></a>树的抽象数据类型</h3><blockquote>
-<p>ADT	</p>
+<p>ADT    </p>
 <ul>
 <li>树（tree）</li>
 </ul>
@@ -284,22 +288,20 @@
 <li>Parent( T, cur_e )：若cur_e是树 T 的非根结点，则返回它的双亲，否则返回空。</li>
 <li>LeftChild( T, cur_e )：若cur_e是树T的非叶结点，则返回它的最左孩子，否则返回空。</li>
 <li>RightSibling( T, cur_e )：若 cur_e 有兄弟，则返回它的左右兄弟，否则返回空。</li>
-<li>InsertChild( *T, *p, i, c )：其中 p 指向树 T 的某个结点，i 为所指结点 p 的度加上1，非空树 c 与 T  不相交，操作结果为插入 c 为数 T 中 p 指结点的第 i 棵子树。</li>
-<li>DeleteChild( *T, *p, i)：其中 p 指向树 T 个某个结点，i 为所指结点 p 的度， 操作结果为删除 T 中 p 所指结点的第 i 棵子树。</li>
+<li>InsertChild( <em>T, </em>p, i, c )：其中 p 指向树 T 的某个结点，i 为所指结点 p 的度加上1，非空树 c 与 T  不相交，操作结果为插入 c 为数 T 中 p 指结点的第 i 棵子树。</li>
+<li>DeleteChild( <em>T, </em>p, i)：其中 p 指向树 T 个某个结点，i 为所指结点 p 的度， 操作结果为删除 T 中 p 所指结点的第 i 棵子树。</li>
 </ul>
 <p>endADT</p>
 </blockquote>
 <h3 id="树的存储结构"><a href="#树的存储结构" class="headerlink" title="树的存储结构"></a>树的存储结构</h3><h4 id="（1）双亲表示法"><a href="#（1）双亲表示法" class="headerlink" title="（1）双亲表示法"></a>（1）双亲表示法</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 树的双亲表示法结点结构定义 */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAX_TREE_SIZE 100</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">int</span> TElemType;	<span class="comment">// 树结点的数据类型，目前暂定为整型</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">PTNode</span>	/* 结点结构 */</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	TElemType data;	<span class="comment">//结点数据</span></span><br><span class="line">	<span class="type">int</span> parent;		<span class="comment">//双亲位置</span></span><br><span class="line">&#125;PTNode;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>		/* 结点数组 */</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	PTNode nodes[MAX_TREE_SIZE];	<span class="comment">// 结点数组</span></span><br><span class="line">	<span class="type">int</span> r, n;				<span class="comment">// 根的位置和结点数</span></span><br><span class="line">&#125;PTree;</span><br></pre></td></tr></table></figure>
-
 <h4 id="（2）孩子表示法"><a href="#（2）孩子表示法" class="headerlink" title="（2）孩子表示法"></a>（2）孩子表示法</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 树的孩子表示法结构定义 */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAX_TREE_SIZE 100</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">CTNode</span>	//孩子结点</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="type">int</span> child;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">CTNode</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125; *ChildPtr;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>			//表头结点</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	TElemType data;</span><br><span class="line">	ChildPtr firstchild;</span><br><span class="line">&#125; CTBox;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>			//树结构</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	CTBox nodes[MAX_TREE_SIZE];	<span class="comment">//结点数组</span></span><br><span class="line">	<span class="type">int</span> r, n;		<span class="comment">//根的位置和结点数</span></span><br><span class="line">&#125; CTree;</span><br></pre></td></tr></table></figure>
-
 <h4 id="（3）孩子双亲表示法"><a href="#（3）孩子双亲表示法" class="headerlink" title="（3）孩子双亲表示法"></a>（3）孩子双亲表示法</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 孩子双亲表示法结构定义 */</span></span><br><span class="line"><span class="comment">//该结构是前两者的结合</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAX_TREE_SIZE 100</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">CTNode</span>	/* 孩子结点 */</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="type">int</span> child;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">CTNode</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125; *ChildPtr;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>			/* 表头结点 */</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	TElemType data;</span><br><span class="line">	<span class="type">int</span> parent;			<span class="comment">//双亲的位置 </span></span><br><span class="line">	ChildPtr firstchild;	</span><br><span class="line">&#125; CTBox;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>			/* 树结构 */</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	CTBox nodes[MAX_TREE_SIZE];	<span class="comment">//结点数组</span></span><br><span class="line">	<span class="type">int</span> r, n;		<span class="comment">//根的位置和结点数</span></span><br><span class="line">&#125; CTree;</span><br></pre></td></tr></table></figure>
-
 <h4 id="（4）孩子兄弟表示法"><a href="#（4）孩子兄弟表示法" class="headerlink" title="（4）孩子兄弟表示法"></a>（4）孩子兄弟表示法</h4><ul>
-<li><font color="#00FF"> 此种方法最大的好处就是：它把一棵复杂的树变成了一棵二叉树</font></li>
+<li><font color="#00FF"> 此种方法最大的好处就是：它把一棵复杂的树变成了一棵二叉树</font>
+
+</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 孩子兄弟表示法结构定义 */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">CSNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	TElemType data;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">CSNode</span> *<span class="title">firstchild</span>, *<span class="title">rightsib</span>;</span></span><br><span class="line">&#125;CSNode,*CTree;</span><br></pre></td></tr></table></figure>
-
 <h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><h4 id="（1）二叉树特点"><a href="#（1）二叉树特点" class="headerlink" title="（1）二叉树特点"></a>（1）二叉树特点</h4><ul>
 <li>每个结点最后有两棵子树。</li>
 <li>左子树和右子树是有顺序的，次序不能颠倒。</li>
@@ -322,10 +324,10 @@
 <h4 id="（2）二叉树性质"><a href="#（2）二叉树性质" class="headerlink" title="（2）二叉树性质"></a><font color="#00BFFF">（2）二叉树性质</font></h4><ul>
 <li>性质 1：在二叉树的第 $i$ 层上至多有 $2^{i-1}$ 个结点。$ (i\geq1) $</li>
 <li>性质 2：深度为 $ k $ 的二叉树至多有 $ 2^k-1 $ 个结点。 $ (k\geq1)$</li>
-<li>性质 3：对任何一个二叉树 T，如果终端结点数为 $ n_0 $ ，度为 2 的结点数为 $ n_2 $，则 $ n_0 &#x3D; n_2 + 1$。</li>
+<li>性质 3：对任何一个二叉树 T，如果终端结点数为 $ n_0 $ ，度为 2 的结点数为 $ n_2 $，则 $ n_0 = n_2 + 1$。</li>
 <li>性质 4：具有 $ n $ 个结点的完全二叉树的深度为 $ ⌊\log_{2}{n}⌋ + 1 $  ( $ ⌊x⌋ $ 表示不大于 $ x $ 的最大整数）。</li>
 <li>性质 5：如果对一棵有 $ n $ 个结点的完全二叉树（其深度为 $ ⌊ \log _ {2} {n}  ⌋  + 1 $ ）的结点按层序号编号（从第 $ 1 $ 层到第 $ ⌊\log _ {2}{n}⌋ + 1 $ 层，每层从左到右），对任一结点 $i ( 1 \leq i \leq n ) $ 有：<ol>
-<li>如果 $ i &#x3D; 1 $ ，则结点 $ i $ 是二叉树的根，无双亲；如果 $ i &gt; 1 $，则其双亲是结点 $  ⌊i&#x2F;2⌋ $。</li>
+<li>如果 $ i = 1 $ ，则结点 $ i $ 是二叉树的根，无双亲；如果 $ i &gt; 1 $，则其双亲是结点 $  ⌊i/2⌋ $。</li>
 <li>如果 $ 2i &gt; n $ ，则结点 $ i $ 无左孩子（结点 $ i $ 为叶子结点）；否则其左孩子是结点 $ 2i $ 。</li>
 <li>如果 $ 2i+1&gt;n $ ，则结点 $ i $ 无右孩子；否则其右孩子是结点 $ 2i + 1 $。</li>
 </ol>
@@ -338,7 +340,6 @@
 <li>二叉树的每个结点有一个数据域、两个指针域。称这种链表为二叉链表。</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 二叉树的二叉链表结点结构定义 */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span>&#123;</span>	<span class="comment">/*结点结构*/</span></span><br><span class="line">    TElemType data;	<span class="comment">//结点数据</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span> *<span class="title">lchild</span>, *<span class="title">rchild</span>;</span>	<span class="comment">//左右孩子指针</span></span><br><span class="line">&#125;BiTNode,*BiTree;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>如同讨论树的存储结构一样，如果有需要，还可以再增加一个指向其<font color="#00FFFF">双亲的指针域</font>，那样就称之为三叉链表。</li>
 </ul>
@@ -389,7 +390,7 @@
 </ul>
 <ol>
 <li>从根结点开始，若右孩子存在，则把与右孩子结点的连线删除，再查看分离后的二叉树，若右孩子存在，则连线删除……，直到所有右孩子连线都删除为止，得到分离的二叉树。</li>
-<li>再将每棵分离后的二叉树转换为树即可。</li>
+<li>再将每棵分离后的二叉树转换为树即可。   </li>
 </ol>
 <h3 id="（5）树与森林的遍历"><a href="#（5）树与森林的遍历" class="headerlink" title="（5）树与森林的遍历"></a>（5）树与森林的遍历</h3><ul>
 <li>树的遍历分为两种方式<ul>

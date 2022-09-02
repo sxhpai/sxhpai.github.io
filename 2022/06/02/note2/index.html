@@ -215,18 +215,18 @@
         <div class="article-content markdown-body">
             <h3 id="底层const与顶层const"><a href="#底层const与顶层const" class="headerlink" title="底层const与顶层const"></a>底层const与顶层const</h3><h5 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h5><ol>
 <li>顶层const：表示对象本身是常量，对任何数据类型都适用，也包含常量指针，但通常不包括引用。</li>
-<li>底层const：表示指针&#x2F;引用所指的对象是常量，通常是指常量引用和指向常量的指针。</li>
+<li>底层const：表示指针/引用所指的对象是常量，通常是指常量引用和指向常量的指针。</li>
 </ol>
 <h5 id="2-顶层const"><a href="#2-顶层const" class="headerlink" title="2. 顶层const"></a>2. 顶层const</h5><ol>
-<li><p>拷贝操作（a&#x3D;b):</p>
+<li><p>拷贝操作（a=b):</p>
 <p>当b是一个顶层const类型时，仅仅意味着b的值不能改变，但并不影响传参。所以顶层const类型的对象作为被拷贝数据时，一般不受影响。</p>
 </li>
-<li><p>参数传递 (实参–&gt; 形参):</p>
+<li><p>参数传递 (实参—&gt; 形参):</p>
 <p>与拷贝操作类似，顶层const作为实参传递时，一般不受影响。</p>
 </li>
 </ol>
 <h5 id="3-两种底层const-指向常量的指针-和-常量引用"><a href="#3-两种底层const-指向常量的指针-和-常量引用" class="headerlink" title="3. 两种底层const: 指向常量的指针 和 常量引用"></a>3. 两种底层const: 指向常量的指针 和 常量引用</h5><ol>
-<li>非常量引用（或普通指针）不可以指向一个常量对象。若非如此，则可通过引用&#x2F;指针修改常量的值，显然与常量设计定义相违背。</li>
+<li>非常量引用（或普通指针）不可以指向一个常量对象。若非如此，则可通过引用/指针修改常量的值，显然与常量设计定义相违背。</li>
 <li>常量引用（或指向常量的指针）可以指向一个非常量对象。此时不可以通过引用或指针改变所指对象的值，但可通过其它方式改变。</li>
 </ol>
 

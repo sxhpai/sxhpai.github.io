@@ -216,12 +216,11 @@
             <h2 id="第三章——字符串、向量和数组"><a href="#第三章——字符串、向量和数组" class="headerlink" title="第三章——字符串、向量和数组"></a>第三章——字符串、向量和数组</h2><p>两种重要的标准库类型：string 和 vector。string 表示可变长的字符序列，vector 存放的是某种给定类型对象的可变长序列。</p>
 <p>内置数组类型，和其他内置类型一样，数组的实现与硬件密切相关。因此比较于标准库类型 string 和 vector，数组在灵活性上稍显不足。</p>
 <h4 id="1-命名空间的-using-声明"><a href="#1-命名空间的-using-声明" class="headerlink" title="1. 命名空间的 using 声明"></a>1. 命名空间的 using 声明</h4><ul>
-<li><font color="#00FFFF">头文件不应该包含 using 声明</font></li>
+<li><font color="#00FFFF">头文件不应该包含 using 声明</font>
+
+</li>
 </ul>
 <h4 id="标准库类型-String"><a href="#标准库类型-String" class="headerlink" title="标准库类型 String"></a>标准库类型 String</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// --------</span></span><br><span class="line">string::size_type	<span class="comment">// string 类成员 size()的返回值类型，也是 string 的下标类型。</span></span><br><span class="line"><span class="comment">// --------</span></span><br></pre></td></tr></table></figure>
-
-
-
 <ul>
 <li><p>定义和初始化 string 对象</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">string s1;				<span class="comment">//默认初始化，s1 是一个空串</span></span><br><span class="line"><span class="function">string <span class="title">s2</span><span class="params">(s1)</span></span>;			<span class="comment">//s2 是 s1 的副本</span></span><br><span class="line"><span class="function">string <span class="title">s3</span><span class="params">(<span class="string">&quot;value&quot;</span>)</span></span>; 	<span class="comment">//s3是字面值&quot;value&quot;的副本，除了字面值最后的那个空字符外</span></span><br><span class="line">string s3 = <span class="string">&quot;value&quot;</span>;	<span class="comment">//s3是字面值&quot;value&quot;，s3是字面值&quot;value&quot;的副本</span></span><br><span class="line"><span class="function">string <span class="title">s4</span><span class="params">(n, <span class="string">&#x27;c&#x27;</span>)</span></span>;		<span class="comment">//把 s4 初始化为由连续 n 个字符 c 组成的串</span></span><br></pre></td></tr></table></figure>
@@ -237,17 +236,13 @@
 </li>
 </ul>
 <h4 id="标准库类型-vector"><a href="#标准库类型-vector" class="headerlink" title="标准库类型 vector"></a>标准库类型 vector</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// -------</span></span><br><span class="line">vector&lt;<span class="type">int</span>&gt;::size_type  	<span class="comment">// vector&lt;int&gt; 对象的成员 size() 的返回值类型，同样也是 vector&lt;int&gt;下标类型</span></span><br><span class="line"><span class="comment">// ------</span></span><br></pre></td></tr></table></figure>
-
-
-
 <ul>
 <li><p>定义和初始化 vector 对象</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;T&gt; v1			<span class="comment">// v1是一个空 vector， 它潜在的元素是T类型的，执行默认初始化</span></span><br><span class="line"><span class="function">vector&lt;T&gt; <span class="title">v2</span><span class="params">(v1)</span>		<span class="comment">// v2中包含有 v1 所有元素的副本</span></span></span><br><span class="line"><span class="function">vector&lt;T&gt; v2 </span>= v1   	<span class="comment">// 等价于 v2(v1)，v2中包含有 v1 所有元素的副本</span></span><br><span class="line"><span class="function">vector&lt;T&gt; <span class="title">v3</span><span class="params">(n, val)</span>	<span class="comment">//v3包含了n个重复的元素，每个元素的值都是val</span></span></span><br><span class="line"><span class="function">vector&lt;T&gt; <span class="title">v4</span><span class="params">(n)</span>			<span class="comment">//v4包含了n个重复地执行了值初始化地对象</span></span></span><br><span class="line"><span class="function">vector&lt;T&gt; v5</span>&#123;a,b,c...&#125;  <span class="comment">//v5包含了初始值个数地元素，每个元素被赋予相应地初始值</span></span><br><span class="line">vector&lt;T&gt; v5 = &#123;a,b,c...&#125;<span class="comment">//等价于v5&#123;a,b,c...&#125; </span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>vector 对象（以及 string 对象）的下标运算符可用于访问已存在的元素，而不能用于添加元素。</p>
 </li>
-<li><p>确保下标合法的一种有效手段就是尽可能使用范围 for 语句。</p>
-</li>
+<li>确保下标合法的一种有效手段就是尽可能使用范围 for 语句。</li>
 </ul>
 <h4 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h4><ul>
 <li><p>vector 支持下标运算符，这点和 string 一样； string 支持迭代器，这也和 vector 是一样的。</p>
@@ -255,25 +250,20 @@
 <li><p>类似于指针类型，迭代器也提供了对对象的间接访问。</p>
 </li>
 <li><p>有效的迭代器或者指向某个元素，或者指向容器中尾元素。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// -----</span></span><br><span class="line">difference_type 	<span class="comment">// 两迭代器相减得到距离的数据类型，带符号的整型数。</span></span><br><span class="line"><span class="comment">// -----</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// -----</span></span><br><span class="line">difference_type 	<span class="comment">// 两迭代器相减得到距离的数据类型，带符号的整型数。</span></span><br><span class="line"><span class="comment">// -----</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <blockquote>
 <p>谨记，但凡使用了迭代器的循环体，都不要向迭代器所属的容器添加元素。</p>
 </blockquote>
 <h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ------</span></span><br><span class="line"><span class="type">size_t</span>		<span class="comment">// 位于头文件cstddef中 ,数组下标的数据类型 ， 是一种机器相关的无符号类型。</span></span><br><span class="line"><span class="comment">// ------</span></span><br></pre></td></tr></table></figure>
-
-
-
 <ul>
 <li><p>要想理解数组声明的含义，最好的办法是从数组的名字开始按照由内向外的顺序阅读。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> ia[] = &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;	<span class="comment">// ia 是一个含有10个整数的数组</span></span><br><span class="line"><span class="type">int</span> *beg = <span class="built_in">begin</span>(ia);	<span class="comment">// 指向 ia 首元素的指针</span></span><br><span class="line"><span class="type">int</span> *last = <span class="built_in">end</span>(ia);	<span class="comment">// 指向 arr 尾元素的下一位置的指针</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ---------</span></span><br><span class="line"><span class="built_in">begin</span>() <span class="comment">// 函数，用于计算数组首元素的指针， 定义在 iterator 头文件中</span></span><br><span class="line"><span class="built_in">end</span>() <span class="comment">// 函数，用于计算数组尾元素下一位置的指针</span></span><br><span class="line"><span class="comment">// ---------</span></span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 两指针相减的数据类型</span></span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">size_t</span> sz = <span class="number">5</span>;</span><br><span class="line"><span class="type">int</span> arr[sz] = &#123;<span class="number">1</span>，<span class="number">2</span>，<span class="number">3</span>，<span class="number">4</span>，<span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">auto</span> n = <span class="built_in">end</span>(arr) - <span class="built_in">begin</span>(arr);	<span class="comment">// 两指针相减的结果的类型是一种名为 ptrdiff_t 的标准库类型，和 size_t 一样也是一种定义在 cstddef头文件中的机器相关类型</span></span><br><span class="line"><span class="comment">// -------</span></span><br><span class="line"><span class="type">ptrdiff_t</span>	<span class="comment">// 位于cstddef中，begin()函数返回值的数据类型，</span></span><br><span class="line"><span class="comment">// -------</span></span><br></pre></td></tr></table></figure>
-
-
 </li>
+</ul>
+  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 两指针相减的数据类型</span></span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">size_t</span> sz = <span class="number">5</span>;</span><br><span class="line"><span class="type">int</span> arr[sz] = &#123;<span class="number">1</span>，<span class="number">2</span>，<span class="number">3</span>，<span class="number">4</span>，<span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">auto</span> n = <span class="built_in">end</span>(arr) - <span class="built_in">begin</span>(arr);	<span class="comment">// 两指针相减的结果的类型是一种名为 ptrdiff_t 的标准库类型，和 size_t 一样也是一种定义在 cstddef头文件中的机器相关类型</span></span><br><span class="line"><span class="comment">// -------</span></span><br><span class="line"><span class="type">ptrdiff_t</span>	<span class="comment">// 位于cstddef中，begin()函数返回值的数据类型，</span></span><br><span class="line"><span class="comment">// -------</span></span><br></pre></td></tr></table></figure>
+<ul>
 <li><p>标准库类型 string 和 vector 也能执行下标运算，但是数组与它们相比还是有所不同。标准库类型限定使用的下标必须是无符号类型，而内置的下标运算无此要求，上面的最后一个例子很好地说明了这一点。</p>
 </li>
 <li><p>尽管 C++ 支持 C 风格字符串，但是 C++ 程序中最好还是不要使用它们。</p>
@@ -287,7 +277,7 @@
 <li><p>现代的 C++ 程序当尽量使用 vector 和迭代器，避免使用内置数组和指针；应尽量使用 string ，避免使用 C 风格的基于数组的字符串。</p>
 </li>
 <li><blockquote>
-<p><font color="#00FFFF">严格来说，C++ 语言中没有多维数组，通常所说的多维数组其实是数组的数组。</font></p>
+<font color="#00FFFF">严格来说，C++ 语言中没有多维数组，通常所说的多维数组其实是数组的数组。</font>
 </blockquote>
 </li>
 <li><p>数组初始化局部元素，其他元素默认初始化为 0 。</p>
@@ -298,7 +288,8 @@
 <p>数组和指向数组元素的指针在一个较低层次上实现了与标准库类型 string 和 vector 类似的功能。一般来说，应该优先选用标准库提供的类型，之后在考虑 C++ 语言内置的低层替代品数组或指针。</p>
 </blockquote>
 <p>类型别名声明，新标准</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> int_array = <span class="type">int</span>[<span class="number">4</span>];	<span class="comment">// 新标准下类型别名的声明</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">int</span> int_array[<span class="number">4</span>];	<span class="comment">// 等价的 typedef 声明</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> int_array = <span class="type">int</span>[<span class="number">4</span>];	<span class="comment">// 新标准下类型别名的声明</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">int</span> int_array[<span class="number">4</span>];	<span class="comment">// 等价的 typedef 声明</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 
         </div>

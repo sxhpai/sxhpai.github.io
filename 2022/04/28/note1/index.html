@@ -222,49 +222,54 @@
 <p>取模运算和求余数运算的计算方法相同：</p>
 <p>假设有两个整数，a和b。</p>
 <ol>
-<li>求商（整数）c :  	c &#x3D; a&#x2F;b</li>
-<li>计算模或者余数：  r &#x3D; a - c*b</li>
+<li>求商（整数）c :      c = a/b</li>
+<li>计算模或者余数：  r = a - c*b</li>
 </ol>
 </blockquote>
 <p>不同之处在第一步，在计算 c 的值时</p>
-<p>__取模__——向负无穷方向舍入。</p>
-<p>__取余__——向0方向舍入。</p>
+<p><strong>取模</strong>——向负无穷方向舍入。</p>
+<p><strong>取余</strong>——向0方向舍入。</p>
 <h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p>取模：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
 <th>简述</th>
-<th align="left">商值</th>
+<th style="text-align:left">商值</th>
 <th></th>
 <th>取模值</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>5 mod 3 &#x3D; 2</td>
-<td align="left">5&#x2F;3 &#x3D; 1.66 商取小原则 商&#x3D;1</td>
-<td>5 - 3 * 1 &#x3D; 2</td>
+<tbody>
+<tr>
+<td>5 mod 3 = 2</td>
+<td style="text-align:left">5/3 = 1.66 商取小原则 商=1</td>
+<td>5 - 3 * 1 = 2</td>
 <td>2</td>
 </tr>
 <tr>
-<td>-5 mod 3 &#x3D; 1</td>
-<td align="left">-5&#x2F;3 &#x3D; -1.66 商取小原则 商&#x3D;-2</td>
-<td>-5 - (3 * -2) &#x3D; 1</td>
+<td>-5 mod 3 = 1</td>
+<td style="text-align:left">-5/3 = -1.66 商取小原则 商=-2</td>
+<td>-5 - (3 * -2) = 1</td>
 <td>1</td>
 </tr>
 <tr>
-<td>5 mod -3 &#x3D; -1</td>
-<td align="left">5&#x2F;-3 &#x3D; -1.66 商取小原则 商&#x3D;-2</td>
-<td>5 - (-3 * -2) &#x3D; -1</td>
+<td>5 mod -3 = -1</td>
+<td style="text-align:left">5/-3 = -1.66 商取小原则 商=-2</td>
+<td>5 - (-3 * -2) = -1</td>
 <td>-1</td>
 </tr>
 <tr>
-<td>-5 mod -3 &#x3D; -2</td>
-<td align="left">-5&#x2F;-3 &#x3D; 1.66 商取小原则 商&#x3D;1</td>
-<td>-5 - (-3 * 1) &#x3D; 2</td>
+<td>-5 mod -3 = -2</td>
+<td style="text-align:left">-5/-3 = 1.66 商取小原则 商=1</td>
+<td>-5 - (-3 * 1) = 2</td>
 <td>-2</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>取余：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -274,41 +279,43 @@
 <th><strong>取余值</strong></th>
 </tr>
 </thead>
-<tbody><tr>
-<td>5 rem 3 &#x3D; 2</td>
-<td>5&#x2F;3 &#x3D; 1.66 商靠0原则 商&#x3D;1</td>
-<td>5 - 3 * 1 &#x3D; 2</td>
+<tbody>
+<tr>
+<td>5 rem 3 = 2</td>
+<td>5/3 = 1.66 商靠0原则 商=1</td>
+<td>5 - 3 * 1 = 2</td>
 <td>2</td>
 </tr>
 <tr>
-<td>-5 rem 3 &#x3D; -2</td>
-<td>-5&#x2F;3 &#x3D; -1.66 商靠0原则 商&#x3D;-1</td>
-<td>-5 - (3 * -1) &#x3D; - 2</td>
+<td>-5 rem 3 = -2</td>
+<td>-5/3 = -1.66 商靠0原则 商=-1</td>
+<td>-5 - (3 * -1) = - 2</td>
 <td>-2</td>
 </tr>
 <tr>
-<td>5 rem -3 &#x3D; 2</td>
-<td>5&#x2F;-3 &#x3D; -1.66 商靠0原则 商&#x3D;-1</td>
-<td>5 - (-3 * -1) &#x3D; 2</td>
+<td>5 rem -3 = 2</td>
+<td>5/-3 = -1.66 商靠0原则 商=-1</td>
+<td>5 - (-3 * -1) = 2</td>
 <td>2</td>
 </tr>
 <tr>
-<td>-5 rem -3 &#x3D; -2</td>
-<td>-5&#x2F;-3 &#x3D; 1.66 商靠0原则 商&#x3D;1</td>
-<td>-5 - (-3 * 1) &#x3D; - 2</td>
+<td>-5 rem -3 = -2</td>
+<td>-5/-3 = 1.66 商靠0原则 商=1</td>
+<td>-5 - (-3 * 1) = - 2</td>
 <td>-2</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><ul>
-<li><p>把 -1 赋给 8 比特大小的 unsinged char 所得的结果是 255 。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unsinged <span class="type">char</span> a = <span class="number">-1</span>;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; a <span class="built_in">std</span>::<span class="built_in">endl</span>;	<span class="comment">// 输出为 -1 mod 2^8 = 255</span></span><br></pre></td></tr></table></figure>
-
-
+<li>把 -1 赋给 8 比特大小的 unsinged char 所得的结果是 255 。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unsinged <span class="type">char</span> a = <span class="number">-1</span>;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; a <span class="built_in">std</span>::<span class="built_in">endl</span>;	<span class="comment">// 输出为 -1 mod 2^8 = 255</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><pre><code class="C">unsinged int u = 10;
+</ul>
+<ul>
+<li><pre><code class="lang-C">unsinged int u = 10;
 int i = -42;
 // 这里强制将 结果强制转换位无符号数，结果同 将运算结果赋值给无符号数的结果一样
-std::cout &lt;&lt; u + i &lt;&lt; std::endl;	//如果 int 占32位，输出 -42 mod 2^32 = 42949667264
+std::cout &lt;&lt; u + i &lt;&lt; std::endl;    //如果 int 占32位，输出 -42 mod 2^32 = 42949667264
 </code></pre>
 </li>
 </ul>

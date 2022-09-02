@@ -216,7 +216,7 @@
             <h3 id="第二章——变量和基本类型"><a href="#第二章——变量和基本类型" class="headerlink" title="第二章——变量和基本类型"></a>第二章——变量和基本类型</h3><h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><ul>
 <li><p><strong>对象是指：一块能存储数据并具有某种类型的内存空间</strong></p>
 </li>
-<li><p><font color="#00FFFF">对象是具有某种数据类型的内存空间。</font></p>
+<li><font color="#00FFFF">对象是具有某种数据类型的内存空间。</font>
 </li>
 <li><p>对象的类型决定了其上的操作。</p>
 </li>
@@ -233,11 +233,10 @@
 <h4 id="复合类型"><a href="#复合类型" class="headerlink" title="复合类型"></a>复合类型</h4><ul>
 <li><p>指针（<font color="#00FFFF">初始化所有指针</font>）</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//空指针的定义：</span></span><br><span class="line"><span class="type">int</span> *p1 = nullptr;		<span class="comment">// 等价于 int *p1 = 0; 这种方法最简单。最好使用这种。C11标准。</span></span><br><span class="line"><span class="type">int</span> *p2 = <span class="number">0</span>;			<span class="comment">// 直接将 p2 初始化为字面常量 0</span></span><br><span class="line"><span class="comment">// 需要首先#include cstdlib</span></span><br><span class="line"><span class="type">int</span> *p3 = <span class="literal">NULL</span>;			<span class="comment">// 等价于 int *p3 = 0;</span></span><br></pre></td></tr></table></figure>
-
-
 </li>
-<li><p>引用</p>
-</li>
+</ul>
+<ul>
+<li>引用</li>
 </ul>
 <p>P56 和 P534 页 两种例外</p>
 <p>除了两种例外情况外，其他所有引用的类型都要和与之绑定的对象严格匹配。  </p>
@@ -266,18 +265,16 @@
 </li>
 </ul>
 <h4 id="指针-与-const"><a href="#指针-与-const" class="headerlink" title="指针 与 const"></a>指针 与 const</h4><ul>
-<li><p>要想存放const对象的地址，只能使用指向常量的指针。</p>
-</li>
-<li><p>指针与引用不同，指针是对象而引用不是，因此就像其他对象一样，允许把指针本身定为常量。__常量指针__必须初始化，而且一旦初始化完成，则它的值就不能再改变了。</p>
-</li>
-<li><p>也就是说，因为指针是对象，所以有了两种情况：</p>
-<ul>
+<li>要想存放const对象的地址，只能使用指向常量的指针。</li>
+<li>指针与引用不同，指针是对象而引用不是，因此就像其他对象一样，允许把指针本身定为常量。<strong>常量指针</strong>必须初始化，而且一旦初始化完成，则它的值就不能再改变了。</li>
+<li>也就是说，因为指针是对象，所以有了两种情况：<ul>
 <li>常量指针：指针的指向不能变</li>
 <li>指向常量的指针：不能通过指针改变对象（这个对象可以是常量也可是非常量）的值。</li>
 </ul>
 </li>
-<li><p>顶层const表示指针本身是一个常量，底层const表示指针所指的对象是一个常量。</p>
-</li>
+</ul>
+<ul>
+<li>顶层const表示指针本身是一个常量，底层const表示指针所指的对象是一个常量。</li>
 </ul>
 <h4 id="常量表达式"><a href="#常量表达式" class="headerlink" title="常量表达式"></a>常量表达式</h4><ul>
 <li><p>是指，不会改变并 <strong>且</strong> 在编译过程中就能得到计算结果的表达式。</p>
@@ -287,14 +284,12 @@
 </li>
 <li><p>必须指明一点，，在constexpr声明中如果定义了一个指针，限定符 constexpr 仅对指针有效，与指针所指的对象无关。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> *p = <span class="literal">nullptr</span>;		<span class="comment">//p是一个指向整型常量的指针</span></span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> *q = <span class="literal">nullptr</span>;	<span class="comment">//q是一个指向整数的常量指针</span></span><br></pre></td></tr></table></figure>
-
 <p>q 和 p 相差甚远，p 是一个指向常量的指针，q 是一个常量指针。</p>
 </li>
 </ul>
 <h4 id="类型别名"><a href="#类型别名" class="headerlink" title="类型别名"></a>类型别名</h4><ul>
 <li><p>指针、常量和类型别名</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="type">char</span> *pstring;</span><br><span class="line"><span class="type">const</span> pstring cstr = <span class="number">0</span>;		<span class="comment">//cstr是指向char的常量指针</span></span><br><span class="line"><span class="type">const</span> pstring *ps;			<span class="comment">//ps是一个指针，它的对象是指向 char 的常量指针</span></span><br></pre></td></tr></table></figure>
-
 <p>const 是对给定类型的修饰。pstring 实际上是指向 char 的指针，因此，const pstring 就是指向 char 的常量指针，而非指向常量字符的指针。</p>
 </li>
 <li><p>auto 类型说明符</p>
@@ -305,7 +300,6 @@
 <li><p>decltype 类型指示符</p>
 <p>有时会遇到这种情况：希望从表达式的类型推断出要定义的变量类型，但是不想用该表达式的值初始化变量。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">decltype</span>(<span class="built_in">f</span>()) sum = x;	<span class="comment">//sum的类型就是函数 f 的返回类型</span></span><br></pre></td></tr></table></figure>
-
 <p>需要指出的是，引用从来都作为其所指对象的同义词出现，只有用在decltype处是一个例外。</p>
 </li>
 </ul>

@@ -227,24 +227,26 @@
             <h1 id="C语言——复习记录3"><a href="#C语言——复习记录3" class="headerlink" title="C语言——复习记录3"></a>C语言——复习记录3</h1><h2 id="20、const与指针"><a href="#20、const与指针" class="headerlink" title="20、const与指针"></a>20、const与指针</h2><ul>
 <li>const与指针  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//以下三种组合方式</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> *p1;</span><br><span class="line"><span class="type">int</span> <span class="type">const</span> *p2;</span><br><span class="line"><span class="type">int</span> * <span class="type">const</span> p3;</span><br></pre></td></tr></table></figure>
   在最后一种情况下，指针是只读的，也就是 p3 本身的值不能被修改；在前面两种情况下，指针所指向的数据是只读的，也就是 p1、p2 本身的值可以修改（指向不同的数据），但它们指向的数据不能被修改。</li>
-<li>const 离变量名近就是用来修饰指针变量的，离变量名远就是用来修饰指针指向的数据，如果近的和远的都有，那么就同时修饰指针变量以及它指向的数据。</li>
+<li>const 离变量名近就是用来修饰指针变量的，离变量名远就是用来修饰指针指向的数据，如果近的和远的都有，那么就同时修饰指针变量以及它指向的数据。  </li>
 </ul>
 <h2 id="21、C语言中的地址（虚拟地址）"><a href="#21、C语言中的地址（虚拟地址）" class="headerlink" title="21、C语言中的地址（虚拟地址）"></a>21、C语言中的地址（虚拟地址）</h2><ul>
-<li>把程序给出的地址看做是一种虚拟地址（Virtual Address），然后通过某些映射的方法，将这个虚拟地址转换成实际的物理地址。这样，只要我们能够妥善地控制这个虚拟地址到物理地址的映射过程，就可以保证程序每次运行时都可以使用相同的地址</li>
+<li>把程序给出的地址看做是一种虚拟地址（Virtual Address），然后通过某些映射的方法，将这个虚拟地址转换成实际的物理地址。这样，只要我们能够妥善地控制这个虚拟地址到物理地址的映射过程，就可以保证程序每次运行时都可以使用相同的地址   </li>
 </ul>
 <h2 id="22、内存对齐"><a href="#22、内存对齐" class="headerlink" title="22、内存对齐"></a>22、内存对齐</h2><ul>
 <li>将一个数据尽量放在一个步长之内，避免跨步长存储，这称为内存对齐。在32位编译模式下，默认以4字节对齐；在64位编译模式下，默认以8字节对齐。</li>
 <li>为了提高存取效率，编译器会自动进行内存对齐</li>
-<li>内存对齐不是C语言的特性，它属于计算机的运行原理，C++、Java、Python等其他编程语言同样也会有内存对齐的问题。</li>
+<li>内存对齐不是C语言的特性，它属于计算机的运行原理，C++、Java、Python等其他编程语言同样也会有内存对齐的问题。  </li>
 </ul>
-<h2 id="23、linux下C语言布局"><a href="#23、linux下C语言布局" class="headerlink" title="23、linux下C语言布局"></a>23、linux下C语言布局</h2><table>
+<h2 id="23、linux下C语言布局"><a href="#23、linux下C语言布局" class="headerlink" title="23、linux下C语言布局"></a>23、linux下C语言布局</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>内存分区</th>
 <th>说明</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>程序代码区(code)</td>
 <td>存放函数体的二进制代码。一个C语言程序由多个函数构成，C语言程序的执行就是函数之间的相互调用。</td>
 </tr>
@@ -268,39 +270,41 @@
 <td>栈区(stack)</td>
 <td>存放函数的参数值、局部变量的值等，其操作方式类似于数据结构中的栈。</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h2 id="24、sizeof-单目操作符"><a href="#24、sizeof-单目操作符" class="headerlink" title="24、sizeof()单目操作符"></a>24、sizeof()单目操作符</h2><ul>
-<li>用以获取数据类型额长度时必须加括号。</li>
+<li>用以获取数据类型额长度时必须加括号。  </li>
 </ul>
 <h2 id="25、野指针"><a href="#25、野指针" class="headerlink" title="25、野指针"></a>25、野指针</h2><ul>
 <li>如果一个指针指向的内存没有访问权限，或者指向一块已经释放掉的内存，那么就无法对该指针进行操作，这样的指针称为野指针（Wild Pointer）</li>
 <li>规避野指针方法：<ul>
 <li>指针变量如果暂时不需要赋值，一定要初始化为NULL，因为任何指针变量刚被创建时不会自动成为NULL指针，它的缺省值是随机的。</li>
-<li>当指针指向的内存被释放掉时，要将指针的值设置为 NULL，因为 free() 只是释放掉了内存，并为改变指针的值。</li>
+<li>当指针指向的内存被释放掉时，要将指针的值设置为 NULL，因为 free() 只是释放掉了内存，并为改变指针的值。  </li>
 </ul>
 </li>
 </ul>
 <h2 id="26、内存泄漏"><a href="#26、内存泄漏" class="headerlink" title="26、内存泄漏"></a>26、内存泄漏</h2><ul>
 <li>使用 malloc()、calloc()、realloc() 动态分配的内存，如果没有指针指向它，就无法进行任何操作，这段内存会一直被程序占用，直到程序运行结束由操作系统回收。</li>
-<li>在程序中使用 malloc() 分配内存时都对应地写出一个 free() 函数</li>
+<li>在程序中使用 malloc() 分配内存时都对应地写出一个 free() 函数  </li>
 </ul>
 <h2 id="27、寄存器变量"><a href="#27、寄存器变量" class="headerlink" title="27、寄存器变量"></a>27、寄存器变量</h2><ul>
-<li>一般情况下，变量的值是存储在内存中的，CPU 每次使用数据都要从内存中读取。如果有一些变量使用非常频繁，从内存中读取就会消耗很多时间，这时就可以将变量存在寄存器中。</li>
+<li>一般情况下，变量的值是存储在内存中的，CPU 每次使用数据都要从内存中读取。如果有一些变量使用非常频繁，从内存中读取就会消耗很多时间，这时就可以将变量存在寄存器中。  </li>
 </ul>
 <h2 id="28、全局变量"><a href="#28、全局变量" class="headerlink" title="28、全局变量"></a>28、全局变量</h2><ul>
 <li>它的作用域默认是整个程序，也就是所有的代码文件，包括.c和.h文件</li>
-<li>如果你一直在编写单个源文件的程序，那么请注意，全局变量的作用范围不是从变量定义处到该文件结束，在其他文件中也有效。</li>
+<li>如果你一直在编写单个源文件的程序，那么请注意，全局变量的作用范围不是从变量定义处到该文件结束，在其他文件中也有效。  </li>
 </ul>
 <h2 id="29、extern"><a href="#29、extern" class="headerlink" title="29、extern"></a>29、extern</h2><ul>
-<li><pre><code class="C">  extern int m;   //变量的声明
+<li><pre><code class="lang-C">  extern int m;   //变量的声明
   int m = 100;    //变量的定义
 </code></pre>
 </li>
 <li>变量声明 与 定义 应该分开写。</li>
-<li>extern 是用来声明的，不管具体的定义是在当前文件内部还是外部，都是正确的。</li>
+<li>extern 是用来声明的，不管具体的定义是在当前文件内部还是外部，都是正确的。  </li>
 </ul>
 <h2 id="30、编译器和连接器"><a href="#30、编译器和连接器" class="headerlink" title="30、编译器和连接器"></a>30、编译器和连接器</h2><ul>
-<li>编译器和连接器的一项重要任务就是将助记符替换位地址，一切都是地址。</li>
+<li>编译器和连接器的一项重要任务就是将助记符替换位地址，一切都是地址。  </li>
 </ul>
 <h2 id="31、static变量作用"><a href="#31、static变量作用" class="headerlink" title="31、static变量作用"></a>31、static变量作用</h2><p>（1）<strong>隐藏</strong><br>    程序有多个模块时，将全局变量或函数的作用范围限制在当前模块，对其他模块隐藏。<br>（2）<strong>保持变量内容的持久化</strong><br>    将局部变量存储到全局数据区，使它不会随着函数调用结束而被销毁。  </p>
 
