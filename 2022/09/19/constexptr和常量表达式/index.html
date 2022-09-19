@@ -9,7 +9,7 @@
     
     <title>
         
-            AI |
+            constexptr |
         
         Sxhpai
     </title>
@@ -163,7 +163,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">AI</span>
+            <span class="title-hover-animation">constexptr</span>
         </div>
 
         
@@ -180,20 +180,9 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-07-01 12:00:00</span>
-        <span class="mobile">2022-07-01 12:00</span>
+        <span class="pc">2022-09-19 10:00:00</span>
+        <span class="mobile">2022-09-19 10:00</span>
     </span>
-    
-        <span class="article-categories article-meta-item">
-            <i class="fas fa-folder"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/categories/Python/">Python</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
     
     
         <span class="article-tags article-meta-item">
@@ -201,7 +190,11 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/Pytorch/">Pytorch</a>&nbsp;
+                        <a href="/tags/C/">C++</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/">知识点</a>&nbsp;
                     </li>
                 
             </ul>
@@ -224,31 +217,44 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="命令汇总"><a href="#命令汇总" class="headerlink" title="命令汇总"></a>命令汇总</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pip list #当前环境下的安装包情况</span><br><span class="line"></span><br><span class="line">nvidia-smi	#查看显卡信息</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">检测torch是否安装成功，以及GPU是否可以被torch使用</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入python环境</span></span><br><span class="line">import python</span><br><span class="line">torch.cuda.is_available()</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除镜像</span></span><br><span class="line">conda config --remove channels </span><br></pre></td></tr></table></figure>
-<h4 id="python三种编辑器比较"><a href="#python三种编辑器比较" class="headerlink" title="python三种编辑器比较"></a>python三种编辑器比较</h4><ol>
-<li>python 文件，以整体为一块运行（pycharm中的 .py 文件）<ul>
-<li>优点：通用，传播方便，适用于大型项目</li>
-<li>缺点：需要从头运行</li>
+            <h4 id="constexptr和常量表达式"><a href="#constexptr和常量表达式" class="headerlink" title="constexptr和常量表达式"></a>constexptr和常量表达式</h4><blockquote>
+<p>常量表达式是指<font color="[#1E90FF]"><strong>值不会改变并且在编译过程中就能得到计算结果的表达式</strong></font>。</p>
+</blockquote>
+<ul>
+<li><font color="[#1E90FF]">编译过程中得到计算结果。</font>
+</li>
+<li><p>字面值属于常量表达式，用常量表达式初始化的const对象也是常量表达式。</p>
+</li>
+<li><p>一个对象（或表达式）是不是常量表达式由它的数据类型和初始值共同决定。</p>
+<ul>
+<li>（注意！！！）对于这条语句：<code>const int sz = get_size();</code>，sz本身是常量，但它的具体值直到运行时才能获得，不是常量表达式。</li>
 </ul>
 </li>
-<li>python 控制台，以一行为一块运行，或任意行为一块运行<ul>
-<li>优点：显示每个变量属性</li>
-<li>缺点：不利于代码阅读及修改</li>
 </ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>* argv[])</span> </span>&#123;</span><br><span class="line">	<span class="type">const</span> <span class="type">int</span> max_files = <span class="number">20</span>;          <span class="comment">//max_files是常量表达式</span></span><br><span class="line">	<span class="type">const</span> <span class="type">int</span> limit = max_files + <span class="number">1</span>;   <span class="comment">//limit是常量表达式</span></span><br><span class="line">	<span class="type">int</span> staff_size = <span class="number">27</span>;               <span class="comment">//staff_size不是常量表达式，数据类型只是普通类型而非常量类型</span></span><br><span class="line">	<span class="type">const</span> <span class="type">int</span> sz = <span class="built_in">get_size</span>();         <span class="comment">//重要！！！sz本身是常量，但它的具体值直到运行时才能获得，不是常量表达式</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="constexpr变量"><a href="#constexpr变量" class="headerlink" title="constexpr变量"></a>constexpr变量</h4><ul>
+<li><p>在一个复杂的系统中，很难分辨一个初始值到底是不是常量表达式。当然可以定义一个const变量并把它的初始值设为我们认为的某个常量表达式，但在实际使用时，尽管要求如此却常常发现初始值并非常量表达式的情况（例如上述的const int sz = get_size(); 语句）。</p>
 </li>
-<li>python jupyter，以任意行为一块运行<ul>
-<li>优点：利于代码阅读及修改</li>
-<li>缺点：环境需要配置</li>
+<li><p><strong>C++11新标准规定，允许将变量声明为constexpr类型以便由编译器来验证变量的值是否是一个常量表达式。<font color="[#1E90FF]">声明为constexpr的变量一定是一个常量，而且必须用常量表达式初始化：</font></strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>* argv[])</span> </span>&#123;</span><br><span class="line">	<span class="keyword">constexpr</span> <span class="type">int</span> max_files = <span class="number">20</span>;          <span class="comment">//20是常量表达式</span></span><br><span class="line">	<span class="keyword">constexpr</span> <span class="type">int</span> limit = max_files + <span class="number">1</span>;   <span class="comment">//max_files + 1是常量表达式</span></span><br><span class="line">	<span class="keyword">constexpr</span> <span class="type">int</span> sz = <span class="built_in">size</span>();         <span class="comment">//重要！！！只有当size是一个constexpr函数时，才是一条正确的声明语句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>尽管不能使用普通函数作为constexpr变量的初始值，但可以通过constexpr函数（编译时就可以计算其结果）初始化constexpr变量。</strong></p>
+</li>
 </ul>
-</li>
+<h4 id="constexpr函数"><a href="#constexpr函数" class="headerlink" title="constexpr函数"></a>constexpr函数</h4><ul>
+<li><strong>constexpr函数是指用于常量表达式的函数。</strong></li>
+<li><strong>遵循以下规定：</strong><ol>
+<li><strong>函数的返回类型以及所有形参的类型都得是字面值类型</strong>;</li>
+<li><strong>函数体中必须只有一条return语句。</strong></li>
 </ol>
-<h3 id="文件配置"><a href="#文件配置" class="headerlink" title="文件配置"></a>文件配置</h3><ul>
-<li>Dataset:    提供一种方式去获取数据及其label<ul>
-<li>如何获取每一个数据机器label</li>
-<li>告诉我们总共有多少数据</li>
-</ul>
 </li>
-<li>Dataloader:    为后面的网络提供不同的数据形式</li>
+</ul>
+<h4 id="指针与constexpr"><a href="#指针与constexpr" class="headerlink" title="指针与constexpr"></a>指针与constexpr</h4><ul>
+<li><p><strong>在constexpr声明中如果定义了一个指针，限定符constexpr仅对指针有效，与指针所指的对象无关</strong>:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> *p = <span class="literal">nullptr</span>; <span class="comment">//p是一个指向整型常量的指针</span></span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> *q = <span class="literal">nullptr</span>;  <span class="comment">//q是一个指向整型的常量指针</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>p和q的类型相差甚远，p是一个指向常量的指针，q是一个常量指针，其中关键在于<font color="[#1E90FF]">constexpr把它所定义的对象置为顶层const</font>。</p>
+</li>
 </ul>
 
         </div>
@@ -257,11 +263,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：AI</li>
+        <li>本文标题：constexptr</li>
         <li>本文作者：sxhpai</li>
-        <li>创建时间：2022-07-01 12:00:00</li>
+        <li>创建时间：2022-09-19 10:00:00</li>
         <li>
-            本文链接：https://sxhpai.github.io/2022/07/01/AI/
+            本文链接：https://sxhpai.github.io/2022/09/19/constexptr和常量表达式/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -276,7 +282,11 @@
             <ul class="post-tags-box">
                 
                     <li class="tag-item">
-                        <a href="/tags/Pytorch/">#Pytorch</a>&nbsp;
+                        <a href="/tags/C/">#C++</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/">#知识点</a>&nbsp;
                     </li>
                 
             </ul>
@@ -285,29 +295,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2022/09/16/Primer7/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">第七章——类</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/06/28/C++Cin/"
+                           href="/2022/09/16/Primer7/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">C++ 输入方式总结</span>
+                                <span class="post-nav-title-item">第七章——类</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -433,7 +428,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB"><span class="nav-text">命令汇总</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#python%E4%B8%89%E7%A7%8D%E7%BC%96%E8%BE%91%E5%99%A8%E6%AF%94%E8%BE%83"><span class="nav-text">python三种编辑器比较</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="nav-text">文件配置</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#constexptr%E5%92%8C%E5%B8%B8%E9%87%8F%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-text">constexptr和常量表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#constexpr%E5%8F%98%E9%87%8F"><span class="nav-text">constexpr变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#constexpr%E5%87%BD%E6%95%B0"><span class="nav-text">constexpr函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E9%92%88%E4%B8%8Econstexpr"><span class="nav-text">指针与constexpr</span></a></li></ol>
     </div>
 </div>
         </aside>

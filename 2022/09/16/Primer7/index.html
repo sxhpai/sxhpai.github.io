@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="sxhpai">
+    
+    <title>
+        
+            第七章——类 |
+        
+        Sxhpai
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/favicon.png","favicon":"/images/favicon.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Sxhpai
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">第七章——类</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/favicon.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">sxhpai</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-09-16 09:00:00</span>
+        <span class="mobile">2022-09-16 09:00</span>
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/C-Primer/">C++ Primer</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h3 id="第-7-章-类"><a href="#第-7-章-类" class="headerlink" title="第 7 章 类"></a>第 7 章 类</h3><p>类能定义可变或者静态成员。一个可变成员永远都不会是<code>const</code>，即使在<code>const</code>成员函数内也能修改它的值；一个静态成员函数也可以是数据，静态成员存在于所有对象之外。</p>
+<h4 id="7-1-定义抽象数据类型"><a href="#7-1-定义抽象数据类型" class="headerlink" title="7.1 定义抽象数据类型"></a>7.1 定义抽象数据类型</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Sales_data</span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 新成员: 关于 Sales_data 对象的操作</span></span><br><span class="line">    <span class="function">std::string <span class="title">isbn</span><span class="params">()</span> <span class="type">const</span> </span>&#123; <span class="keyword">return</span> bookNo; &#125;</span><br><span class="line">    <span class="function">Sales_data&amp; <span class="title">combine</span><span class="params">(<span class="type">const</span> Sales_data&amp;)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">avg_price</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 数据成员</span></span><br><span class="line">    std::string bookNo;</span><br><span class="line">    <span class="type">unsigned</span> units_sold = <span class="number">0</span>;</span><br><span class="line">    <span class="type">double</span> price = <span class="number">0.0</span>;</span><br><span class="line">    <span class="type">double</span> revenue = <span class="number">0.0</span>;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>定义在类内部的是隐式的 inline 函数。</p>
+</blockquote>
+<ul>
+<li><p>this 指针，因为 this 的目的总是指向 ”这个“ 对象，所以 this 是一个常量指针，我们不允许改变 this 中保存的地址。</p>
+</li>
+<li><p>this的类型是指向类类型<strong>非常量版本的常量指针</strong>。例如，在Sales_data成员函数中，this 的类型是 Sales_data <em>const。如果，isbn 是一个普通函数而且<code>this</code>是一个普通的指针函数，则我们应该把<code>this</code>声明成 `const Sales_data </em>const`。</p>
+</li>
+</ul>
+<blockquote>
+<p>常量对象，以及常量对象的引用或指针都只能调用常常量成员函数。</p>
+</blockquote>
+<ul>
+<li>编译器分两步处理类:首先编译成员的声明,然后才轮到成员函数体。</li>
+<li>定义一个返回<code>this</code>对象的函数。</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Sales_data &amp; <span class="title">Sales_data::combine</span><span class="params">(<span class="type">const</span> Sale_data &amp;rhs)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    units_sold += rhs.units_sold;	<span class="comment">// 把rhs的成员加到this 对象的成员上</span></span><br><span class="line">    revenue += rhs.revenue;			<span class="comment">// 返回调用该函数的对象</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用时语句如下：</span></span><br><span class="line">total.<span class="built_in">combine</span>(trans);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个调用语句返回total的引用</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>一般来说，如果非成员函数是类接口的组成部分，则这些函数的声明应该与类在同一个头文件内。</p>
+<p>只有当类没有声明任何构造函数时，编译器才会自动地生成默认构造函数。</p>
+<p>如果类包含有内置类型或者复合类型的成员，则自由当这些成员全都被赋予了类内的初始值时，这个类才适合于使用合成默认构造函数。</p>
+</blockquote>
+<ul>
+<li>通常情况下，构造函数使用类内初始值不失为一种好的选择，因为只要这样的初始值存在我们就能确保为成员赋予了一个正确的值。</li>
+</ul>
+<h4 id="7-2-访问控制与封装"><a href="#7-2-访问控制与封装" class="headerlink" title="7.2 访问控制与封装"></a>7.2 访问控制与封装</h4><p>使用<code>struct</code>和<code>class</code>关键字，二者唯一的区别是，<code>struct</code>和<code>class</code>的默认访问权限不太一样。</p>
+<blockquote>
+<p>使用<code>class</code>和<code>struct</code>定义类唯一的区别就是默认的访问权限。使用<code>class</code>默认访问权限是<code>private</code>，使用<code>struct</code>默认访问权限是<code>public</code>。</p>
+<p>一般来说，最好在类定义开始或结束前的位置集中声明友元。</p>
+</blockquote>
+<ul>
+<li>封装的益处<ul>
+<li>确保用户代码不会无意间破坏封装对象的状态。</li>
+<li>被封装的类的具体实现细节可以随时改变，而无须调整用户级别的代码。</li>
+</ul>
+</li>
+</ul>
+<h4 id="7-3-类的其他特性"><a href="#7-3-类的其他特性" class="headerlink" title="7.3 类的其他特性"></a>7.3 类的其他特性</h4><blockquote>
+<p>尽管当类的定义发生改变时无须更改用户代码，但是使用了该类的源文件必须重新编译。</p>
+</blockquote>
+<ul>
+<li>内联函数，最好旨在类外部定义的地方说明<code>inline</code>，这样可以使类更容易理解。</li>
+</ul>
+<blockquote>
+<ul>
+<li><p>和我们在头文件中定义<code>inline</code>函数的原因一样，<code>inline</code>成员函数也应该与相应的类定义在同一个头文件中。</p>
+</li>
+<li><p><strong>一个<code>const</code>成员函数如果以引用的形式返回<code>*this</code>，那么它的返回类型将是常量引用。</strong></p>
+</li>
+<li><p>即使两个类的成员列表完全一致，它们也是不同的类型。对于一个类来说，它的成员和其他任何类（或者任何其他作用域）的成员都不是一回事儿。</p>
+</li>
+<li><p>只有当类完成后类才算被定义，所以一个类的成员类型不能是该类自己。然而，一旦一个类的名字出现后，它就被认为是声明过了（但尚未定义），因此该类允许包含指向它自身类型的引用或指针。</p>
+</li>
+<li><p>每个类负责控制自己的友元函数或友元类。</p>
+</li>
+<li><p>友元声明的作用是影响访问权限，它本身并非普通意义上的声明。</p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>如果我们希望能够修改某个数据成员，即便是在一个<code>const</code>成员函数内，可以通过在变量地声明中加入<code>mutable</code>关键字来做到。一个可变数据成员永远都不会是<code>const</code>，即便它是<code>const</code>对象的成员，因此<code>const</code>成员函数可以改变一个可变成员的值。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">   <span class="keyword">private</span>:</span><br><span class="line">   	<span class="keyword">mutable</span> <span class="type">int</span> i; </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">A::f</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">    ++i;		<span class="comment">// 在const成员函数内，i的值仍然可以改变。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>即<code>i</code>时一个可变数据成员，任何成员函数包括<code>const</code>成员函数都可以改变它的值。</p>
+</li>
+</ul>
+<h4 id="7-4-类的作用域"><a href="#7-4-类的作用域" class="headerlink" title="7.4 类的作用域"></a>7.4 类的作用域</h4><ul>
+<li>编译器处理完类中的全部声明后才会处理成员函数的定义。 </li>
+<li><strong>类型名</strong>的定义通常出现在类开始处，这样就能确保所有使用该类型的成员都出现在类名的定义之后。</li>
+<li>有时尽管类的成员被隐蔽了，单我们仍然可以通过加上类的名字或显式地使用<code>this</code>指针类强制访问成员。</li>
+</ul>
+<h4 id="7-5-构造函数再探"><a href="#7-5-构造函数再探" class="headerlink" title="7.5 构造函数再探"></a>7.5 构造函数再探</h4><ul>
+<li><p>如果成员是 const、引用，或者属于某种未提供默认构造函数的类类型，我们必须通过构造函数初始值列表为这些成员提供初值。</p>
+</li>
+<li><p>最好令构造函数初始值的顺序与成员声明的顺序保持一致。而且如果可能的话，尽量避免使用某些成员初始化其他成员。</p>
+</li>
+<li>如果一个构造函数为所有参数都提供了默认实参，则它实际上也定义了默认构造函数。</li>
+<li><p>​      在实际中，如果定义了其他构造函数，那么最好也提供一个默认构造函数。</p>
+</li>
+<li><p>对于 C++的新手程序员来说有一种常犯的错误，它们试图以如下的形式声明一个用默认构造函数初始化的对象：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Sales_data <span class="title">obj</span><span class="params">()</span></span>;		<span class="comment">// 错误：声明了一个函数而非对象</span></span><br><span class="line">Sales_data obj2;		<span class="comment">// 正确：obj2是一个对象而非函数</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>说明接受一个<code>string</code>参数的 Sale_data 构造函数是否应该是<code>explicit</code>的，并解释这样做的优缺点。</p>
+<ul>
+<li>不带 explicit 的优点：可以从构造函数的参数类型向类类型隐式转换</li>
+<li>带 explicit 的优点：任何构造函数（尤其是单参数的）都不能隐式地创建类对象</li>
+<li>带 explicit 地缺点：该构造函数只能以直接初始化地形式使用</li>
+</ul>
+</li>
+<li><p><code>vector</code>将其单参数的构造函数定义成<code>explicit</code>的，而<code>string</code>则不是，你觉得原因何在？</p>
+<ul>
+<li><code>string</code>接受的单参数是 <code>const char*</code>类型，如果我们得到了一个常量指针，则把它看做<code>string</code>对象是自然而然地过程，编译器自动把参数类型转换成类类型非常符合逻辑，因此我们无须指定为<code>explicit</code>。</li>
+<li>与<code>string</code>相反，<code>vector</code>接受的单参数是<code>int</code>类型，这个参数的愿意指定<code>vector</code>的容量，如果我们本来需要<code>vector</code>的地方提供一个<code>int</code>值并且希望这个<code>int</code>值自动转换成<code>vector</code>，则这个过程显得比较牵强，因此把<code>vector</code>的单参数构造函数定义成<code>explicit</code>的更加合理。</li>
+</ul>
+</li>
+<li><font color="[#1E90FF]">默认初始化和值初始化：</font>
+
+<ul>
+<li>默认初始化在以下情况发生：<ol>
+<li>当我们在块作用域内不使用任何初始值定义一个非静态变量或者数组时。</li>
+<li>当一个类本身含有类类型的成员且使用合成的默认构造函数时。</li>
+<li>当类类型的成员没有在构造函数初始值列表中显式地初始化时。</li>
+</ol>
+</li>
+<li>值初始化在以下情况发生：<ol>
+<li>在数组初始化地过程中如果我们提供的初始值数量少于数组的大小时。</li>
+<li>当我们不使用初始值定义一个局部变量时。</li>
+<li>当我们通过书写形如<code>T()</code>的表达式显式地请求值初始化时，其中<code>T</code>是类型名（<code>vector</code>的一个构造函数只接受一个实参用于说明<code>vector</code>大小，它就是使用一个这种形式的实参来对它的元素初始化器进行值初始化）。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>聚合类指哪些满足如下条件的类：</p>
+<ol>
+<li>所有成员都是<code>public</code>的。</li>
+<li>没有定义任何构造函数。</li>
+<li>没有类内初始值。</li>
+<li>没有基类，也没有<code>virtual</code>的函数。</li>
+</ol>
+</li>
+</ul>
+<h4 id="7-6-类的静态成员"><a href="#7-6-类的静态成员" class="headerlink" title="7.6 类的静态成员"></a>7.6 类的静态成员</h4><ul>
+<li><blockquote>
+<p>必须在类的外部定义和初始化每个静态成员。和其他对象一样，一个静态数据成员只能定义一次。</p>
+</blockquote>
+</li>
+<li><p>静态成员可以作为默认实参，而普通成员不可以作为默认实参。</p>
+</li>
+<li><p>即使一个常量静态数据成员在类内部被初始化了，通常情况下也应该在类的外部定义一下该成员。</p>
+</li>
+</ul>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：第七章——类</li>
+        <li>本文作者：sxhpai</li>
+        <li>创建时间：2022-09-16 09:00:00</li>
+        <li>
+            本文链接：https://sxhpai.github.io/2022/09/16/Primer7/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/C-Primer/">#C++ Primer</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/09/19/constexptr%E5%92%8C%E5%B8%B8%E9%87%8F%E8%A1%A8%E8%BE%BE%E5%BC%8F/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">constexptr</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/07/01/AI/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">AI</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">sxhpai</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC-7-%E7%AB%A0-%E7%B1%BB"><span class="nav-text">第 7 章 类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-%E5%AE%9A%E4%B9%89%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">7.1 定义抽象数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E4%B8%8E%E5%B0%81%E8%A3%85"><span class="nav-text">7.2 访问控制与封装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-%E7%B1%BB%E7%9A%84%E5%85%B6%E4%BB%96%E7%89%B9%E6%80%A7"><span class="nav-text">7.3 类的其他特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-4-%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-text">7.4 类的作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-5-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%86%8D%E6%8E%A2"><span class="nav-text">7.5 构造函数再探</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-6-%E7%B1%BB%E7%9A%84%E9%9D%99%E6%80%81%E6%88%90%E5%91%98"><span class="nav-text">7.6 类的静态成员</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
+    
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+</html>
